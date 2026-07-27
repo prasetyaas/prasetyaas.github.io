@@ -672,6 +672,13 @@ img { max-width: 100%; display: block; }
     color: var(--text-secondary);
 }
 
+.tech-stack-note {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
 /* ==================================================
    SERVICES SECTION
    ================================================== */
@@ -821,6 +828,8 @@ img { max-width: 100%; display: block; }
     padding: 36px 28px;
     transition: var(--transition);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .pricing-card:hover {
@@ -838,12 +847,7 @@ img { max-width: 100%; display: block; }
     font-weight: 600;
     margin-bottom: 20px;
     border: 1px solid rgba(0, 212, 255, 0.15);
-}
-
-.pricing-header h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
+    align-self: flex-start;
 }
 
 .pricing-price {
@@ -874,6 +878,7 @@ img { max-width: 100%; display: block; }
 
 .pricing-features {
     margin-bottom: 28px;
+    flex: 1;
 }
 
 .pricing-features li {
