@@ -15,8 +15,31 @@ document.addEventListener("DOMContentLoaded", function () {
     initScrollReveal();
     initBackToTop();
     initContactForm();
+    initThemeToggle();
     initActiveNav();
 });
+
+// ===== THEME TOGGLE =====
+function initThemeToggle() {
+    const themeToggle = document.getElementById("themeToggle");
+    if (!themeToggle) return;
+
+    // Check saved theme or system preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+
+    themeToggle.addEventListener("click", function () {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+    });
+}
 
 // ===== MOBILE NAVIGATION =====
 function initMobileNav() {
@@ -63,11 +86,10 @@ function initTypingEffect() {
     if (!typingElement) return;
 
     const words = [
-        "Full-Stack Developer",
-        "Node.js Enthusiast",
-        "AI Integrator",
-        "Problem Solver",
-        "Tech Innovator",
+        "Developer",
+        "AI Enthusiast",
+        "Project Manager",
+        "IT Consultant"
     ];
 
     let wordIndex = 0;
@@ -321,28 +343,54 @@ function initContactForm() {
             return;
         }
 
-        // Simulate sending
+        // Get form data
+        const service = document.getElementById("service").value;
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("service", service || "Tidak disebutkan");
+        formData.append("message", message);
+
+        // Send to Formspree
         submitBtn.innerHTML =
             '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
         submitBtn.disabled = true;
 
-        setTimeout(function () {
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Terkirim!';
-            submitBtn.style.background = "linear-gradient(135deg, #00ff88, #00cc66)";
-
-            showFormMessage(
-                "Pesan berhasil dikirim! Saya akan menghubungi Anda segera.",
-                "success"
-            );
-
-            contactForm.reset();
-
-            setTimeout(function () {
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = "";
-                submitBtn.disabled = false;
-            }, 3000);
-        }, 1500);
+        fetch("https://formspree.io/f/xpqvkbgo", {
+            method: "POST",
+            body: formData,
+            headers: {
+                Accept: "application/json",
+            },
+        })
+            .then(function (response) {
+                if (response.ok) {
+                    submitBtn.innerHTML =
+                        '<i class="fas fa-check"></i> Terkirim!';
+                    submitBtn.style.background =
+                        "linear-gradient(135deg, #00ff88, #00cc66)";
+                    showFormMessage(
+                        "Pesan berhasil dikirim! Saya akan menghubungi Anda segera.",
+                        "success"
+                    );
+                    contactForm.reset();
+                } else {
+                    throw new Error("Gagal mengirim");
+                }
+            })
+            .catch(function () {
+                showFormMessage(
+                    "Gagal mengirim pesan. Silakan coba lagi atau hubungi via WhatsApp.",
+                    "error"
+                );
+            })
+            .finally(function () {
+                setTimeout(function () {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = "";
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
     });
 }
 
