@@ -870,12 +870,6 @@ img { max-width: 100%; display: block; }
     background-clip: text;
 }
 
-.period {
-    font-size: 16px;
-    color: var(--text-muted);
-    font-weight: 500;
-}
-
 .pricing-features {
     margin-bottom: 28px;
     flex: 1;
