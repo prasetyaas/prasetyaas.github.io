@@ -3,253 +3,360 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Bumi Sejahtera — Company Profile Premium</title>
+    <title>IndoDistribusi — Distributor & Supplier Terpercaya</title>
+    <meta name="description" content="IndoDistribusi adalah perusahaan distributor dan supplier berbagai produk kebutuhan pasar. Melayani pengiriman ke seluruh Indonesia dengan jaminan kualitas dan ketepatan waktu.">
+    <meta name="keywords" content="distributor, supplier, barang kebutuhan, logistik, pengiriman Indonesia, supplier Jakarta">
+    <meta name="author" content="IndoDistribusi">
+    <meta property="og:title" content="IndoDistribusi — Distributor & Supplier Terpercaya">
+    <meta property="og:description" content="Distributor & supplier berbagai produk kebutuhan pasar. Pengiriman ke seluruh Indonesia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indodistribusi.co.id">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://indodistribusi.co.id">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">PT Bumi<span>Sejahtera</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#hero" class="active">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+    <!-- LOADER -->
+    <div class="loader" id="loader" role="status" aria-label="Memuat halaman">
+        <div class="loader-logo">IndoDistribusi</div>
+        <div class="loader-bar"><div class="loader-bar-inner"></div></div>
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Navigasi utama">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><span class="logo-light">Indo</span><span class="logo-dot">Distribusi</span></a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="about.html">Tentang</a>
+                <a href="services.html">Layanan</a>
+                <a href="portfolio.html">Produk</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="nav-cta">Hubungi</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
+    <div class="nav-menu-mobile" id="navMenuMobile">
+        <a href="index.html" class="active">Beranda</a>
+        <a href="about.html">Tentang</a>
+        <a href="services.html">Layanan</a>
+        <a href="portfolio.html">Produk</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="nav-cta-mobile">Hubungi Kami</a>
+    </div>
+
+    <!-- HERO -->
     <section class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
+        <div class="hero-bg">
+            <div class="hero-grid-lines"></div>
+            <div class="hero-watermark">DISTRIBUSI</div>
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1400&q=80" alt="Gudang Distribusi" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.08">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+        <div class="hero-inner container">
             <div class="hero-content">
-                <span class="hero-badge">Since 2005</span>
-                <h1>Mitra Terpercaya <span class="accent">Pembangunan</span> Indonesia</h1>
-                <p>Kontraktor dan pengembang properti terkemuka dengan pengalaman lebih dari 20 tahun di berbagai proyek nasional.</p>
+                <span class="hero-badge">Distributor & Supplier Terpercaya</span>
+                <h1>Solusi <span class="accent">Distribusi</span> Lengkap<br> untuk <span class="accent">Bisnis Anda</span></h1>
+                <p>Kami mendistribusikan berbagai produk kebutuhan pasar — dari FMCG, elektronik, hingga material industri — dengan jaminan kualitas dan ketepatan waktu pengiriman ke seluruh Indonesia.</p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Hubungi Kami <i class="fas fa-arrow-right"></i></a>
-                    <a href="#projects" class="btn btn-outline">Lihat Proyek</a>
+                    <a href="portfolio.html" class="btn btn-primary">Lihat Produk <i class="fas fa-arrow-right"></i></a>
+                    <a href="contact.html" class="btn btn-outline">Hubungi Kami</a>
                 </div>
             </div>
-            <div class="hero-stats">
-                <div class="hs-item"><span class="hs-num" data-target="200">0</span><span class="hs-plus">+</span><span class="hs-label">Proyek</span></div>
-                <div class="hs-item"><span class="hs-num" data-target="150">0</span><span class="hs-plus">+</span><span class="hs-label">Klien</span></div>
-                <div class="hs-item"><span class="hs-num" data-target="20">0</span><span class="hs-plus">+</span><span class="hs-label">Tahun</span></div>
+            <div class="hero-visual">
+                <div class="hero-floating-cards">
+                    <div class="floating-card fc-1">
+                        <i class="fas fa-box"></i>
+                        <span>FMCG</span>
+                    </div>
+                    <div class="floating-card fc-2">
+                        <i class="fas fa-tv"></i>
+                        <span>Elektronik</span>
+                    </div>
+                    <div class="floating-card fc-3">
+                        <i class="fas fa-industry"></i>
+                        <span>Industri</span>
+                    </div>
+                    <div class="floating-card fc-4">
+                        <i class="fas fa-truck"></i>
+                        <span>Logistik</span>
+                    </div>
+                </div>
+                <div class="hero-stats-block">
+                    <div class="hs-item">
+                        <span class="hs-num" data-target="500">0</span><span class="hs-plus">+</span>
+                        <span class="hs-label">Produk</span>
+                    </div>
+                    <div class="hs-item">
+                        <span class="hs-num" data-target="200">0</span><span class="hs-plus">+</span>
+                        <span class="hs-label">Mitra</span>
+                    </div>
+                    <div class="hs-item">
+                        <span class="hs-num" data-target="30">0</span><span class="hs-plus">+</span>
+                        <span class="hs-label">Kota</span>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <section class="about" id="about">
+    <!-- CLIENTS -->
+    <section class="clients-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Tentang</span>
-                <h2>Perusahaan <span class="accent">Terpercaya</span> Sejak 2005</h2>
-                <p>PT Bumi Sejahtera adalah perusahaan kontraktor dan pengembang properti yang telah menyelesaikan berbagai proyek infrastruktur, perumahan, dan gedung komersial di seluruh Indonesia.</p>
-            </div>
-            <div class="about-grid">
-                <div class="about-card">
-                    <i class="fas fa-hard-hat"></i>
-                    <h3>Konstruksi</h3>
-                    <p>Pembangunan gedung, jalan, jembatan, dan infrastruktur publik.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Properti</h3>
-                    <p>Pengembangan perumahan, apartemen, dan kawasan komersial.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-drafting-compass"></i>
-                    <h3>Konsultasi</h3>
-                    <p>Konsultasi desain, perencanaan, dan manajemen proyek.</p>
-                </div>
-                <div class="about-card">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Hijau</h3>
-                    <p>Komitmen terhadap pembangunan ramah lingkungan.</p>
-                </div>
+            <p class="clients-label">Dipercaya oleh brand-brand ternama</p>
+            <div class="clients-grid">
+                <div class="client-item"><span>Indofood</span></div>
+                <div class="client-item"><span>Unilever</span></div>
+                <div class="client-item"><span>Samsung</span></div>
+                <div class="client-item"><span>Wings Group</span></div>
+                <div class="client-item"><span>Polytron</span></div>
+                <div class="client-item"><span>Aqua</span></div>
             </div>
         </div>
     </section>
 
-    <section class="services" id="services">
+    <!-- SERVICES -->
+    <section class="section services" id="services">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Layanan</span>
-                <h2>Solusi <span class="accent">Lengkap</span> Konstruksi</h2>
+                <h2>Bidang <span class="accent">Distribusi</span></h2>
+                <p>Kami melayani distribusi berbagai sektor produk dengan jangkauan luas dan sistem logistik terintegrasi.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <span class="s-num">01</span>
-                    <h3>Konstruksi Gedung</h3>
-                    <p>Gedung perkantoran, pusat perbelanjaan, hotel, dan fasilitas publik.</p>
+            <div class="services-grid-h">
+                <div class="service-card-h">
+                    <div class="sch-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>FMCG</h3>
+                    <p>Makanan, minuman, dan kebutuhan rumah tangga sehari-hari.</p>
                 </div>
-                <div class="service-card">
-                    <span class="s-num">02</span>
-                    <h3>Perumahan</h3>
-                    <p>Pengembangan perumahan skala besar dengan konsep kota mandiri.</p>
+                <div class="service-card-h">
+                    <div class="sch-icon"><i class="fas fa-tv"></i></div>
+                    <h3>Elektronik</h3>
+                    <p>Elektronik konsumen dan peralatan rumah tangga.</p>
                 </div>
-                <div class="service-card">
-                    <span class="s-num">03</span>
-                    <h3>Infrastruktur</h3>
-                    <p>Jalan tol, jembatan, bendungan, dan sistem drainase.</p>
+                <div class="service-card-h">
+                    <div class="sch-icon"><i class="fas fa-industry"></i></div>
+                    <h3>Material Industri</h3>
+                    <p>Bahan baku dan material untuk sektor industri manufaktur.</p>
                 </div>
-                <div class="service-card">
-                    <span class="s-num">04</span>
-                    <h3>Desain & Perencanaan</h3>
-                    <p>Konsultasi arsitektur, struktur, dan perencanaan tata ruang.</p>
+                <div class="service-card-h">
+                    <div class="sch-icon"><i class="fas fa-warehouse"></i></div>
+                    <h3>Logistik & Gudang</h3>
+                    <p>Manajemen gudang, inventori, dan pengiriman terintegrasi.</p>
                 </div>
-                <div class="service-card">
-                    <span class="s-num">05</span>
-                    <h3>Manajemen Proyek</h3>
-                    <p>Pengelolaan proyek dari tahap perencanaan hingga serah terima.</p>
-                </div>
-                <div class="service-card">
-                    <span class="s-num">06</span>
-                    <h3>Renovasi</h3>
-                    <p>Renovasi dan rehabilitasi bangunan eksisting.</p>
-                </div>
+            </div>
+            <div class="section-footer">
+                <a href="services.html" class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Lihat Semua Layanan <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="projects" id="projects">
+    <!-- PORTFOLIO -->
+    <section class="section portfolio-section" id="portfolio">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Proyek</span>
-                <h2>Proyek <span class="accent">Unggulan</span></h2>
+                <span class="section-tag">Produk</span>
+                <h2>Kategori <span class="accent">Produk</span></h2>
+                <p>Berbagai kategori produk yang kami distribusikan ke seluruh Indonesia.</p>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img" style="background:linear-gradient(135deg,#1e3a5f,#2d5a87)">🏗️</div>
-                    <div class="project-body">
-                        <span class="project-year">2024</span>
-                        <h3>Gedung Pusat Pemerintahan</h3>
-                        <p>Pembangunan gedung perkantoran 20 lantai di Jakarta.</p>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-img" style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80');background-size:cover;background-position:center">
+                        <div class="portfolio-overlay-card">
+                            <span class="portfolio-cat">FMCG</span>
+                            <h3>Makanan & Minuman</h3>
+                            <p>Distribusi makanan ringan, minuman kemasan, dan bahan pokok.</p>
+                            <a href="portfolio.html" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img" style="background:linear-gradient(135deg,#2d5a27,#4a8c42)">🏘️</div>
-                    <div class="project-body">
-                        <span class="project-year">2023</span>
-                        <h3>Kota Mandiri Bumi Asri</h3>
-                        <p>Pengembangan kawasan perumahan seluas 200 hektar.</p>
+                <div class="portfolio-card">
+                    <div class="portfolio-img" style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1461151304267-38535e780c79?w=400&q=80');background-size:cover;background-position:center">
+                        <div class="portfolio-overlay-card">
+                            <span class="portfolio-cat">Elektronik</span>
+                            <h3>Elektronik Rumah Tangga</h3>
+                            <p>TV, kulkas, mesin cuci, dan peralatan elektronik lainnya.</p>
+                            <a href="portfolio.html" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img" style="background:linear-gradient(135deg,#5f3e1c,#8b6b3d)">🌉</div>
-                    <div class="project-body">
-                        <span class="project-year">2023</span>
-                        <h3>Jembatan Sei Deli</h3>
-                        <p>Pembangunan jembatan sepanjang 1,2 km di Sumatera.</p>
+                <div class="portfolio-card">
+                    <div class="portfolio-img" style="background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=80');background-size:cover;background-position:center">
+                        <div class="portfolio-overlay-card">
+                            <span class="portfolio-cat">Industri</span>
+                            <h3>Material & Bahan Baku</h3>
+                            <p>Material industri, bahan kimia, dan perlengkapan produksi.</p>
+                            <a href="portfolio.html" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="section-footer">
+                <a href="portfolio.html" class="btn btn-outline" style="color:var(--text);border-color:var(--border)">Lihat Semua Kategori <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="blog" id="blog">
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Blog</span>
-                <h2>Berita & <span class="accent">Artikel</span></h2>
+                <span class="section-tag">Testimonial</span>
+                <h2>Apa Kata <span class="accent">Mitra</span></h2>
             </div>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-date">15 Mar 2026</div>
-                    <h3>Inovasi Konstruksi Ramah Lingkungan 2026</h3>
-                    <p>PT Bumi Sejahtera menerapkan teknologi hijau dalam setiap proyek konstruksi.</p>
-                    <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="tcard-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="tcard-text">"IndoDistribusi adalah mitra distribusi yang sangat handal. Pengiriman tepat waktu dan produk selalu dalam kondisi baik."</p>
+                    <div class="tcard-author">
+                        <div class="tcard-avatar">HS</div>
+                        <div>
+                            <strong>Hendra Soesanto</strong>
+                            <span>Purchasing Manager, PT Sumber Makmur</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="blog-card">
-                    <div class="blog-date">28 Feb 2026</div>
-                    <h3>Proyek Perumahan Bumi Asri Fase 3 Resmi Dimulai</h3>
-                    <p>Fase ketiga pengembangan kawasan perumahan dengan konsep kota mandiri.</p>
-                    <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                <div class="testimonial-card">
+                    <div class="tcard-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="tcard-text">"Sistem logistik mereka sangat terintegrasi. Stok selalu terpantau dan pengiriman ke cabang kami sangat efisien."</p>
+                    <div class="tcard-author">
+                        <div class="tcard-avatar">RW</div>
+                        <div>
+                            <strong>Rina Wijaya</strong>
+                            <span>Owner, Toko Rina Elektronik</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="blog-card">
-                    <div class="blog-date">10 Jan 2026</div>
-                    <h3>Penghargaan Kontraktor Terbaik 2025</h3>
-                    <p>PT Bumi Sejahtera meraih penghargaan kontraktor terbaik tingkat nasional.</p>
-                    <a href="#" class="blog-link">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                <div class="testimonial-card">
+                    <div class="tcard-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="tcard-text">"Sudah 5 tahun bekerja sama dengan IndoDistribusi. Harga kompetitif dan pelayanan sangat profesional."</p>
+                    <div class="tcard-author">
+                        <div class="tcard-avatar">BP</div>
+                        <div>
+                            <strong>Bambang Pratama</strong>
+                            <span>Direktur, CV Maju Jaya</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact" id="contact">
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Siap Jadi <span class="accent">Mitra Distribusi</span>?</h2>
+            <p>Hubungi tim IndoDistribusi untuk informasi harga dan kerja sama distribusi.</p>
+            <a href="contact.html" class="btn btn-primary btn-large">Hubungi Kami <i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <span class="section-tag">Kontak</span>
                     <h2>Hubungi <span class="accent">Kami</span></h2>
-                    <p>Konsultasi gratis untuk proyek Anda. Tim kami siap membantu.</p>
+                    <p>Tim IndoDistribusi siap membantu Anda. Konsultasi dan pemesanan melalui kontak di bawah.</p>
                     <div class="ci-list">
-                        <div class="ci-item"><i class="fas fa-map-marker-alt"></i><div><span>Kantor Pusat</span><strong>Jl. Sudirman No. 123, Jakarta</strong></div></div>
-                        <div class="ci-item"><i class="fas fa-phone-alt"></i><div><span>Telepon</span><strong>+62 21 1234 5678</strong></div></div>
-                        <div class="ci-item"><i class="fas fa-envelope"></i><div><span>Email</span><strong>info@bumisejahtera.co.id</strong></div></div>
+                        <div class="ci-item"><i class="fab fa-whatsapp"></i><div><span>WhatsApp</span><strong>+62 812-9857-8909</strong></div></div>
+                        <div class="ci-item"><i class="fas fa-envelope"></i><div><span>Email</span><strong>sales@indodistribusi.co.id</strong></div></div>
+                        <div class="ci-item"><i class="fas fa-map-marker-alt"></i><div><span>Gudang Pusat</span><strong>Jl. Raya Industri No. 88, Jakarta</strong></div></div>
+                    </div>
+                    <div class="google-maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1" width="100%" height="240" style="border:0;border-radius:12px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi IndoDistribusi"></iframe>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" novalidate>
+                    <h3>Hubungi Kami</h3>
                     <div class="form-row">
-                        <input type="text" placeholder="Nama Lengkap" required>
-                        <input type="email" placeholder="Email" required>
+                        <input type="text" placeholder="Nama Lengkap" required aria-label="Nama">
+                        <input type="email" placeholder="Email" required aria-label="Email">
                     </div>
-                    <input type="text" placeholder="Perusahaan">
-                    <textarea rows="4" placeholder="Deskripsi proyek Anda..."></textarea>
+                    <select aria-label="Keperluan">
+                        <option value="">Pilih Keperluan</option>
+                        <option>Pemesanan Produk</option>
+                        <option>Kerja Sama Distribusi</option>
+                        <option>Menjadi Supplier</option>
+                        <option>Lainnya</option>
+                    </select>
+                    <textarea rows="4" placeholder="Deskripsikan kebutuhan Anda..." aria-label="Pesan"></textarea>
                     <button type="submit" class="btn btn-primary">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
     </section>
 
+    <button class="back-to-top" id="backToTop" aria-label="Ke atas"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>PT Bumi<span>Sejahtera</span></h3>
-                    <p>Kontraktor & Pengembang Properti Terpercaya sejak 2005.</p>
+                <h3>Indo<span class="accent">Distribusi</span></h3>
+                    <p>Perusahaan distributor dan supplier terpercaya dengan jangkauan nasional sejak 2010.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Navigasi</h4>
+                    <h4>Halaman</h4>
                     <ul>
-                        <li><a href="#hero">Beranda</a></li>
-                        <li><a href="#about">Tentang</a></li>
-                        <li><a href="#services">Layanan</a></li>
-                        <li><a href="#projects">Proyek</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="services.html">Layanan</a></li>
+                        <li><a href="portfolio.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Layanan</h4>
                     <ul>
-                        <li><a href="#">Konstruksi Gedung</a></li>
-                        <li><a href="#">Perumahan</a></li>
-                        <li><a href="#">Infrastruktur</a></li>
-                        <li><a href="#">Konsultasi</a></li>
+                        <li><a href="services.html">Distribusi FMCG</a></li>
+                        <li><a href="services.html">Distribusi Elektronik</a></li>
+                        <li><a href="services.html">Material Industri</a></li>
+                        <li><a href="services.html">Logistik & Gudang</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
                     <h4>Ikuti Kami</h4>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 PT Bumi Sejahtera. All rights reserved. Demo Premium.</p>
+                <p>&copy; 2026 IndoDistribusi. Demo Premium — 7 Halaman | Desain Premium | SEO Lengkap | Google Analytics | CMS Ringan | Blog | Google Maps</p>
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

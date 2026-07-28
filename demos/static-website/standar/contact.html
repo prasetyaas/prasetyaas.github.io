@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak — Kopi Nusantara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:opsz,wght@9..40,400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="load-bar" id="loadBar"></div>
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="logo">Kopi<span>Nusantara</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="story.html">Cerita</a></li>
+                <li><a href="locations.html">Lokasi</a></li>
+                <li><a href="contact.html" class="active">Kontak</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Hubungi <span class="accent">Kami</span></h1>
+            <p>Punya pertanyaan atau ingin reservasi? Kami siap membantu.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="ci-item"><i class="fas fa-envelope"></i><div><span>Email</span><strong>hello@kopinusantara.id</strong></div></div>
+                    <div class="ci-item"><i class="fas fa-phone-alt"></i><div><span>Telepon</span><strong>+62 812 3456 7890</strong></div></div>
+                    <div class="ci-item"><i class="fas fa-map-marker-alt"></i><div><span>Kantor Pusat</span><strong>Jakarta, Indonesia</strong></div></div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Nama Lengkap" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Subjek">
+                    <textarea rows="4" placeholder="Pesan Anda..."></textarea>
+                    <button type="submit" class="btn btn-primary btn-full">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><h3>Kopi<span>Nusantara</span></h3><p>Specialty coffee dari Indonesia untuk dunia.</p></div>
+                <div class="footer-links">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="story.html">Cerita</a></li>
+                        <li><a href="locations.html">Lokasi</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontak</h4>
+                    <p>hello@kopinusantara.id</p>
+                    <p>+62 812 3456 7890</p>
+                    <p>Jakarta, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Kopi Nusantara. Demo Standar.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

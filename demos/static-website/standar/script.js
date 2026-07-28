@@ -1,28 +1,72 @@
-// ===== MULTI-PAGE SWITCHING =====
-function switchPage(page) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + page).classList.add('active');
-    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-    document.querySelector(`.nav-links a[data-page="${page}"]`).classList.add('active');
-    window.scrollTo(0, 0);
-}
+// ===== LOADING BAR =====
+(function() {
+    const bar = document.getElementById('loadBar');
+    if (bar) {
+        setTimeout(() => bar.classList.add('loading'), 50);
+        window.addEventListener('load', () => {
+            bar.classList.add('done');
+            setTimeout(() => { bar.style.display = 'none'; }, 600);
+        });
+    }
+})();
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        switchPage(link.dataset.page);
+// ===== INTERCEPT NAVIGATION =====
+document.querySelectorAll('a[href$=".html"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.endsWith('.html') && !href.startsWith('http')) {
+            e.preventDefault();
+            const bar = document.getElementById('loadBar') || (() => {
+                const b = document.createElement('div');
+                b.className = 'load-bar loading';
+                b.id = 'loadBar';
+                document.body.prepend(b);
+                return b;
+            })();
+            bar.classList.add('loading');
+            setTimeout(() => { window.location.href = href; }, 250);
+        }
     });
 });
 
 // ===== HAMBURGER =====
-document.getElementById('hamburger').addEventListener('click', () => {
-    const links = document.getElementById('navLinks');
-    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
+
+// ===== SCROLL REVEAL =====
+const revealEls = document.querySelectorAll('.hl-card, .menu-card, .sv-card, .location-card');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+revealEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.5s ease';
+    revealObserver.observe(el);
 });
 
 // ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('✅ Pesanan Anda telah diterima! (Demo)');
-    this.reset();
-});
+const cf = document.getElementById('contactForm');
+if (cf) {
+    cf.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.btn-primary');
+        const orig = btn.innerHTML;
+        btn.innerHTML = 'Terkirim! <i class="fas fa-check"></i>';
+        btn.style.background = '#6B4F0E';
+        setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; this.reset(); }, 2500);
+    });
+}

@@ -3,197 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WarungKita — Multi Page Website</title>
+    <title>Kopi Nusantara — Specialty Coffee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="load-bar" id="loadBar"></div>
 
-    <nav class="navbar">
+    <nav class="nav">
         <div class="container">
-            <a href="#" class="logo">Warung<span>Kita</span></a>
+            <a href="index.html" class="logo">Kopi<span>Nusantara</span></a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#" class="active" data-page="home">Beranda</a></li>
-                <li><a href="#" data-page="menu">Menu</a></li>
-                <li><a href="#" data-page="about">Tentang</a></li>
-                <li><a href="#" data-page="gallery">Galeri</a></li>
-                <li><a href="#" data-page="contact">Kontak</a></li>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="story.html">Cerita</a></li>
+                <li><a href="locations.html">Lokasi</a></li>
+                <li><a href="contact.html">Kontak</a></li>
             </ul>
             <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <div class="pages">
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=80" alt="Kopi">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Sejak 2015</span>
+            <h1>Nikmati <span class="accent">Kopi</span> Terbaik <br>dari Seluruh <span class="accent">Nusantara</span></h1>
+            <p>Dari Gayo hingga Toraja, kami sajikan biji kopi pilihan yang dipanggang dengan sempurna.</p>
+            <div class="hero-cta">
+                <a href="menu.html" class="btn btn-primary">Lihat Menu</a>
+                <a href="story.html" class="btn btn-outline">Cerita Kami</a>
+            </div>
+        </div>
+    </section>
 
-        <!-- HOME -->
-        <section class="page active" id="page-home">
-            <div class="hero">
-                <div class="container">
-                    <div class="hero-text">
-                        <span class="badge">Promo Spesial!</span>
-                        <h1>Makan Enak <span class="accent">Harga Merakyat</span></h1>
-                        <p>Masakan rumahan dengan bahan segar. Delivery gratis area Yogyakarta.</p>
-                        <a href="#" class="btn" onclick="switchPage('menu')">Lihat Menu <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                    <div class="hero-visual">
-                        <div class="hero-card-1">🍛</div>
-                        <div class="hero-card-2">🥘</div>
-                        <div class="hero-card-3">🍜</div>
-                    </div>
-                </div>
-            </div>
-            <div class="features">
-                <div class="container">
-                    <div class="feature-card">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Bahan Segar</h3>
-                        <p>Belanja setiap pagi, masak setiap hari.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-truck"></i>
-                        <h3>Delivery Gratis</h3>
-                        <p>Area Yogyakarta, minimal order Rp 30K.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-certificate"></i>
-                        <h3>Halal</h3>
-                        <p>Bersertifikat halal dari MUI.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MENU -->
-        <section class="page" id="page-menu">
-            <div class="section-title">
-                <span class="section-tag">Menu</span>
-                <h2>Pilihan <span class="accent">Favorit</span></h2>
-                <p>Semua bisa request level pedas</p>
-            </div>
-            <div class="container menu-grid">
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#fef3c7">🍛</div>
-                    <h3>Nasi Goreng Spesial</h3>
-                    <p>Nasi goreng dengan telur, ayam suwir, dan kerupuk</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 25K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#e0f2fe">🥘</div>
-                    <h3>Ayam Goreng Mentega</h3>
-                    <p>Ayam goreng dengan saus mentega spesial</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 30K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#fce4ec">🍜</div>
-                    <h3>Mie Ayam Komplit</h3>
-                    <p>Mie ayam dengan pangsit, bakso, dan sayuran</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 20K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#e8f5e9">🥗</div>
-                    <h3>Gado-Gado</h3>
-                    <p>Sayuran segar dengan bumbu kacang homemade</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 18K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#f3e5f5">🥤</div>
-                    <h3>Es Campur</h3>
-                    <p>Minuman segar dengan campuran buah dan susu</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 12K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-                <div class="menu-card">
-                    <div class="menu-img" style="background:#fff3e0">🍨</div>
-                    <h3>Pisang Goreng</h3>
-                    <p>Pisang goreng crispy dengan topping cokelat</p>
-                    <div class="menu-footer">
-                        <span class="menu-price">Rp 10K</span>
-                        <button class="btn-sm" onclick="switchPage('contact')">Pesan</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="page" id="page-about">
-            <div class="section-title">
-                <span class="section-tag">Tentang</span>
-                <h2>Cerita <span class="accent">Kami</span></h2>
-            </div>
-            <div class="container about-content">
-                <div class="about-text">
-                    <p>WarungKita berdiri sejak 2018 dengan satu visi: menyajikan makanan rumahan berkualitas dengan harga yang terjangkau. Kami percaya makanan enak tidak harus mahal.</p>
-                    <p>Setiap hari, tim kami memasak dengan bahan-bahan segar yang dibeli langsung dari pasar. Kami juga selalu terbuka terhadap saran dan masukan dari pelanggan.</p>
-                    <div class="about-stats">
-                        <div><span class="stat-num">50+</span><span>Menu</span></div>
-                        <div><span class="stat-num">3000+</span><span>Pelanggan</span></div>
-                        <div><span class="stat-num">4.8</span><span>Rating</span></div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500&q=80" alt="Warung">
-                </div>
-            </div>
-        </section>
-
-        <!-- GALLERY -->
-        <section class="page" id="page-gallery">
-            <div class="section-title">
-                <span class="section-tag">Galeri</span>
-                <h2>Dokumentasi <span class="accent">Kami</span></h2>
-            </div>
-            <div class="container gallery-grid">
-                <div class="gallery-item" style="background:#fef3c7">🍳</div>
-                <div class="gallery-item" style="background:#e0f2fe">🥩</div>
-                <div class="gallery-item" style="background:#fce4ec">🥦</div>
-                <div class="gallery-item" style="background:#e8f5e9">🍚</div>
-                <div class="gallery-item" style="background:#f3e5f5">🧁</div>
-                <div class="gallery-item" style="background:#fff3e0">☕</div>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section class="page" id="page-contact">
-            <div class="section-title">
-                <span class="section-tag">Kontak</span>
-                <h2>Hubungi <span class="accent">Kami</span></h2>
-            </div>
-            <div class="container contact-wrapper">
-                <div class="contact-info">
-                    <div class="ci-item"><i class="fas fa-map-marker-alt"></i><span>Jl. Kaliurang KM 5, Yogyakarta</span></div>
-                    <div class="ci-item"><i class="fas fa-phone-alt"></i><span>0812-9876-5432</span></div>
-                    <div class="ci-item"><i class="fas fa-clock"></i><span>10:00 - 22:00 (Buka Setiap Hari)</span></div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Nama" required>
-                    <input type="text" placeholder="Pesanan">
-                    <textarea rows="3" placeholder="Alamat & catatan"></textarea>
-                    <button type="submit" class="btn">Pesan Sekarang</button>
-                </form>
-            </div>
-        </section>
-
-    </div>
-
-    <footer>
+    <section class="intro">
         <div class="container">
-            <p>&copy; 2026 WarungKita. Demo Standar.</p>
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <span class="sec-tag">Tentang</span>
+                    <h2>Kopi <span class="accent">Segar</span>, <br>Setiap <span class="accent">Pagi</span></h2>
+                    <p>Kopi Nusantara adalah rumah bagi para pencinta kopi. Kami menghadirkan biji kopi pilihan dari berbagai daerah di Indonesia, dipanggang dengan teknik artisanal untuk menghasilkan cita rasa terbaik.</p>
+                    <p>Setiap cangkir yang kami sajikan adalah hasil perjalanan panjang — dari petani, melalui proses roasting, hingga ke tangan barista terlatih.</p>
+                    <a href="story.html" class="btn-link">Baca Cerita Kami <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&q=80" alt="Coffee">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="hl-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Petani Lokal</h3>
+                    <p>Bekerja langsung dengan petani kopi dari berbagai daerah.</p>
+                </div>
+                <div class="hl-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Roasting Artisan</h3>
+                    <p>Dipanggang dalam batch kecil untuk kualitas terbaik.</p>
+                </div>
+                <div class="hl-card">
+                    <i class="fas fa-mug-hot"></i>
+                    <h3>Barista Ahli</h3>
+                    <p>Tim barista berpengalaman siap menyeduh untuk Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="container">
+            <blockquote>
+                "Kopi yang baik tidak perlu dijelaskan — cukup dirasakan."
+                <cite>— Pendiri Kopi Nusantara</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Kopi<span>Nusantara</span></h3>
+                    <p>Specialty coffee dari Indonesia untuk dunia.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="story.html">Cerita</a></li>
+                        <li><a href="locations.html">Lokasi</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontak</h4>
+                    <p>hello@kopinusantara.id</p>
+                    <p>+62 812 3456 7890</p>
+                    <p>Jakarta, Indonesia</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Kopi Nusantara. Demo Standar.</p>
+            </div>
         </div>
     </footer>
     <script src="script.js"></script>
