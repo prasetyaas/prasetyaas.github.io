@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Aplikasi | Prasetya</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0a0a0f; color: #e8e8f0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 900px; padding: 40px 20px; text-align: center; }
+        h1 { font-size: 32px; margin-bottom: 8px; background: linear-gradient(135deg, #00d4ff, #0066ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: #a0a0b8; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: #1a1a2e; border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 30px 20px; text-decoration: none; color: inherit; transition: all 0.3s; }
+        .card:hover { transform: translateY(-8px); border-color: rgba(0,212,255,0.3); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+        .icon { font-size: 40px; margin-bottom: 12px; }
+        .card h3 { font-size: 16px; margin-bottom: 6px; }
+        .card p { font-size: 13px; color: #a0a0b8; }
+        .badge { display: inline-block; margin-top: 12px; padding: 4px 12px; background: rgba(0,212,255,0.1); color: #00d4ff; border-radius: 20px; font-size: 11px; }
+        .back { display: inline-block; margin-top: 40px; padding: 12px 28px; background: linear-gradient(135deg, #00d4ff, #0066ff); color: #fff; text-decoration: none; border-radius: 50px; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Demo Aplikasi</h1>
+        <p class="subtitle">Koleksi aplikasi demo sesuai paket yang ditawarkan</p>
+        <div class="grid">
+            <a href="static-website/index.html" class="card">
+                <div class="icon">🌐</div>
+                <h3>Static Website</h3>
+                <p>Landing page modern dan responsif</p>
+                <span class="badge">HTML + CSS + JS</span>
+            </a>
+            <a href="company-profile/index.html" class="card">
+                <div class="icon">🏢</div>
+                <h3>Company Profile</h3>
+                <p>Website profil perusahaan profesional</p>
+                <span class="badge">HTML + CSS + JS</span>
+            </a>
+            <a href="management-system/index.html" class="card">
+                <div class="icon">📦</div>
+                <h3>Management System</h3>
+                <p>Inventory management dengan CRUD</p>
+                <span class="badge">HTML + CSS + JS</span>
+            </a>
+            <a href="ecommerce/index.html" class="card">
+                <div class="icon">🛍️</div>
+                <h3>E-Commerce</h3>
+                <p>Toko online dengan keranjang belanja</p>
+                <span class="badge">HTML + CSS + JS</span>
+            </a>
+            <a href="custom-web-app/index.html" class="card">
+                <div class="icon">📋</div>
+                <h3>Custom Web App</h3>
+                <p>Task management dengan login & filter</p>
+                <span class="badge">HTML + CSS + JS</span>
+            </a>
+        </div>
+        <a href="../index.html" class="back">← Kembali ke Beranda</a>
+    </div>
+</body>
+</html>
