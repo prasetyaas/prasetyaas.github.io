@@ -830,11 +830,36 @@ img { max-width: 100%; display: block; }
     position: relative;
     display: flex;
     flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
 .pricing-card:hover {
     transform: translateY(-8px);
     box-shadow: var(--shadow-md);
+}
+
+.pricing-card .pricing-badge,
+.pricing-card .pricing-price {
+    align-self: center;
+}
+
+.pricing-card .pricing-features {
+    text-align: left;
+    width: 100%;
+}
+
+.pricing-card-center {
+    max-width: 500px;
+    margin: 0 auto !important;
+}
+
+.pricing-custom-desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    text-align: center;
 }
 
 .pricing-badge {
