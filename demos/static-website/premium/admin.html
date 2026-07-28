@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Multi Page + Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f1f5f9; color: #1e293b; line-height: 1.6; }
+        
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+        }
+        .login-box {
+            background: #fff;
+            padding: 40px 36px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .login-box h1 { font-size: 24px; text-align: center; margin-bottom: 8px; }
+        .login-box p { text-align: center; color: #64748b; font-size: 14px; margin-bottom: 28px; }
+        .login-box label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+        .login-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            margin-bottom: 16px;
+        }
+        .login-box input:focus { border-color: #2563eb; }
+        .login-btn {
+            width: 100%;
+            padding: 13px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .login-btn:hover { background: #1d4ed8; }
+        .login-error { color: #ef4444; font-size: 13px; text-align: center; margin-top: 12px; display: none; }
+
+        .dashboard { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 240px;
+            background: #0f172a;
+            color: #fff;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0; left: 0; bottom: 0;
+        }
+        .sidebar h2 { font-size: 18px; margin-bottom: 32px; }
+        .sidebar h2 span { color: #2563eb; }
+        .sidebar-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+        .sidebar-nav a {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(255,255,255,0.06); color: #fff; }
+        .logout-btn {
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            margin-top: auto;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logout-btn:hover { color: #ef4444; background: rgba(239,68,68,0.1); }
+
+        .main-content { margin-left: 240px; flex: 1; padding: 32px; }
+        .main-content h1 { font-size: 26px; margin-bottom: 24px; }
+        .form-card { background: #fff; padding: 28px 32px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px; }
+        .form-card h3 { font-size: 18px; margin-bottom: 20px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: #2563eb; }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .btn-save {
+            padding: 11px 28px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-save:hover { background: #1d4ed8; }
+        .btn-danger {
+            padding: 8px 16px;
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .btn-danger:hover { background: #dc2626; }
+        .item-list { display: flex; flex-direction: column; gap: 12px; }
+        .item-card {
+            background: #fff;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item-card .info h4 { font-size: 15px; margin-bottom: 2px; }
+        .item-card .info p { font-size: 13px; color: #64748b; }
+        .item-card .actions { display: flex; gap: 8px; }
+
+        .toast {
+            position: fixed;
+            top: 20px; right: 20px;
+            background: #1e293b; color: #fff;
+            padding: 14px 24px;
+            border-radius: 10px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            z-index: 9999;
+            transform: translateX(120%);
+            transition: transform 0.5s ease;
+            max-width: 400px;
+            border-left: 4px solid #2563eb;
+        }
+        .toast.show { transform: translateX(0); }
+        .toast i { color: #2563eb; font-size: 18px; }
+        .toast strong { color: #2563eb; }
+    </style>
+</head>
+<body>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-info-circle"></i>
+        <span id="toastMessage">🔐 Login: <strong>admin</strong> / <strong>admin123</strong></span>
+    </div>
+
+    <div class="login-page" id="loginPage">
+        <div class="login-box">
+            <h1>📝 Blog Admin</h1>
+            <p>Kelola artikel blog website Anda</p>
+            <label>Username</label>
+            <input type="text" id="loginUser" value="admin">
+            <label>Password</label>
+            <input type="password" id="loginPass" value="admin123">
+            <button class="login-btn" onclick="handleLogin()"><i class="fas fa-sign-in-alt"></i> Masuk</button>
+            <p class="login-error" id="loginError">Username atau password salah!</p>
+            <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:16px;">Demo: admin / admin123</p>
+        </div>
+    </div>
+
+    <div class="dashboard" id="dashboard" style="display:none;">
+        <aside class="sidebar">
+            <h2><span>✦</span> Blog Admin</h2>
+            <nav class="sidebar-nav">
+                <a class="active"><i class="fas fa-newspaper"></i> Artikel</a>
+                <a href="blog.html" target="_blank" style="margin-top:auto;color:rgba(255,255,255,0.4);border-top:1px solid rgba(255,255,255,0.06);padding-top:16px"><i class="fas fa-external-link-alt"></i> Lihat Blog</a>
+            </nav>
+            <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+        </aside>
+        <main class="main-content">
+            <h1>Kelola Artikel Blog</h1>
+            <div class="form-card">
+                <h3>Tambah Artikel</h3>
+                <div class="form-group">
+                    <label>Judul Artikel</label>
+                    <input type="text" id="edTitle" placeholder="Judul artikel">
+                </div>
+                <div class="form-group">
+                    <label>Konten</label>
+                    <textarea id="edContent" rows="4" placeholder="Tulis konten artikel..."></textarea>
+                </div>
+                <button class="btn-save" onclick="addArticle()"><i class="fas fa-plus"></i> Tambah</button>
+            </div>
+            <div class="form-card">
+                <h3>Daftar Artikel</h3>
+                <div class="item-list" id="articleList"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const KEY = 'mp_blog';
+        const defaults = [
+            { title: 'Pentingnya Website untuk Bisnis UMKM', content: 'Di era digital ini, memiliki website adalah kebutuhan mutlak bagi setiap bisnis. Website membantu meningkatkan kredibilitas dan jangkauan pasar Anda.' },
+            { title: 'Tips Memilih Desain Website yang Tepat', content: 'Desain website yang baik tidak hanya cantik, tapi juga harus user-friendly dan sesuai dengan identitas brand Anda.' }
+        ];
+
+        function getData() {
+            const data = localStorage.getItem(KEY);
+            if (data) return JSON.parse(data);
+            localStorage.setItem(KEY, JSON.stringify(defaults));
+            return defaults;
+        }
+
+        function setData(val) { localStorage.setItem(KEY, JSON.stringify(val)); }
+
+        function handleLogin() {
+            if (document.getElementById('loginUser').value === 'admin' && document.getElementById('loginPass').value === 'admin123') {
+                localStorage.setItem('mp_admin', 'true');
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'flex';
+                render();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('mp_admin');
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('loginPage').style.display = 'flex';
+        }
+
+        if (localStorage.getItem('mp_admin') === 'true') {
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'flex';
+            render();
+        }
+
+        function addArticle() {
+            const title = document.getElementById('edTitle').value.trim();
+            const content = document.getElementById('edContent').value.trim();
+            if (!title || !content) return alert('Judul dan konten harus diisi!');
+            const items = getData();
+            items.push({ title, content });
+            setData(items);
+            document.getElementById('edTitle').value = '';
+            document.getElementById('edContent').value = '';
+            render();
+        }
+
+        function deleteArticle(index) {
+            const items = getData();
+            items.splice(index, 1);
+            setData(items);
+            render();
+        }
+
+        function render() {
+            const items = getData();
+            document.getElementById('articleList').innerHTML = items.map((item, i) => `
+                <div class="item-card">
+                    <div class="info">
+                        <h4>${item.title}</h4>
+                        <p>${item.content.substring(0, 80)}...</p>
+                    </div>
+                    <div class="actions">
+                        <button class="btn-danger" onclick="deleteArticle(${i})"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Toast
+        setTimeout(() => {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 6000);
+        }, 500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak — LaptopPro Distributor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="preloader" id="preloader"><div class="preloader-logo"><i class="fas fa-laptop"></i> Laptop<span>Pro</span></div><div class="preloader-bar"><div class="preloader-bar-inner"></div></div></div>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo"><i class="fas fa-laptop"></i> Laptop<span>Pro</span></a>
+            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li><a href="about.html" class="nav-link">Tentang</a></li>
+                <li><a href="products.html" class="nav-link">Produk</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
+                <li><a href="contact.html" class="nav-link nav-cta active">Kontak</a></li>
+                <li><div class="lang-switcher"><button class="active" data-lang="id">ID</button><button data-lang="en">EN</button></div></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1>Hubungi <span class="highlight">Kami</span></h1>
+        <p>Tim kami siap membantu Anda 24/7.</p>
+        <div class="breadcrumb"><a href="index.html">Beranda</a> <i class="fas fa-chevron-right"></i> <span>Kontak</span></div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fab fa-whatsapp"></i></div>
+                        <div><h4>WhatsApp</h4><a href="https://wa.me/6281298578909">+62 812-9857-8909</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div><h4>Telepon</h4><a href="tel:+622112345678">(021) 1234-5678</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div><h4>Email</h4><a href="mailto:hello@laptoppro.com">hello@laptoppro.com</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div><h4>Kantor Pusat</h4><p>Jl. Sudirman No. 123, Jakarta Pusat 10220</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div><h4>Jam Operasional</h4><p>Senin - Jumat: 08:00 - 18:00 | Sabtu: 08:00 - 14:00</p></div>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:8px">
+                        <a href="#" style="width:44px;height:44px;background:linear-gradient(135deg,rgba(30,64,175,0.08),rgba(59,130,246,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="width:44px;height:44px;background:linear-gradient(135deg,rgba(30,64,175,0.08),rgba(59,130,246,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px"><i class="fab fa-youtube"></i></a>
+                        <a href="#" style="width:44px;height:44px;background:linear-gradient(135deg,rgba(30,64,175,0.08),rgba(59,130,246,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" style="width:44px;height:44px;background:linear-gradient(135deg,rgba(30,64,175,0.08),rgba(59,130,246,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" style="width:44px;height:44px;background:linear-gradient(135deg,rgba(30,64,175,0.08),rgba(59,130,246,0.08));border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:18px"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-wrap">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group"><label>Nama Lengkap</label><input type="text" id="formName" placeholder="Masukkan nama Anda" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" id="formEmail" placeholder="Masukkan email Anda" required></div>
+                        <div class="form-group"><label>Subjek</label><input type="text" id="formSubject" placeholder="Subjek pesan" required></div>
+                        <div class="form-group"><label>Pesan</label><textarea id="formMessage" placeholder="Tulis pesan Anda di sini..." required></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e0f0f0f0f0f%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sen!2sid!4v1" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><h3><i class="fas fa-laptop"></i> LaptopPro</h3><p>Distributor laptop premium terpercaya sejak 2015.</p><div class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
+                <div class="footer-links"><h4>Halaman</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="about.html">Tentang</a></li><li><a href="products.html">Produk</a></li><li><a href="contact.html">Kontak</a></li></ul></div>
+                <div class="footer-links"><h4>Layanan</h4><ul><li><a href="products.html">Katalog</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="testimonials.html">Testimonial</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
+                <div class="footer-links"><h4>Kontak</h4><ul><li><a href="https://wa.me/6281298578909"><i class="fab fa-whatsapp"></i> +62 812-9857-8909</a></li><li><a href="mailto:hello@laptoppro.com"><i class="fas fa-envelope"></i> hello@laptoppro.com</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 LaptopPro. All rights reserved.</p><a href="admin/index.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></div>
+        </div>
+    </footer>
+
+    <div class="floating-btns">
+        <a href="https://wa.me/6281298578909" class="floating-btn floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <button class="floating-btn floating-chat" id="cartToggle"><i class="fas fa-shopping-cart"></i></button>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header"><h3>Keranjang</h3><button class="close-btn" id="cartClose"><i class="fas fa-times"></i></button></div>
+        <div class="cart-items" id="cartItems"><div style="text-align:center;padding:40px;color:var(--text-muted)"><p>Keranjang kosong</p></div></div>
+        <div class="cart-footer"><div class="cart-total"><span>Total</span><span class="total-price" id="cartTotal">Rp 0</span></div><a href="https://wa.me/6281298578909" class="btn btn-primary" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Checkout</a></div>
+    </div>
+
+    <div style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;background:#0f172a;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);border-left:4px solid #f59e0b;max-width:90%">
+        <i class="fas fa-lock" style="color:#f59e0b"></i>
+        <span>🔐 <strong style="color:#f59e0b">admin@laptoppro.com</strong> / <strong style="color:#f59e0b">admin123</strong></span>
+        <a href="admin/index.html" style="color:#fff;background:#1e40af;padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:12px;white-space:nowrap">Login</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

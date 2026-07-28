@@ -97,3 +97,4 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
     revealObserver.observe(el);
 });
+

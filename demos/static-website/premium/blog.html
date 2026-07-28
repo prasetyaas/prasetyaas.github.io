@@ -48,50 +48,7 @@
 
     <section class="blog-list-section">
         <div class="container">
-            <div class="blog-list-grid">
-                <article class="blog-card-full reveal">
-                    <div class="blog-card-full-img"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&q=80" alt="Gudang" loading="lazy"></div>
-                    <div class="blog-card-full-body">
-                        <span class="blog-date">20 Juni 2026</span>
-                        <span class="blog-category">Manajemen</span>
-                        <h2>Tips Efektif Mengelola Gudang Distribusi</h2>
-                        <p>Pelajari cara mengelola gudang distribusi yang efisien — dari penataan stok, sistem inventori, hingga optimasi ruang.</p>
-                        <div class="blog-meta"><span><i class="fas fa-user"></i> Tim IndoDistribusi</span><span><i class="fas fa-clock"></i> 5 menit baca</span></div>
-                        <a href="blog-post.html?id=1" class="btn btn-outline" style="color:var(--text-2);border-color:var(--border)">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card-full reveal reveal-delay-1">
-                    <div class="blog-card-full-img"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="Logistik" loading="lazy"></div>
-                    <div class="blog-card-full-body">
-                        <span class="blog-date">8 Juni 2026</span>
-                        <span class="blog-category">Logistik</span>
-                        <h2>Strategi Optimasi Biaya Pengiriman Barang</h2>
-                        <p>Tips menghemat biaya logistik tanpa mengorbankan kualitas dan kecepatan pengiriman barang.</p>
-                        <div class="blog-meta"><span><i class="fas fa-user"></i> Tim IndoDistribusi</span><span><i class="fas fa-clock"></i> 7 menit baca</span></div>
-                        <a href="blog-post.html?id=2" class="btn btn-outline" style="color:var(--text-2);border-color:var(--border)">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-                <article class="blog-card-full reveal reveal-delay-2">
-                    <div class="blog-card-full-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Supply Chain" loading="lazy"></div>
-                    <div class="blog-card-full-body">
-                        <span class="blog-date">25 Mei 2026</span>
-                        <span class="blog-category">Bisnis</span>
-                        <h2>Tren Distribusi 2026 yang Wajib Diketahui</h2>
-                        <p>Tren terbaru dalam industri distribusi — dari digitalisasi supply chain hingga logistik hijau.</p>
-                        <div class="blog-meta"><span><i class="fas fa-user"></i> Tim IndoDistribusi</span><span><i class="fas fa-clock"></i> 6 menit baca</span></div>
-                        <a href="blog-post.html?id=3" class="btn btn-outline" style="color:var(--text-2);border-color:var(--border)">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            </div>
-            <div class="blog-pagination reveal">
-                <button class="carousel-btn" disabled><i class="fas fa-chevron-left"></i></button>
-                <div class="blog-page-numbers">
-                    <button class="blog-page active">1</button>
-                    <button class="blog-page">2</button>
-                    <button class="blog-page">3</button>
-                </div>
-                <button class="carousel-btn"><i class="fas fa-chevron-right"></i></button>
-            </div>
+            <div class="blog-list-grid" id="blogGrid"></div>
         </div>
     </section>
 
@@ -108,6 +65,44 @@
             <div class="footer-bottom"><p>&copy; 2026 IndoDistribusi. All rights reserved. Demo Premium.</p></div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var key = 'mp_blog';
+            var defaults = [
+                { title: 'Pentingnya Website untuk Bisnis UMKM', content: 'Di era digital ini, memiliki website adalah kebutuhan mutlak bagi setiap bisnis. Website membantu meningkatkan kredibilitas dan jangkauan pasar Anda.' },
+                { title: 'Tips Memilih Desain Website yang Tepat', content: 'Desain website yang baik tidak hanya cantik, tapi juga harus user-friendly dan sesuai dengan identitas brand Anda.' },
+                { title: 'Strategi Distribusi Efisien di 2026', content: 'Optimalkan rantai distribusi Anda dengan strategi terbaru. Pelajari cara mengurangi biaya logistik dan meningkatkan kecepatan pengiriman.' }
+            ];
+
+            function getData() {
+                var data = localStorage.getItem(key);
+                if (data) return JSON.parse(data);
+                localStorage.setItem(key, JSON.stringify(defaults));
+                return defaults;
+            }
+
+            var items = getData();
+            var grid = document.getElementById('blogGrid');
+            if (grid) {
+                var html = '';
+                for (var i = 0; i < items.length; i++) {
+                    html += '<article class="blog-card-full">' +
+                        '<div class="blog-card-full-img" style="background:linear-gradient(145deg, #e0f2fe, #f0f4ff);display:flex;align-items:center;justify-content:center;font-size:48px;color:#2563eb;min-height:200px">' +
+                            '<i class="fas fa-newspaper"></i>' +
+                        '</div>' +
+                        '<div class="blog-card-full-body">' +
+                            '<span class="blog-date">' + new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) + '</span>' +
+                            '<span class="blog-category">Artikel</span>' +
+                            '<h2>' + items[i].title + '</h2>' +
+                            '<p>' + items[i].content + '</p>' +
+                            '<div class="blog-meta"><span><i class="fas fa-user"></i> Admin</span><span><i class="fas fa-clock"></i> 3 menit baca</span></div>' +
+                        '</div>' +
+                    '</article>';
+                }
+                grid.innerHTML = html;
+            }
+        });
+    </script>
     <script src="script.js" defer></script>
 </body>
 </html>

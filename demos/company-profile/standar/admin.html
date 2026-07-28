@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Kohaku Koi Farm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#f1f5f9; color:#1e293b; line-height:1.6; }
+        .login-page { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#020617,#0f172a); }
+        .login-box { background:#fff; padding:40px 36px; border-radius:16px; width:100%; max-width:400px; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+        .login-box h1 { font-size:24px; text-align:center; margin-bottom:8px; }
+        .login-box p { text-align:center; color:#64748b; font-size:14px; margin-bottom:28px; }
+        .login-box label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+        .login-box input { width:100%; padding:12px 16px; border:1.5px solid #e2e8f0; border-radius:8px; font-size:14px; outline:none; margin-bottom:16px; }
+        .login-box input:focus { border-color:#dc2626; }
+        .login-btn { width:100%; padding:13px; background:#dc2626; color:#fff; border:none; border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; }
+        .login-btn:hover { background:#b91c1c; }
+        .login-error { color:#ef4444; font-size:13px; text-align:center; margin-top:12px; display:none; }
+        .toast { position:fixed; top:20px; right:20px; background:#0f172a; color:#fff; padding:14px 24px; border-radius:10px; font-size:14px; display:flex; align-items:center; gap:10px; box-shadow:0 8px 30px rgba(0,0,0,0.2); z-index:9999; transform:translateX(120%); transition:transform 0.5s ease; max-width:400px; border-left:4px solid #f59e0b; }
+        .toast.show { transform:translateX(0); }
+        .toast i { color:#f59e0b; font-size:18px; }
+        .toast strong { color:#f59e0b; }
+        .dashboard { display:flex; min-height:100vh; }
+        .sidebar { width:240px; background:#0f172a; color:#fff; padding:24px 16px; display:flex; flex-direction:column; position:fixed; top:0; left:0; bottom:0; }
+        .sidebar h2 { font-size:18px; margin-bottom:32px; }
+        .sidebar h2 span { color:#f59e0b; }
+        .sidebar-nav { display:flex; flex-direction:column; gap:2px; flex:1; }
+        .sidebar-nav a { padding:10px 14px; border-radius:8px; font-size:14px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:10px; cursor:pointer; text-decoration:none; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { background:rgba(255,255,255,0.04); color:#fff; }
+        .logout-btn { padding:10px 14px; border-radius:8px; font-size:14px; color:rgba(255,255,255,0.3); cursor:pointer; background:none; border:none; font-family:'Inter',sans-serif; margin-top:auto; text-align:left; display:flex; align-items:center; gap:10px; }
+        .logout-btn:hover { color:#ef4444; background:rgba(239,68,68,0.1); }
+        .main-content { margin-left:240px; flex:1; padding:32px; }
+        .main-content h1 { font-size:26px; margin-bottom:24px; }
+        .form-card { background:#fff; padding:28px 32px; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:24px; }
+        .form-card h3 { font-size:18px; margin-bottom:20px; display:flex; align-items:center; gap:8px; }
+        .form-group { margin-bottom:16px; }
+        .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:6px; }
+        .form-group input,.form-group textarea,.form-group select { width:100%; padding:11px 14px; border:1.5px solid #e2e8f0; border-radius:8px; font-size:14px; outline:none; font-family:'Inter',sans-serif; }
+        .form-group input:focus,.form-group textarea:focus,.form-group select:focus { border-color:#dc2626; }
+        .form-group textarea { resize:vertical; min-height:80px; }
+        .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+        .btn-save { padding:11px 28px; background:#dc2626; color:#fff; border:none; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; }
+        .btn-save:hover { background:#b91c1c; }
+        .btn-danger { padding:8px 16px; background:#ef4444; color:#fff; border:none; border-radius:8px; font-size:13px; cursor:pointer; }
+        .btn-danger:hover { background:#dc2626; }
+        .item-list { display:flex; flex-direction:column; gap:12px; }
+        .item-card { background:#fff; padding:16px 20px; border-radius:8px; border:1px solid #e2e8f0; display:flex; justify-content:space-between; align-items:center; }
+        .item-card .info h4 { font-size:15px; margin-bottom:2px; }
+        .item-card .info p { font-size:13px; color:#64748b; }
+        .item-card .actions { display:flex; gap:8px; }
+        .admin-section { display:none; }
+        .admin-section.active { display:block; }
+    </style>
+</head>
+<body>
+    <div class="toast" id="toast"><i class="fas fa-info-circle"></i><span id="toastMsg">🔐 Login: <strong>admin</strong> / <strong>admin123</strong></span></div>
+
+    <div class="login-page" id="loginPage">
+        <div class="login-box">
+            <h1>🐟 Admin Koi Farm</h1>
+            <p>Kelola konten website Kohaku Koi Farm</p>
+            <label>Username</label>
+            <input type="text" id="loginUser" value="admin">
+            <label>Password</label>
+            <input type="password" id="loginPass" value="admin123">
+            <button class="login-btn" onclick="handleLogin()"><i class="fas fa-sign-in-alt"></i> Masuk</button>
+            <p class="login-error" id="loginError">Username atau password salah!</p>
+            <p style="text-align:center;font-size:12px;color:#94a3b8;margin-top:16px;">Demo: admin / admin123</p>
+        </div>
+    </div>
+
+    <div class="dashboard" id="dashboard" style="display:none;">
+        <aside class="sidebar">
+            <h2><span>🐟</span> Koi Admin</h2>
+            <nav class="sidebar-nav">
+                <a class="active" data-section="about"><i class="fas fa-fish"></i> Tentang</a>
+                <a data-section="products"><i class="fas fa-box"></i> Produk</a>
+                <a data-section="blog"><i class="fas fa-newspaper"></i> Blog</a>
+                <a data-section="testimonials"><i class="fas fa-quote-right"></i> Testimonial</a>
+                <a href="index.html" target="_blank" style="margin-top:auto;color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.04);padding-top:16px"><i class="fas fa-external-link-alt"></i> Lihat Website</a>
+            </nav>
+            <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+        </aside>
+        <main class="main-content">
+            <h1 id="sectionTitle">🐟 Tentang</h1>
+
+            <div class="admin-section active" id="sec-about">
+                <div class="form-card">
+                    <h3>Tentang Kami</h3>
+                    <div class="form-group"><label>Nama Peternakan</label><input type="text" id="edName" value="Kohaku Koi Farm"></div>
+                    <div class="form-group"><label>Tagline</label><input type="text" id="edTagline" value="Pusat Ikan Koi Premium Terpercaya"></div>
+                    <div class="form-group"><label>Deskripsi</label><textarea id="edDesc" rows="4">Kami adalah peternak dan supplier ikan koi kualitas juara. Setiap ikan kami rawat dengan standar tertinggi untuk menghasilkan koi dengan warna, bentuk, dan kesehatan prima.</textarea></div>
+                    <button class="btn-save" onclick="saveAbout()"><i class="fas fa-save"></i> Simpan</button>
+                </div>
+            </div>
+
+            <div class="admin-section" id="sec-products">
+                <div class="form-card">
+                    <h3>Tambah Produk</h3>
+                    <div class="form-row">
+                        <div class="form-group"><label>Nama Produk</label><input type="text" id="edProdName" placeholder="Nama produk"></div>
+                        <div class="form-group"><label>Kategori</label><select id="edProdCat"><option value="Kohaku">Kohaku</option><option value="Pakan">Pakan</option><option value="Aksesoris">Aksesoris</option></select></div>
+                    </div>
+                    <div class="form-group"><label>Deskripsi</label><textarea id="edProdDesc" rows="2" placeholder="Deskripsi produk"></textarea></div>
+                    <button class="btn-save" onclick="addProduct()"><i class="fas fa-plus"></i> Tambah</button>
+                </div>
+                <div class="form-card">
+                    <h3>Daftar Produk</h3>
+                    <div class="item-list" id="productList"></div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="sec-blog">
+                <div class="form-card">
+                    <h3>Tambah Artikel</h3>
+                    <div class="form-group"><label>Judul</label><input type="text" id="edBlogTitle" placeholder="Judul artikel"></div>
+                    <div class="form-group"><label>Konten</label><textarea id="edBlogContent" rows="4" placeholder="Tulis konten artikel..."></textarea></div>
+                    <button class="btn-save" onclick="addArticle()"><i class="fas fa-plus"></i> Tambah</button>
+                </div>
+                <div class="form-card">
+                    <h3>Daftar Artikel</h3>
+                    <div class="item-list" id="articleList"></div>
+                </div>
+            </div>
+
+            <div class="admin-section" id="sec-testimonials">
+                <div class="form-card">
+                    <h3>Tambah Testimonial</h3>
+                    <div class="form-row">
+                        <div class="form-group"><label>Nama</label><input type="text" id="edTestName" placeholder="Nama pelanggan"></div>
+                        <div class="form-group"><label>Asal</label><input type="text" id="edTestRole" placeholder="Jakarta, Surabaya, dll"></div>
+                    </div>
+                    <div class="form-group"><label>Testimonial</label><textarea id="edTestText" rows="2" placeholder="Tulis testimonial..."></textarea></div>
+                    <button class="btn-save" onclick="addTestimonial()"><i class="fas fa-plus"></i> Tambah</button>
+                </div>
+                <div class="form-card">
+                    <h3>Daftar Testimonial</h3>
+                    <div class="item-list" id="testimonialList"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const KEYS = { about:'kkf_about', products:'kkf_products', blog:'kkf_blog', testimonials:'kkf_testi' };
+        const defaults = {
+            about:{ name:'Kohaku Koi Farm', tagline:'Pusat Ikan Koi Premium Terpercaya', desc:'Kami adalah peternak dan supplier ikan koi kualitas juara. Setiap ikan kami rawat dengan standar tertinggi untuk menghasilkan koi dengan warna, bentuk, dan kesehatan prima.' },
+            products:[
+                { name:'Kohaku Premium A', cat:'Kohaku', desc:'Koi Kohaku grade A dengan pola merah-putih sempurna. Ukuran 25-30cm.' },
+                { name:'Kohaku Premium B', cat:'Kohaku', desc:'Koi Kohaku grade B dengan pola menarik. Ukuran 20-25cm.' },
+                { name:'Pakan Premium Warna', cat:'Pakan', desc:'Pakan tinggi spirulina untuk meningkatkan kecerahan warna koi.' }
+            ],
+            blog:[
+                { title:'Panduan Memilih Koi Kohaku Berkualitas', content:'Pelajari cara memilih koi Kohaku dengan pola, warna, dan bentuk tubuh yang sempurna untuk koleksi Anda.' },
+                { title:'Tips Merawat Kolam Koi agar Air Tetap Jernih', content:'Air kolam yang bersih adalah kunci kesehatan koi. Simak tips menjaga kualitas air kolam koi Anda.' }
+            ],
+            testimonials:[
+                { name:'Andi Pratama', role:'Kolektor Koi, Jakarta', text:'Koi Kohaku yang saya beli dari Kohaku Farm kualitasnya luar biasa! Pola merah-putihnya rapi dan sehat.' },
+                { name:'Siti Rahma', role:'Pemilik Kolam Koi, Surabaya', text:'Pelayanan sangat memuaskan! Tim membantu saya memilih koi yang cocok untuk kolam saya.' }
+            ]
+        };
+
+        function getData(key) { var d=localStorage.getItem(key); if(d) return JSON.parse(d); localStorage.setItem(key,JSON.stringify(defaults[key])); return defaults[key]; }
+        function setData(key,val) { localStorage.setItem(key,JSON.stringify(val)); }
+
+        function handleLogin() {
+            if(document.getElementById('loginUser').value==='admin' && document.getElementById('loginPass').value==='admin123') {
+                localStorage.setItem('kkf_admin','true');
+                document.getElementById('loginPage').style.display='none';
+                document.getElementById('dashboard').style.display='flex';
+                loadAll();
+            } else { document.getElementById('loginError').style.display='block'; }
+        }
+        function handleLogout() { localStorage.removeItem('kkf_admin'); document.getElementById('dashboard').style.display='none'; document.getElementById('loginPage').style.display='flex'; }
+        if(localStorage.getItem('kkf_admin')==='true') { document.getElementById('loginPage').style.display='none'; document.getElementById('dashboard').style.display='flex'; loadAll(); }
+
+        document.querySelectorAll('.sidebar-nav a[data-section]').forEach(function(a){
+            a.addEventListener('click',function(e){
+                e.preventDefault();
+                document.querySelectorAll('.sidebar-nav a').forEach(function(l){l.classList.remove('active');});
+                this.classList.add('active');
+                document.querySelectorAll('.admin-section').forEach(function(s){s.classList.remove('active');});
+                document.getElementById('sec-'+this.dataset.section).classList.add('active');
+                document.getElementById('sectionTitle').textContent = this.textContent.trim();
+            });
+        });
+
+        function loadAll() {
+            var about = getData(KEYS.about);
+            document.getElementById('edName').value = about.name;
+            document.getElementById('edTagline').value = about.tagline;
+            document.getElementById('edDesc').value = about.desc;
+            renderProducts(); renderArticles(); renderTestimonials();
+        }
+
+        function saveAbout() {
+            setData(KEYS.about,{ name:document.getElementById('edName').value, tagline:document.getElementById('edTagline').value, desc:document.getElementById('edDesc').value });
+            alert('Tentang berhasil disimpan!');
+        }
+
+        // Products
+        function addProduct() {
+            var name=document.getElementById('edProdName').value.trim(), cat=document.getElementById('edProdCat').value, desc=document.getElementById('edProdDesc').value.trim();
+            if(!name) return alert('Nama produk harus diisi!');
+            var items=getData(KEYS.products); items.push({name:name,cat:cat,desc:desc}); setData(KEYS.products,items);
+            document.getElementById('edProdName').value=''; document.getElementById('edProdDesc').value=''; renderProducts();
+        }
+        function deleteProduct(i) { var items=getData(KEYS.products); items.splice(i,1); setData(KEYS.products,items); renderProducts(); }
+        function renderProducts() {
+            var items=getData(KEYS.products);
+            document.getElementById('productList').innerHTML = items.map(function(item,i){ return '<div class="item-card"><div class="info"><h4>'+item.name+'</h4><p>'+item.cat+' — '+item.desc.substring(0,60)+'...</p></div><div class="actions"><button class="btn-danger" onclick="deleteProduct('+i+')"><i class="fas fa-trash"></i></button></div></div>'; }).join('');
+        }
+
+        // Blog
+        function addArticle() {
+            var t=document.getElementById('edBlogTitle').value.trim(), c=document.getElementById('edBlogContent').value.trim();
+            if(!t||!c) return alert('Judul dan konten harus diisi!');
+            var items=getData(KEYS.blog); items.push({title:t,content:c}); setData(KEYS.blog,items);
+            document.getElementById('edBlogTitle').value=''; document.getElementById('edBlogContent').value=''; renderArticles();
+        }
+        function deleteArticle(i) { var items=getData(KEYS.blog); items.splice(i,1); setData(KEYS.blog,items); renderArticles(); }
+        function renderArticles() {
+            var items=getData(KEYS.blog);
+            document.getElementById('articleList').innerHTML = items.map(function(item,i){ return '<div class="item-card"><div class="info"><h4>'+item.title+'</h4><p>'+item.content.substring(0,80)+'...</p></div><div class="actions"><button class="btn-danger" onclick="deleteArticle('+i+')"><i class="fas fa-trash"></i></button></div></div>'; }).join('');
+        }
+
+        // Testimonials
+        function addTestimonial() {
+            var n=document.getElementById('edTestName').value.trim(), r=document.getElementById('edTestRole').value.trim(), t=document.getElementById('edTestText').value.trim();
+            if(!n||!t) return alert('Nama dan testimonial harus diisi!');
+            var items=getData(KEYS.testimonials); items.push({name:n,role:r,text:t}); setData(KEYS.testimonials,items);
+            document.getElementById('edTestName').value=''; document.getElementById('edTestRole').value=''; document.getElementById('edTestText').value=''; renderTestimonials();
+        }
+        function deleteTestimonial(i) { var items=getData(KEYS.testimonials); items.splice(i,1); setData(KEYS.testimonials,items); renderTestimonials(); }
+        function renderTestimonials() {
+            var items=getData(KEYS.testimonials);
+            document.getElementById('testimonialList').innerHTML = items.map(function(item,i){ return '<div class="item-card"><div class="info"><h4>'+item.name+'</h4><p>'+item.role+' — "'+item.text.substring(0,60)+'..."</p></div><div class="actions"><button class="btn-danger" onclick="deleteTestimonial('+i+')"><i class="fas fa-trash"></i></button></div></div>'; }).join('');
+        }
+
+        setTimeout(function(){ var t=document.getElementById('toast'); t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},6000); },500);
+    </script>
+</body>
+</html>
