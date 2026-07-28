@@ -3,229 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT Cipta Solusi Teknologi — Company Profile</title>
+    <title>NEXUS — Software House</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="logo">CST<span>.</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#hero" class="active">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#services">Layanan</a></li>
-                <li><a href="#stats">Statistik</a></li>
-                <li><a href="#team">Tim</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">NX</div>
+        <nav class="sidebar-nav">
+            <a href="#hero" class="s-link active"><i class="fas fa-home"></i><span>Home</span></a>
+            <a href="#about" class="s-link"><i class="fas fa-info"></i><span>About</span></a>
+            <a href="#work" class="s-link"><i class="fas fa-code"></i><span>Work</span></a>
+            <a href="#contact" class="s-link"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
+        </nav>
+        <div class="sidebar-social">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-dribbble"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
+    </aside>
+
+    <!-- ===== MOBILE NAV ===== -->
+    <nav class="mnav">
+        <span class="mnav-logo">NX</span>
+        <button class="mnav-toggle" id="mnavToggle"><i class="fas fa-bars"></i></button>
     </nav>
+    <div class="mnav-overlay" id="mnavOverlay">
+        <div class="mnav-menu">
+            <button class="mnav-close" id="mnavClose"><i class="fas fa-times"></i></button>
+            <a href="#hero" class="mnav-link">Home</a>
+            <a href="#about" class="mnav-link">About</a>
+            <a href="#work" class="mnav-link">Work</a>
+            <a href="#contact" class="mnav-link">Contact</a>
+        </div>
+    </div>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="hero-slider">
-            <div class="slide active" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
-                <div class="container">
-                    <div class="hero-content">
-                        <span class="hero-badge">Since 2015</span>
-                        <h1>Mitra Digital <span class="text-gradient">Terpercaya</span> Untuk Bisnis Anda</h1>
-                        <p>Kami menghadirkan solusi teknologi inovatif yang membantu perusahaan Anda bertransformasi dan berkembang di era digital.</p>
-                        <div class="hero-cta">
-                            <a href="#contact" class="btn btn-primary">Hubungi Kami <i class="fas fa-arrow-right"></i></a>
-                            <a href="#about" class="btn btn-outline">Tentang Kami</a>
-                        </div>
-                    </div>
+        <div class="hero-grid">
+            <div class="hero-main">
+                <div class="hero-tag">
+                    <span class="tag-dot"></span>
+                    Available for Projects
+                </div>
+                <h1>We Build <span class="neon">Digital</span> Products</h1>
+                <p>Full-cycle software development studio. From idea to launch — we craft web & mobile apps that scale.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Start a Project <i class="fas fa-arrow-right"></i></a>
+                    <a href="#work" class="btn btn-ghost">See Our Work</a>
+                </div>
+                <div class="hero-marquee">
+                    <span>React · Node.js · TypeScript · React · Node.js · TypeScript ·</span>
                 </div>
             </div>
-        </div>
-        <div class="hero-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
+            <div class="hero-aside">
+                <div class="hero-stats-card">
+                    <div class="h-stat"><span class="h-num">50+</span><span class="h-label">Delivered</span></div>
+                    <div class="h-stat"><span class="h-num">8</span><span class="h-label">Years</span></div>
+                    <div class="h-stat"><span class="h-num">30+</span><span class="h-label">Clients</span></div>
+                </div>
+                <div class="hero-code-block">
+                    <div class="code-header"><span class="cd red"></span><span class="cd yellow"></span><span class="cd green"></span></div>
+                    <pre class="code-body"><code><span style="color:#ff79c6">const</span> <span style="color:#50fa7b">nexus</span> = {<br>  <span style="color:#8be9fd">mission</span>: <span style="color:#f1fa8c">"Build great products"</span><br>};</code></pre>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ===== ABOUT ===== -->
     <section class="about" id="about">
-        <div class="container">
-            <div class="about-wrapper">
-                <div class="about-image">
-                    <div class="about-image-grid">
-                        <div class="img-box box-1"></div>
-                        <div class="img-box box-2"></div>
-                        <div class="img-box box-3"></div>
-                        <div class="img-box box-4"></div>
-                    </div>
-                    <div class="about-experience">
-                        <span class="exp-num">10+</span>
-                        <span class="exp-label">Tahun Pengalaman</span>
+        <div class="about-grid">
+            <div class="about-left">
+                <span class="sec-label">/ about</span>
+                <h2>We're a remote team of engineers & designers</h2>
+            </div>
+            <div class="about-right">
+                <p>NEXUS was founded in 2018 with a simple belief: great software comes from great teams. We partner with startups and enterprises to build products that users love.</p>
+                <div class="about-clients">
+                    <span class="clients-title">Trusted by</span>
+                    <div class="clients-row">
+                        <span>TechCorp</span><span>StartupX</span><span>FinFlow</span><span>MediCare</span>
                     </div>
                 </div>
-                <div class="about-content">
-                    <span class="section-tag">Tentang Perusahaan</span>
-                    <h2>Kami Adalah <span class="text-gradient">Inovator Digital</span> Yang Siap Membantu Anda</h2>
-                    <p class="about-desc">PT Cipta Solusi Teknologi didirikan pada tahun 2015 dengan visi menjadi perusahaan teknologi terdepan di Indonesia. Kami telah membantu lebih dari 500 perusahaan dari berbagai industri untuk bertransformasi secara digital.</p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Tim profesional & berpengalaman</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Teknologi terkini & terpercaya</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Dukungan 24/7 untuk client</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Garansi kualitas & tepat waktu</span>
-                        </div>
-                    </div>
-                    <a href="#services" class="btn btn-primary">Jelajahi Layanan <i class="fas fa-arrow-right"></i></a>
-                </div>
+            </div>
+        </div>
+        <div class="about-numbers">
+            <div class="a-num">
+                <span class="a-num-value">50+</span>
+                <span class="a-num-label">Projects Delivered</span>
+            </div>
+            <div class="a-num">
+                <span class="a-num-value">30+</span>
+                <span class="a-num-label">Happy Clients</span>
+            </div>
+            <div class="a-num">
+                <span class="a-num-value">8</span>
+                <span class="a-num-label">Years Experience</span>
+            </div>
+            <div class="a-num">
+                <span class="a-num-value">15</span>
+                <span class="a-num-label">Team Members</span>
             </div>
         </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Layanan</span>
-                <h2>Solusi <span class="text-gradient">Lengkap</span> Untuk Kebutuhan Digital Anda</h2>
-                <p>Dari konsultasi hingga implementasi — kami siap membantu setiap tahap transformasi digital bisnis Anda.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-globe"></i></div>
-                    <h3>Web Development</h3>
-                    <p>Website company profile, landing page, portal berita, dan aplikasi web kustom sesuai kebutuhan.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+    <!-- ===== WORK ===== -->
+    <section class="work" id="work">
+        <span class="sec-label">/ work</span>
+        <h2 class="work-title">Selected <span class="neon">Projects</span></h2>
+        <div class="work-list">
+            <div class="work-card">
+                <div class="wc-left">
+                    <span class="wc-year">2025</span>
+                    <h3>FinFlow Dashboard</h3>
+                    <p>Real-time financial analytics platform with AI-powered insights.</p>
+                    <div class="wc-tags">
+                        <span>React</span><span>Node.js</span><span>AI</span>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Mobile Apps</h3>
-                    <p>Aplikasi Android dan iOS native dengan performa tinggi dan user experience yang optimal.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-cloud"></i></div>
-                    <h3>Cloud Solution</h3>
-                    <p>Infrastruktur cloud yang scalable, aman, dan hemat biaya untuk menunjang operasional bisnis.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>AI & Automation</h3>
-                    <p>Solusi kecerdasan buatan dan otomatisasi untuk meningkatkan efisiensi dan produktivitas.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Cyber Security</h3>
-                    <p>Audit keamanan, penetration testing, dan implementasi sistem keamanan untuk melindungi data Anda.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>IT Consulting</h3>
-                    <p>Konsultasi strategi IT, perencanaan infrastruktur, dan roadmap transformasi digital.</p>
-                    <a href="#" class="service-link">Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                <div class="wc-right">
+                    <div class="wc-img" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">📊</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== STATS ===== -->
-    <section class="stats" id="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-num" data-target="500">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Client</span>
+            <div class="work-card">
+                <div class="wc-left">
+                    <span class="wc-year">2024</span>
+                    <h3>MediCare App</h3>
+                    <p>Telemedicine platform connecting patients with healthcare providers.</p>
+                    <div class="wc-tags">
+                        <span>React Native</span><span>TypeScript</span><span>Firebase</span>
+                    </div>
                 </div>
-                <div class="stat-card">
-                    <span class="stat-num" data-target="1200">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Project</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num" data-target="50">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Tim Ahli</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num" data-target="10">0</span>
-                    <span class="stat-plus">+</span>
-                    <span class="stat-label">Tahun</span>
+                <div class="wc-right">
+                    <div class="wc-img" style="background:linear-gradient(135deg,#2d1b69,#1a1a2e)">🏥</div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ===== TEAM ===== -->
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Tim Kami</span>
-                <h2>Para Ahli Di <span class="text-gradient">Balik Layar</span></h2>
-                <p>Tim yang terdiri dari profesional berpengalaman di bidangnya masing-masing.</p>
-            </div>
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
-                        <span>AP</span>
-                    </div>
-                    <h3>Andi Pratama</h3>
-                    <span class="team-role">CEO & Founder</span>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+            <div class="work-card">
+                <div class="wc-left">
+                    <span class="wc-year">2024</span>
+                    <h3>EcoTrack SaaS</h3>
+                    <p>Sustainability tracking platform for enterprise carbon footprint.</p>
+                    <div class="wc-tags">
+                        <span>Vue.js</span><span>Python</span><span>Docker</span>
                     </div>
                 </div>
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
-                        <span>SR</span>
-                    </div>
-                    <h3>Siti Rahma</h3>
-                    <span class="team-role">CTO</span>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                        <span>BS</span>
-                    </div>
-                    <h3>Budi Santoso</h3>
-                    <span class="team-role">Lead Designer</span>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-avatar" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
-                        <span>DW</span>
-                    </div>
-                    <h3>Dewi Lestari</h3>
-                    <span class="team-role">Project Manager</span>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                <div class="wc-right">
+                    <div class="wc-img" style="background:linear-gradient(135deg,#0f3443,#1a1a2e)">🌱</div>
                 </div>
             </div>
         </div>
@@ -233,90 +160,41 @@
 
     <!-- ===== CONTACT ===== -->
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
+        <div class="contact-grid">
+            <div class="contact-left">
+                <span class="sec-label">/ contact</span>
+                <h2>Let's <span class="neon">Talk</span></h2>
+                <p class="contact-desc">Have a project in mind? We'd love to hear about it.</p>
                 <div class="contact-info">
-                    <span class="section-tag">Kontak</span>
-                    <h2>Mari <span class="text-gradient">Bekerja Sama</span></h2>
-                    <p>Hubungi kami untuk konsultasi gratis dan diskusi tentang kebutuhan digital bisnis Anda.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span>Alamat</span>
-                                <strong>Jl. Sudirman No. 123, Jakarta</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone-alt"></i>
-                            <div>
-                                <span>Telepon</span>
-                                <strong>+62 21 1234 5678</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span>Email</span>
-                                <strong>info@cst.co.id</strong>
-                            </div>
-                        </div>
+                    <div class="ci-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@nexus.dev</span>
+                    </div>
+                    <div class="ci-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <input type="text" placeholder="Nama Lengkap" required>
-                        <input type="email" placeholder="Email Perusahaan" required>
-                    </div>
-                    <input type="text" placeholder="Subjek">
-                    <textarea rows="4" placeholder="Deskripsikan kebutuhan Anda..."></textarea>
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        Kirim Pesan <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
             </div>
+            <form class="contact-form" id="contactForm">
+                <div class="cf-row">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <input type="text" placeholder="Project Type">
+                <textarea rows="3" placeholder="Tell us about your project"></textarea>
+                <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+            </form>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>CST<span>.</span></h3>
-                    <p>Solusi teknologi inovatif untuk transformasi digital bisnis Anda sejak 2015.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Perusahaan</h4>
-                    <ul>
-                        <li><a href="#about">Tentang</a></li>
-                        <li><a href="#services">Layanan</a></li>
-                        <li><a href="#team">Tim</a></li>
-                        <li><a href="#contact">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">Cloud Solution</a></li>
-                        <li><a href="#">AI & Automation</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Ikuti Kami</h4>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 PT Cipta Solusi Teknologi. Demo Company Profile.</p>
-            </div>
+        <span>&copy; 2026 NEXUS. All rights reserved.</span>
+        <div class="footer-links">
+            <a href="#">Twitter</a>
+            <a href="#">GitHub</a>
+            <a href="#">Dribbble</a>
         </div>
     </footer>
 

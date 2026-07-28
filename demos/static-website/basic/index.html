@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakso Mbek — Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <a href="#" class="logo">Bakso<span>Mbek</span></a>
+            <div class="nav-links">
+                <a href="#hero" class="active">Beranda</a>
+                <a href="#menu">Menu</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <button class="hamburger" id="hamburger">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="tag">Halal & Homemade</span>
+                <h1>Bakso <span class="highlight">Terenak</span> Sejak 1995</h1>
+                <p>Bakso sapi asli dengan resep turun-temurun. Daging segar setiap hari, tanpa pengawet. Cobain juga varian baru kami!</p>
+                <div class="hero-cta">
+                    <a href="#menu" class="btn">Lihat Menu</a>
+                    <a href="#contact" class="btn btn-outline">Pesan Sekarang</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <div class="img-circle">🍜</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2>Menu <span class="highlight">Kami</span></h2>
+            <p class="subtitle">Semua dibuat dari bahan segar dan bumbu pilihan</p>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-emoji">🍲</div>
+                    <h3>Bakso Original</h3>
+                    <p>Bakso sapi ukuran jumbo dengan kuah kaldu sapi bening.</p>
+                    <span class="price">Rp 15K</span>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-emoji">🌶️</div>
+                    <h3>Bakso Ceker</h3>
+                    <p>Bakso lengkap dengan ceker ayam, sambal, dan pangsit.</p>
+                    <span class="price">Rp 20K</span>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-emoji">🧀</div>
+                    <h3>Bakso Keju</h3>
+                    <p>Varian terbaru! Bakso isi keju mozzarella meleleh.</p>
+                    <span class="price">Rp 25K</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Hubungi <span class="highlight">Kami</span></h2>
+                <p>📍 Jl. Merdeka No. 45, Yogyakarta</p>
+                <p>📞 0812-3456-7890</p>
+                <p>🕐 08:00 - 21:00 (Senin - Sabtu)</p>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <input type="text" placeholder="Nama" required>
+                <input type="text" placeholder="Pesanan">
+                <textarea rows="3" placeholder="Catatan"></textarea>
+                <button type="submit" class="btn">Kirim Pesanan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Bakso Mbek. Demo Basic.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -905,6 +905,20 @@ img { max-width: 100%; display: block; }
     color: var(--text-muted);
 }
 
+.btn-demo-card {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.btn-demo-card i {
+    font-size: 14px;
+}
+
 .btn-pricing {
     width: 100%;
     justify-content: center;

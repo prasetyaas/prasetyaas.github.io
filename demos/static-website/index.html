@@ -3,438 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexusStudio — Landing Page Premium</title>
+    <title>RAWMOTION — Creative Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ===== PRELOADER ===== -->
-    <div class="preloader" id="preloader">
-        <div class="loader-ring"></div>
-    </div>
-
-    <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="#" class="logo">Nexus<span>Studio</span></a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#hero" class="active">Beranda</a></li>
-                <li><a href="#features">Fitur</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonials">Testimonial</a></li>
-                <li><a href="#pricing">Harga</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="#contact" class="btn-nav">Mulai Project</a>
-                <div class="hamburger" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">RAWMOTION</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link nav-cta">Get in Touch</a>
             </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span><span></span>
+            </button>
         </div>
     </nav>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-label">Creative Studio</span>
+            <h1>We Make <span class="text-stroke">Ideas</span> Move</h1>
+            <p>Motion design, branding, and visual storytelling for brands that want to stand out.</p>
+            <a href="#work" class="btn-hero">See Our Work <i class="fas fa-arrow-right"></i></a>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    Kepercayaan 200+ Client
-                </div>
-                <h1 class="hero-title">
-                    Kami Bangun <span class="text-gradient">Brand Digital</span><br>
-                    Yang <span class="text-highlight">Berkembang Pesat</span>
-                </h1>
-                <p class="hero-desc">
-                    Dari konsep hingga eksekusi — kami membantu bisnis Anda tampil profesional 
-                    di era digital dengan desain yang memukau dan teknologi yang handal.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">
-                        Konsultasi Gratis
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#portfolio" class="btn btn-play">
-                        <span class="play-icon"><i class="fas fa-play"></i></span>
-                        Lihat Portfolio
-                    </a>
-                </div>
-                <div class="hero-metrics">
-                    <div class="metric-item">
-                        <span class="metric-num" data-target="500">0</span>
-                        <span class="metric-plus">+</span>
-                        <span class="metric-label">Project Selesai</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-num" data-target="200">0</span>
-                        <span class="metric-plus">+</span>
-                        <span class="metric-label">Client Puas</span>
-                    </div>
-                    <div class="metric-item">
-                        <span class="metric-num" data-target="8">0</span>
-                        <span class="metric-plus">+</span>
-                        <span class="metric-label">Tahun Pengalaman</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="mockup-card">
-                    <div class="mockup-header">
-                        <span class="mockup-dot red"></span>
-                        <span class="mockup-dot yellow"></span>
-                        <span class="mockup-dot green"></span>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="mockup-line w-80"></div>
-                        <div class="mockup-line w-60"></div>
-                        <div class="mockup-line w-90"></div>
-                        <div class="mockup-line w-50"></div>
-                        <div class="mockup-line w-70"></div>
-                    </div>
-                </div>
-                <div class="floating-card card-1">
-                    <i class="fas fa-rocket"></i>
-                    <span>Growth +40%</span>
-                </div>
-                <div class="floating-card card-2">
-                    <i class="fas fa-chart-line"></i>
-                    <span>SEO Top</span>
-                </div>
-            </div>
-        </div>
-        <div class="hero-wave">
-            <svg viewBox="0 0 1440 120" fill="none"><path d="M0 60L60 55C120 50 240 40 360 45C480 50 600 70 720 75C840 80 960 70 1080 60C1200 50 1320 40 1380 35L1440 30V120H0V60Z" fill="var(--bg-primary)"/></svg>
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
     </section>
 
-    <!-- ===== FEATURES ===== -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Keunggulan</span>
-                <h2>Mengapa Memilih <span class="text-gradient">Kami?</span></h2>
-                <p>Kami menggabungkan kreativitas desain dengan kekuatan teknologi untuk hasil yang maksimal.</p>
+    <!-- ===== WORK ===== -->
+    <section class="work" id="work">
+        <div class="work-header">
+            <span class="section-number">01</span>
+            <h2>Selected <span class="text-stroke">Projects</span></h2>
+        </div>
+        <div class="work-grid">
+            <a href="#" class="work-item">
+                <div class="work-img" style="background:#2d2d2d">
+                    <span class="work-year">2025</span>
+                    <div class="work-info">
+                        <h3>Nike Air Max</h3>
+                        <span>Motion Campaign</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="work-item">
+                <div class="work-img" style="background:#1a1a1a">
+                    <span class="work-year">2025</span>
+                    <div class="work-info">
+                        <h3>Spotify Wrapped</h3>
+                        <span>Brand Identity</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="work-item">
+                <div class="work-img" style="background:#333">
+                    <span class="work-year">2024</span>
+                    <div class="work-info">
+                        <h3>Beats by Dre</h3>
+                        <span>Product Film</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="work-item">
+                <div class="work-img" style="background:#222">
+                    <span class="work-year">2024</span>
+                    <div class="work-info">
+                        <h3>Adobe MAX</h3>
+                        <span>Keynote Visuals</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div class="about-left">
+                <span class="section-number">02</span>
+                <h2>We're a <span class="text-stroke">creative</span> studio based in Jakarta</h2>
             </div>
-            <div class="features-grid">
-                <div class="feature-card" data-delay="0">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+            <div class="about-right">
+                <p class="about-desc">We craft visual experiences that connect brands with culture. From motion design to brand identity, we help you tell stories that matter.</p>
+                <div class="about-stats">
+                    <div class="about-stat">
+                        <span class="stat-num">120+</span>
+                        <span class="stat-label">Projects</span>
                     </div>
-                    <h3>Performa Super Cepat</h3>
-                    <p>Optimasi kecepatan loading membuat website Anda ngebut di segala perangkat dan koneksi.</p>
-                    <div class="feature-stat">
-                        <span class="stat-value">98<small>%</small></span>
-                        <span class="stat-label">PageSpeed Score</span>
+                    <div class="about-stat">
+                        <span class="stat-num">8</span>
+                        <span class="stat-label">Years</span>
                     </div>
-                </div>
-                <div class="feature-card" data-delay="100">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-screen"></i>
-                    </div>
-                    <h3>Fully Responsive</h3>
-                    <p>Tampil sempurna di desktop, tablet, maupun smartphone — tanpa ada yang terpotong.</p>
-                    <div class="feature-stat">
-                        <span class="stat-value">100<small>%</small></span>
-                        <span class="stat-label">Device Friendly</span>
-                    </div>
-                </div>
-                <div class="feature-card" data-delay="200">
-                    <div class="feature-icon">
-                        <i class="fas fa-magnifying-glass-chart"></i>
-                    </div>
-                    <h3>SEO Optimized</h3>
-                    <p>Struktur kode yang ramah SEO membantu website Anda muncul di halaman pertama Google.</p>
-                    <div class="feature-stat">
-                        <span class="stat-value">92<small>%</small></span>
-                        <span class="stat-label">SEO Readiness</span>
+                    <div class="about-stat">
+                        <span class="stat-num">40+</span>
+                        <span class="stat-label">Clients</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== PORTFOLIO ===== -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Portfolio</span>
-                <h2>Project <span class="text-gradient">Terbaru</span></h2>
-                <p>Beberapa hasil karya yang telah kami buat untuk client dari berbagai industri.</p>
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="services-header">
+            <span class="section-number">03</span>
+            <h2>What We <span class="text-stroke">Do</span></h2>
+        </div>
+        <div class="services-list">
+            <div class="service-item">
+                <span class="service-num">01</span>
+                <h3>Motion Design</h3>
+                <p>Explainer videos, product demos, social content, and brand films that captivate.</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" alt="Project 1">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-cat">Company Profile</span>
-                            <h3>PT Teknologi Masa Depan</h3>
-                            <p>Website profil perusahaan dengan desain modern dan animasi interaktif.</p>
-                            <a href="#" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Project 2">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-cat">E-Commerce</span>
-                            <h3>ShopMart Online</h3>
-                            <p>Toko online dengan fitur lengkap, payment gateway, dan dashboard admin.</p>
-                            <a href="#" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?w=600&q=80" alt="Project 3">
-                        <div class="portfolio-overlay">
-                            <span class="portfolio-cat">Landing Page</span>
-                            <h3>StartupLaunch</h3>
-                            <p>Landing page high-conversion untuk campaign peluncuran produk baru.</p>
-                            <a href="#" class="portfolio-link">Lihat Detail <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="service-item">
+                <span class="service-num">02</span>
+                <h3>Brand Identity</h3>
+                <p>Visual identity systems, logo design, brand guidelines, and packaging.</p>
             </div>
-            <div class="portfolio-cta">
-                <a href="#" class="btn btn-outline">Lihat Semua Project <i class="fas fa-arrow-right"></i></a>
+            <div class="service-item">
+                <span class="service-num">03</span>
+                <h3>Art Direction</h3>
+                <p>Creative direction, mood boards, campaign visuals, and photo/video production.</p>
             </div>
         </div>
     </section>
 
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Testimonial</span>
-                <h2>Apa Kata <span class="text-gradient">Client?</span></h2>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Hasilnya luar biasa! Website company profile kami naik peringkat di Google hanya dalam 2 bulan. Desainnya modern dan responsif banget."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/60?img=11" alt="Andi" class="author-avatar">
-                        <div>
-                            <h4>Andi Pratama</h4>
-                            <span>CEO, PT Maju Bersama</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Sistem inventory yang dibuat sangat membantu operasional kami. Fitur dashboard dan laporan real-time-nya sangat powerful!"</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/60?img=5" alt="Rina" class="author-avatar">
-                        <div>
-                            <h4>Rina Wijaya</h4>
-                            <span>Manager, Toko ABC</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Professional banget! Landing page yang dibuat meningkatkan conversion rate bisnis kami hingga 40% dalam sebulan pertama."</p>
-                    <div class="testimonial-author">
-                        <img src="https://i.pravatar.cc/60?img=12" alt="Budi" class="author-avatar">
-                        <div>
-                            <h4>Budi Santoso</h4>
-                            <span>Founder, StartupX</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PRICING ===== -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Paket Harga</span>
-                <h2>Pilih Paket <span class="text-gradient">Terbaik</span></h2>
-                <p>Harga transparan tanpa biaya tersembunyi. Semua paket sudah termasuk konsultasi.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-badge">Basic</div>
-                    <div class="pricing-header">
-                        <h3>Landing Page</h3>
-                        <div class="pricing-price">
-                            <span class="price">Rp 150K</span>
-                            <span class="period">/ mulai</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check-circle"></i> 1 Halaman Utama</li>
-                        <li><i class="fas fa-check-circle"></i> Desain Responsif</li>
-                        <li><i class="fas fa-check-circle"></i> Form Kontak</li>
-                        <li><i class="fas fa-check-circle"></i> Animasi Basic</li>
-                        <li class="disabled"><i class="fas fa-times-circle"></i> SEO Optimization</li>
-                        <li class="disabled"><i class="fas fa-times-circle"></i> Admin Panel</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-pricing">Pilih Paket</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="pricing-badge popular">Terpopuler</div>
-                    <div class="pricing-header">
-                        <h3>Multi-Page</h3>
-                        <div class="pricing-price">
-                            <span class="price">Rp 350K</span>
-                            <span class="period">/ mulai</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check-circle"></i> 3-5 Halaman</li>
-                        <li><i class="fas fa-check-circle"></i> Desain Premium</li>
-                        <li><i class="fas fa-check-circle"></i> Animasi Smooth</li>
-                        <li><i class="fas fa-check-circle"></i> Galeri Portfolio</li>
-                        <li><i class="fas fa-check-circle"></i> SEO Dasar</li>
-                        <li><i class="fas fa-check-circle"></i> Integrasi Sosmed</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-pricing">Pilih Paket</a>
-                </div>
-                <div class="pricing-card">
-                    <div class="pricing-badge">Premium</div>
-                    <div class="pricing-header">
-                        <h3>Company Pro</h3>
-                        <div class="pricing-price">
-                            <span class="price">Rp 500K</span>
-                            <span class="period">/ mulai</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check-circle"></i> 5-10 Halaman</li>
-                        <li><i class="fas fa-check-circle"></i> Desain Eksklusif</li>
-                        <li><i class="fas fa-check-circle"></i> SEO Lengkap</li>
-                        <li><i class="fas fa-check-circle"></i> CMS Ringan</li>
-                        <li><i class="fas fa-check-circle"></i> Google Analytics</li>
-                        <li><i class="fas fa-check-circle"></i> Blog/News</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-pricing">Pilih Paket</a>
-                </div>
-            </div>
-            <p class="pricing-note">* Hosting & domain tidak termasuk. Harga dapat menyesuaikan kebutuhan.</p>
-        </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <span class="section-tag">Kontak</span>
-                    <h2>Mari <span class="text-gradient">Diskusikan</span> Project Anda</h2>
-                    <p>Ada ide? Konsultasi gratis! Tim kami siap membantu mewujudkan website impian Anda.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <span>WhatsApp</span>
-                                <strong>+62 812-9857-8909</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="far fa-envelope"></i>
-                            <div>
-                                <span>Email</span>
-                                <strong>prasetya.a.saputra@gmail.com</strong>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span>Lokasi</span>
-                                <strong>Indonesia</strong>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <input type="text" placeholder="Nama Anda" required>
-                        <input type="email" placeholder="Email Anda" required>
-                    </div>
-                    <select>
-                        <option value="">Pilih Layanan</option>
-                        <option>Landing Page</option>
-                        <option>Company Profile</option>
-                        <option>E-Commerce</option>
-                        <option>Custom Web App</option>
-                    </select>
-                    <textarea rows="4" placeholder="Ceritakan project Anda..."></textarea>
-                    <button type="submit" class="btn btn-primary btn-submit">
-                        Kirim Pesan <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
+    <!-- ===== CTA ===== -->
+    <section class="cta" id="contact">
+        <div class="cta-inner">
+            <h2>Let's <span class="text-stroke">Create</span> Something</h2>
+            <p>Ready to bring your vision to life? We'd love to hear from you.</p>
+            <a href="mailto:hello@rawmotion.studio" class="btn-hero">hello@rawmotion.studio <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>Nexus<span>Studio</span></h3>
-                    <p>Membangun solusi digital inovatif untuk bisnis Anda sejak 2018.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Navigasi</h4>
-                    <ul>
-                        <li><a href="#hero">Beranda</a></li>
-                        <li><a href="#features">Fitur</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#pricing">Harga</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Layanan</h4>
-                    <ul>
-                        <li><a href="#">Static Website</a></li>
-                        <li><a href="#">Company Profile</a></li>
-                        <li><a href="#">Management System</a></li>
-                        <li><a href="#">E-Commerce</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li><a href="#">+62 812-9857-8909</a></li>
-                        <li><a href="#">prasetya.a.saputra@gmail.com</a></li>
-                        <li><a href="#">Indonesia</a></li>
-                    </ul>
-                </div>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <strong>RAWMOTION</strong>
+                <span>&copy; 2026</span>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 NexusStudio. Demo Static Website — All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
         </div>
     </footer>
