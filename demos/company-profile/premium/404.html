@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script>
+        // 404.html fallback for GitHub Pages clean URLs
+        // When user visits /about directly, GitHub Pages serves 404.html
+        // This script redirects to the actual .html file
+        (function() {
+            var path = window.location.pathname;
+            // Get the base path relative to premium directory
+            var premiumIndex = path.indexOf('/demos/company-profile/premium');
+            if (premiumIndex === -1) {
+                // Try to find the page name from the path
+                var segments = path.split('/').filter(Boolean);
+                var lastSegment = segments[segments.length - 1] || '';
+                
+                // Map of known routes
+                var routes = {
+                    '': 'index.html',
+                    'index': 'index.html',
+                    'about': 'about.html',
+                    'products': 'products.html',
+                    'product-detail': 'product-detail.html',
+                    'portfolio': 'portfolio.html',
+                    'blog': 'blog.html',
+                    'blog-post': 'blog-post.html',
+                    'testimonials': 'testimonials.html',
+                    'contact': 'contact.html',
+                    'faq': 'faq.html',
+                    'admin': 'admin/index.html'
+                };
+                
+                if (routes[lastSegment]) {
+                    window.location.replace(routes[lastSegment]);
+                } else if (lastSegment) {
+                    // Try with .html extension
+                    window.location.replace(lastSegment + '.html');
+                } else {
+                    window.location.replace('index.html');
+                }
+            } else {
+                var relativePath = path.substring(premiumIndex + '/demos/company-profile/premium'.length);
+                var segments = relativePath.split('/').filter(Boolean);
+                var lastSegment = segments[segments.length - 1] || '';
+                
+                var routes = {
+                    '': 'index.html',
+                    'index': 'index.html',
+                    'about': 'about.html',
+                    'products': 'products.html',
+                    'product-detail': 'product-detail.html',
+                    'portfolio': 'portfolio.html',
+                    'blog': 'blog.html',
+                    'blog-post': 'blog-post.html',
+                    'testimonials': 'testimonials.html',
+                    'contact': 'contact.html',
+                    'faq': 'faq.html',
+                    'admin': 'admin/index.html'
+                };
+                
+                if (routes[lastSegment]) {
+                    window.location.replace(routes[lastSegment]);
+                } else if (lastSegment) {
+                    window.location.replace(lastSegment + '.html');
+                } else {
+                    window.location.replace('index.html');
+                }
+            }
+        })();
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html>
