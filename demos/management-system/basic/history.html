@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History - Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">MS</div>
+        <div class="sidebar-brand">Management<span>System</span></div>
+        <button class="sidebar-close" id="sidebarClose">&times;</button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-label">Menu</div>
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span></a>
+        <div class="nav-label">Transaksi</div>
+        <a href="sales.html" class="nav-item" data-page="sales"><i class="bi bi-cart-plus"></i> <span>Penjualan</span></a>
+        <a href="stock.html" class="nav-item" data-page="stock"><i class="bi bi-box-seam"></i> <span>Stok</span></a>
+        <a href="history.html" class="nav-item active" data-page="history"><i class="bi bi-clock-history"></i> <span>History</span></a>
+        <div class="nav-label">Data</div>
+        <a href="products.html" class="nav-item" data-page="products"><i class="bi bi-boxes"></i> <span>Master Data</span></a>
+        <a href="report.html" class="nav-item" data-page="report"><i class="bi bi-file-earmark-bar-graph"></i> <span>Report</span></a>
+        <div class="nav-label">Lainnya</div>
+        <a href="users.html" class="nav-item" data-page="users"><i class="bi bi-people"></i> <span>Users</span></a>
+        <a href="profile.html" class="nav-item" data-page="profile"><i class="bi bi-person-circle"></i> <span>Profile</span></a>
+        <a href="setting.html" class="nav-item" data-page="setting"><i class="bi bi-gear"></i> <span>Setting</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="userAvatar">U</div>
+          <div class="user-info">
+            <strong class="user-name" id="userName">User</strong>
+            <span class="user-role" id="userRole">Role</span>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-ghost" id="logoutBtn" style="color:var(--danger);margin-top:8px;width:100%;"><i class="bi bi-box-arrow-right"></i> Keluar</button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main">
+      <header class="navbar-top">
+        <button class="navbar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+        <div class="navbar-title">History <span>Transaksi</span></div>
+        <div class="navbar-spacer"></div>
+      </header>
+
+      <div class="content">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Home</a> <i class="bi bi-chevron-right"></i> <span>History</span>
+        </div>
+
+        <div class="page-header">
+          <div>
+            <h2>History Transaksi</h2>
+            <p>Semua aktivitas penjualan dan stok</p>
+          </div>
+          <div class="page-actions">
+            <select class="form-control" id="historyFilter" onchange="renderHistory()" style="width:auto;min-width:160px;">
+              <option value="all">Semua Transaksi</option>
+              <option value="sale">Penjualan</option>
+              <option value="stock">Stok Masuk</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid" id="historyStats"></div>
+
+        <!-- Table -->
+        <div class="card">
+          <div class="card-header">
+            <h3>Riwayat Transaksi</h3>
+            <span class="text-muted" id="historyCount">0 transaksi</span>
+          </div>
+          <div class="card-body" style="padding:0;">
+            <div class="table-wrap">
+              <table class="table" id="historyTable">
+                <thead>
+                  <tr><th>Tanggal</th><th>Tipe</th><th>Produk</th><th>Jumlah</th><th>Total</th><th>Keterangan</th></tr>
+                </thead>
+                <tbody id="historyTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>&copy; 2026 Management System Demo</span>
+        <a href="../../index.html">Kembali ke Portfolio</a>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!checkAuth()) return;
+      loadAllData().then(() => {
+        renderHistory();
+      });
+    });
+
+    function renderHistory() {
+      const filter = document.getElementById('historyFilter').value;
+      const sales = AppState.sales.map(s => ({ ...s, type: 'sale' }));
+      const stocks = AppState.stocks.map(s => ({ ...s, type: 'stock', total: 0, price: 0 }));
+
+      let all = [...sales, ...stocks].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      if (filter === 'sale') all = all.filter(t => t.type === 'sale');
+      if (filter === 'stock') all = all.filter(t => t.type === 'stock');
+
+      document.getElementById('historyCount').textContent = all.length + ' transaksi';
+
+      // Stats
+      const totalSales = all.filter(t => t.type === 'sale').reduce((s, t) => s + (t.total || 0), 0);
+      const totalQty = all.reduce((s, t) => s + (t.qty || 0), 0);
+      document.getElementById('historyStats').innerHTML = `
+        <div class="stat-card fade-in">
+          <div class="stat-icon icon-primary"><i class="bi bi-arrow-left-right"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Total Transaksi</span>
+            <span class="stat-value">${all.length}</span>
+          </div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-icon icon-success"><i class="bi bi-box"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Total Qty</span>
+            <span class="stat-value">${totalQty}</span>
+          </div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-icon icon-warning"><i class="bi bi-currency-dollar"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Total Penjualan</span>
+            <span class="stat-value">${formatCurrency(totalSales)}</span>
+          </div>
+        </div>
+        <div class="stat-card fade-in">
+          <div class="stat-icon icon-info"><i class="bi bi-cart"></i></div>
+          <div class="stat-body">
+            <span class="stat-label">Penjualan</span>
+            <span class="stat-value">${all.filter(t => t.type === 'sale').length}</span>
+          </div>
+        </div>
+      `;
+
+      const table = document.getElementById('historyTableBody');
+      if (all.length === 0) {
+        table.innerHTML = '<tr><td colspan="6" class="text-center" style="padding:32px;color:var(--text-3);">Belum ada transaksi</td></tr>';
+        return;
+      }
+      table.innerHTML = all.map(t => {
+        const typeLabel = t.type === 'sale' ? '<span class="badge badge-danger">Penjualan</span>' : '<span class="badge badge-success">Stok Masuk</span>';
+        const qtyDisplay = t.type === 'stock' ? '<span class="stock-ok">+' + t.qty + '</span>' : t.qty;
+        const totalDisplay = t.type === 'sale' ? formatCurrency(t.total) : '-';
+        return `
+          <tr>
+            <td style="font-size:12px;color:var(--text-3);">${formatDateTime(t.date)}</td>
+            <td>${typeLabel}</td>
+            <td><strong>${t.productName}</strong></td>
+            <td>${qtyDisplay}</td>
+            <td style="font-weight:600;">${totalDisplay}</td>
+            <td style="font-size:12px;color:var(--text-3);">${t.note || '-'}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>

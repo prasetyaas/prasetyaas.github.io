@@ -1,0 +1,12 @@
+[
+  {"id":1,"icon":"bell","type":"warning","title":"Stok Menipis","message":"Kopi Arabika Gayo 250gr tersisa 8 pack. Segera lakukan restok.","time":"1 jam lalu","read":false,"category":"System"},
+  {"id":2,"icon":"shopping-cart","type":"info","title":"Pesanan Baru","message":"Pesanan dari PT Maju Jaya sebesar Rp 37.000.000 telah masuk.","time":"2 jam lalu","read":false,"category":"Transaction"},
+  {"id":3,"icon":"check-circle","type":"success","title":"Pembayaran Diterima","message":"Pembayaran dari CV Sukses Abadi sebesar Rp 825.000 telah dikonfirmasi.","time":"5 jam lalu","read":true,"category":"Transaction"},
+  {"id":4,"icon":"alert-triangle","type":"warning","title":"Batas Waktu","message":"Pesanan TRX-006 sudah melewati batas waktu pembayaran.","time":"1 hari lalu","read":false,"category":"System"},
+  {"id":5,"icon":"user-plus","type":"info","title":"Pengguna Baru","message":"Staff baru telah terdaftar: Ani Wijaya - Customer Service.","time":"2 hari lalu","read":true,"category":"System"},
+  {"id":6,"icon":"file-text","type":"success","title":"Laporan Siap","message":"Laporan bulan Juni 2026 telah siap diunduh.","time":"3 hari lalu","read":true,"category":"Report"},
+  {"id":7,"icon":"refresh-cw","type":"info","title":"Update Sistem","message":"Sistem akan diupdate pada pukul 02:00 WIB malam ini.","time":"3 hari lalu","read":true,"category":"System"},
+  {"id":8,"icon":"truck","type":"success","title":"Pengiriman","message":"Barang pesanan TRX-008 telah dikirim ke alamat tujuan.","time":"4 hari lalu","read":true,"category":"Transaction"},
+  {"id":9,"icon":"x-circle","type":"danger","title":"Pesanan Dibatalkan","message":"Pesanan TRX-010 dibatalkan oleh customer.","time":"5 hari lalu","read":true,"category":"Transaction"},
+  {"id":10,"icon":"package","type":"info","title":"Produk Baru","message":"24 produk telah terdaftar di sistem.","time":"6 hari lalu","read":true,"category":"System"}
+]

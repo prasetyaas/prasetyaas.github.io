@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting - Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">MS</div>
+        <div class="sidebar-brand">Management<span>System</span></div>
+        <button class="sidebar-close" id="sidebarClose">&times;</button>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-label">Menu</div>
+        <a href="dashboard.html" class="nav-item" data-page="dashboard"><i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span></a>
+        <div class="nav-label">Transaksi</div>
+        <a href="sales.html" class="nav-item" data-page="sales"><i class="bi bi-cart-plus"></i> <span>Penjualan</span></a>
+        <a href="stock.html" class="nav-item" data-page="stock"><i class="bi bi-box-seam"></i> <span>Stok</span></a>
+        <a href="history.html" class="nav-item" data-page="history"><i class="bi bi-clock-history"></i> <span>History</span></a>
+        <div class="nav-label">Data</div>
+        <a href="products.html" class="nav-item" data-page="products"><i class="bi bi-boxes"></i> <span>Master Data</span></a>
+        <a href="report.html" class="nav-item" data-page="report"><i class="bi bi-file-earmark-bar-graph"></i> <span>Report</span></a>
+        <div class="nav-label">Lainnya</div>
+        <a href="users.html" class="nav-item" data-page="users"><i class="bi bi-people"></i> <span>Users</span></a>
+        <a href="profile.html" class="nav-item" data-page="profile"><i class="bi bi-person-circle"></i> <span>Profile</span></a>
+        <a href="setting.html" class="nav-item active" data-page="setting"><i class="bi bi-gear"></i> <span>Setting</span></a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="user-avatar" id="userAvatar">U</div>
+          <div class="user-info">
+            <strong class="user-name" id="userName">User</strong>
+            <span class="user-role" id="userRole">Role</span>
+          </div>
+        </div>
+        <button class="btn btn-sm btn-ghost" id="logoutBtn" style="color:var(--danger);margin-top:8px;width:100%;">
+          <i class="bi bi-box-arrow-right"></i> Keluar
+        </button>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main">
+      <header class="navbar-top">
+        <button class="navbar-toggle" id="sidebarToggle">
+          <i class="bi bi-list"></i>
+        </button>
+        <div class="navbar-title">Pengaturan <span>Sistem</span></div>
+        <div class="navbar-spacer"></div>
+        <div class="navbar-right">
+          <button class="navbar-btn" onclick="window.location.href='setting.html'" data-tooltip="Pengaturan">
+            <i class="bi bi-gear"></i>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="breadcrumb">
+          <a href="dashboard.html">Home</a>
+          <i class="bi bi-chevron-right"></i>
+          <span>Setting</span>
+        </div>
+
+        <div class="page-header">
+          <div>
+            <h2>Pengaturan</h2>
+            <p>Konfigurasi sistem dan preferensi</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <!-- General Settings -->
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="bi bi-sliders" style="color:var(--primary)"></i> Umum</h3>
+            </div>
+            <div class="card-body">
+              <div class="setting-section">
+                <div class="setting-item">
+                  <div class="setting-item-left">
+                    <strong>Notifikasi Email</strong>
+                    <span>Kirim notifikasi ke email saat ada transaksi</span>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <div class="setting-item-left">
+                    <strong>Laporan Mingguan</strong>
+                    <span>Kirim ringkasan laporan setiap hari Senin</span>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <div class="setting-item-left">
+                    <strong>Mode Gelap</strong>
+                    <span>Tampilkan tema gelap (coming soon)</span>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox" disabled>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account Settings -->
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="bi bi-person-gear" style="color:var(--primary)"></i> Akun</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label class="form-label">Nama Lengkap</label>
+                <input type="text" class="form-control" id="settingName" placeholder="Nama Anda">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" id="settingEmail" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Telepon</label>
+                <input type="text" class="form-control" id="settingPhone" placeholder="08xxxxxxxxxx">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Bahasa</label>
+                <select class="form-control" id="settingLang">
+                  <option value="id">Bahasa Indonesia</option>
+                  <option value="en">English</option>
+                </select>
+              </div>
+              <button class="btn btn-primary btn-full" onclick="saveSettings()">
+                <i class="bi bi-check-lg"></i> Simpan Perubahan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Settings -->
+        <div class="card mt-24">
+          <div class="card-header">
+            <h3><i class="bi bi-shield-check" style="color:var(--primary)"></i> Keamanan</h3>
+          </div>
+          <div class="card-body">
+            <div class="grid-2">
+              <div class="setting-section">
+                <div class="setting-item">
+                  <div class="setting-item-left">
+                    <strong>Verifikasi 2 Langkah</strong>
+                    <span>Keamanan tambahan untuk login</span>
+                  </div>
+                  <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+                <div class="setting-item">
+                  <div class="setting-item-left">
+                    <strong>Sesi Aktif</strong>
+                    <span>Anda login dari 1 perangkat</span>
+                  </div>
+                  <span class="badge badge-success">Aman</span>
+                </div>
+              </div>
+              <div class="setting-section">
+                <div class="form-group">
+                  <label class="form-label">Password Baru</label>
+                  <input type="password" class="form-control" placeholder="Masukkan password baru">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Konfirmasi Password</label>
+                  <input type="password" class="form-control" placeholder="Konfirmasi password">
+                </div>
+                <button class="btn btn-outline btn-full" onclick="showToast('Fitur ubah password tersedia di versi lengkap', 'info')">
+                  <i class="bi bi-key"></i> Ubah Password
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>&copy; 2026 Management System Demo</span>
+        <a href="../../index.html">Kembali ke Portfolio</a>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!checkAuth()) return;
+      checkAuth();
+      loadAllData().then(() => {
+        const user = AppState.currentUser || AppState.users[0];
+        if (user) {
+          document.getElementById('settingName').value = user.name || '';
+          document.getElementById('settingEmail').value = user.email || '';
+          document.getElementById('settingPhone').value = user.phone || '';
+        }
+      });
+    });
+
+    function saveSettings() {
+      const name = document.getElementById('settingName').value;
+      if (!name) {
+        showToast('Nama tidak boleh kosong!', 'error');
+        return;
+      }
+      showToast('Pengaturan berhasil disimpan!', 'success');
+    }
+  </script>
+</body>
+</html>

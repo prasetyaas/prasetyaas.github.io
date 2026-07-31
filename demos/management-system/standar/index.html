@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management System Premium - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="logo-icon">MS</div>
+        <h1>Management System</h1>
+        <p>Premium Demo — Masuk untuk melanjutkan</p>
+      </div>
+
+      <div class="user-selector" id="userSelector">
+        <div class="user-option selected" data-user='{"id":1,"name":"Admin","username":"admin","email":"admin@sistem.com","role":"Administrator","avatarColor":"#2563EB","department":"IT Management"}'>
+          <div class="uo-avatar" style="background:#2563EB">AD</div>
+          <div class="uo-name">Admin</div>
+          <div class="uo-role">Administrator</div>
+        </div>
+        <div class="user-option" data-user='{"id":2,"name":"Siti Nurhaliza","username":"siti","email":"siti@sistem.com","role":"Manager","avatarColor":"#8B5CF6","department":"Finance"}'>
+          <div class="uo-avatar" style="background:#8B5CF6">SN</div>
+          <div class="uo-name">Siti Nurhaliza</div>
+          <div class="uo-role">Manager</div>
+        </div>
+        <div class="user-option" data-user='{"id":3,"name":"Budi Hartono","username":"budi","email":"budi@sistem.com","role":"Staff","avatarColor":"#22C55E","department":"Sales"}'>
+          <div class="uo-avatar" style="background:#22C55E">BH</div>
+          <div class="uo-name">Budi Hartono</div>
+          <div class="uo-role">Staff</div>
+        </div>
+      </div>
+
+      <form id="loginForm">
+        <button type="submit" class="btn btn-primary btn-full login-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Masuk ke Aplikasi
+        </button>
+      </form>
+
+      <div class="login-demo-info">
+        <strong>Demo Mode</strong><br>
+        Pilih pengguna dan klik tombol masuk.<br>
+        Tidak perlu password — sistem langsung masuk.
+      </div>
+
+      <div class="login-back">
+        <a href="../../index.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Kembali ke Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // User selector
+      const options = document.querySelectorAll('.user-option');
+      options.forEach(opt => {
+        opt.addEventListener('click', function() {
+          options.forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+      });
+
+      // Check if already logged in
+      if (sessionStorage.getItem('ms_standar_logged_in') === 'true') {
+        window.location.href = 'dashboard.html';
+        return;
+      }
+
+      // Handle login
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const selected = document.querySelector('.user-option.selected');
+        if (!selected) return;
+        const user = JSON.parse(selected.dataset.user);
+        sessionStorage.setItem('ms_standar_logged_in', 'true');
+        sessionStorage.setItem('ms_standar_user', JSON.stringify(user));
+        showToast('Selamat datang, ' + user.name + '!', 'success');
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>

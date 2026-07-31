@@ -1,0 +1,39 @@
+{
+  "summary": {
+    "totalProducts": 20,
+    "totalOrders": 20,
+    "totalRevenue": 89165000,
+    "totalCustomers": 12,
+    "activeUsers": 6,
+    "lowStockItems": 4,
+    "monthlyGrowth": 12.5,
+    "weeklySales": [
+      {"day":"Senin","value":4500000},
+      {"day":"Selasa","value":6200000},
+      {"day":"Rabu","value":3800000},
+      {"day":"Kamis","value":7100000},
+      {"day":"Jumat","value":8900000},
+      {"day":"Sabtu","value":5400000},
+      {"day":"Minggu","value":3200000}
+    ],
+    "salesByCategory": [
+      {"category":"Elektronik","value":42},
+      {"category":"Fashion","value":20},
+      {"category":"Makanan & Minuman","value":18},
+      {"category":"Rumah Tangga","value":12},
+      {"category":"Otomotif","value":8}
+    ],
+    "recentActivities": [
+      {"action":"Penjualan","item":"Laptop Asus ROG Zephyrus G14","qty":2,"total":37000000,"time":"2 jam lalu"},
+      {"action":"Penjualan","item":"Mouse Wireless Logitech","qty":3,"total":825000,"time":"5 jam lalu"},
+      {"action":"Restock","item":"Kopi Arabika Gayo 250gr","qty":10,"total":0,"time":"1 hari lalu"},
+      {"action":"Penjualan","item":"Kemeja Oxford Premium","qty":10,"total":1850000,"time":"1 hari lalu"},
+      {"action":"Penjualan","item":"Snack Keripik Singkong","qty":25,"total":625000,"time":"2 hari lalu"},
+      {"action":"Restock","item":"Jaket Hoodie Cotton Premium","qty":15,"total":0,"time":"2 hari lalu"},
+      {"action":"Penjualan","item":"Set Piring Keramik 6pcs","qty":4,"total":580000,"time":"3 hari lalu"},
+      {"action":"Penjualan","item":"Headset Gaming SteelSeries","qty":3,"total":2250000,"time":"4 hari lalu"},
+      {"action":"Restock","item":"Teh Hijau Premium 50gr","qty":20,"total":0,"time":"4 hari lalu"},
+      {"action":"Penjualan","item":"Monitor Dell 27\" 4K","qty":2,"total":9000000,"time":"5 hari lalu"}
+    ]
+  }
+}

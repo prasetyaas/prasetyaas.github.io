@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexaWMS Pro — Warehouse Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ====== LOGIN SCREEN ====== -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-brand">
+    <div class="login-brand-inner">
+      <div class="login-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+      </div>
+      <div>
+        <h1>NexaWMS <span>Pro</span></h1>
+        <p>Warehouse Management System</p>
+      </div>
+    </div>
+    <h2>Kelola gudang Anda<br>dengan presisi & kecepatan.</h2>
+    <ul class="login-features">
+      <li><span class="lf-ic">📊</span> Real-time analytics & forecasting</li>
+      <li><span class="lf-ic">📦</span> Full inventory lifecycle control</li>
+      <li><span class="lf-ic">🏢</span> Multi-warehouse & stock map</li>
+      <li><span class="lf-ic">🔐</span> Role-based security & audit trail</li>
+    </ul>
+    <p class="login-copy">© 2026 NexaWMS Pro · Premium Edition</p>
+  </div>
+  <div class="login-panel">
+    <div class="login-card">
+      <div class="login-card-head">
+        <h3>Selamat Datang 👋</h3>
+        <p>Masuk ke akun Anda untuk melanjutkan</p>
+      </div>
+      <form id="loginForm">
+        <label class="field">
+          <span>Email</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <input id="loginEmail" type="email" value="admin@nexawms.com" required>
+          </div>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input id="loginPass" type="password" value="admin123" required>
+          </div>
+        </label>
+        <div class="login-options">
+          <label class="chk"><input type="checkbox" checked><span>Ingat saya</span></label>
+          <a href="#" onclick="App.toast('Reset password dikirim ke email Anda','info');return false;">Lupa password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Masuk <span class="btn-arrow">→</span></button>
+      </form>
+      <div class="login-demo">
+        <p>Mode demo aktif — semua data tersimpan lokal di browser Anda.</p>
+        <button class="btn btn-ghost btn-block" onclick="App.login()">⚡ Masuk cepat sebagai Admin</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== APP SHELL ====== -->
+<div id="app" class="app hidden">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-top">
+      <a href="#" class="brand" onclick="App.navigate('dashboard');return false;">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        </div>
+        <div class="brand-text">
+          <strong>NexaWMS <em>Pro</em></strong>
+          <span>Warehouse System</span>
+        </div>
+      </a>
+      <button class="icon-btn sidebar-collapse" onclick="App.toggleSidebar()" title="Sembunyikan sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M15 3v18"/><path d="m10 9-3 3 3 3"/></svg>
+      </button>
+    </div>
+
+    <nav class="sidebar-nav" id="sidebarNav"><!-- rendered by JS --></nav>
+
+    <div class="sidebar-bottom">
+      <div class="storage-box">
+        <div class="storage-head"><span>Storage Capacity</span><strong id="storagePct">68%</strong></div>
+        <div class="progress"><div class="progress-bar" id="storageBar" style="width:68%"></div></div>
+        <small>2.4 TB dari 3.5 TB terpakai</small>
+      </div>
+      <div class="sidebar-user" onclick="App.openProfile()">
+        <div class="avatar" id="sidebarAvatar">AD</div>
+        <div class="su-info">
+          <strong id="sidebarUserName">Admin</strong>
+          <span>Super Administrator</span>
+        </div>
+        <svg class="su-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="icon-btn menu-toggle" onclick="App.toggleSidebar(true)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+        <div class="breadcrumb" id="breadcrumb">
+          <a href="#" onclick="App.navigate('dashboard');return false;">Home</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          <span id="pageTitle">Dashboard</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="global-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input id="globalSearch" type="text" placeholder="Cari produk, SKU, dokumen…" oninput="App.globalSearch(this.value)">
+          <div class="search-results" id="searchResults"></div>
+        </div>
+        <button class="icon-btn" onclick="App.quickCreate()" title="Aksi cepat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        </button>
+        <div class="notif-wrap">
+          <button class="icon-btn" id="notifBtn" onclick="App.toggleNotif()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="notif-dot" id="notifDot">3</span>
+          </button>
+          <div class="notif-panel" id="notifPanel"></div>
+        </div>
+        <div class="avatar top-avatar" onclick="App.openProfile()">AD</div>
+      </div>
+    </header>
+
+    <main class="content" id="pageContent"></main>
+  </div>
+</div>
+
+<!-- overlay -->
+<div class="overlay" id="overlay" onclick="App.closeAll()"></div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-wrap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/pages/dashboard.js"></script>
+<script src="js/pages/insights.js"></script>
+<script src="js/pages/operations.js"></script>
+<script src="js/pages/catalog.js"></script>
+<script src="js/pages/warehouse.js"></script>
+<script src="js/pages/admin.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

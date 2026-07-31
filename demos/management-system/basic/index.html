@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Management System - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%); padding: 20px; }
+    .login-box { background: var(--bg-card); border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); padding: 40px; width: 100%; max-width: 420px; animation: scaleIn 0.3s ease; }
+    .login-logo { text-align: center; margin-bottom: 32px; }
+    .login-logo .logo-icon { width: 72px; height: 72px; background: var(--primary-gradient); border-radius: var(--radius); display: inline-flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 16px; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3); }
+    .login-logo h1 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .login-logo p { font-size: 14px; color: var(--text-3); }
+    .login-back { margin-top: 24px; text-align: center; }
+    .login-back a { font-size: 12px; color: var(--text-3); }
+    .login-back a:hover { color: var(--primary); }
+    .login-btn { padding: 14px; font-size: 16px; }
+    @media (max-width: 480px) { .login-box { padding: 24px; } }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <div class="logo-icon">MS</div>
+        <h1>Management System</h1>
+        <p>Demo — Klik tombol di bawah untuk masuk</p>
+      </div>
+
+      <form id="loginForm">
+        <button type="submit" class="btn btn-primary btn-full login-btn">
+          <i class="bi bi-box-arrow-in-right"></i> Masuk ke Aplikasi
+        </button>
+      </form>
+
+      <div class="login-back">
+        <a href="../../index.html"><i class="bi bi-arrow-left"></i> Kembali ke Portfolio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script src="js/main.js"></script>
+  <script>
+    // Simplified login: just click to enter
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if already logged in
+      if (sessionStorage.getItem('ms_basic_logged_in') === 'true') {
+        window.location.href = 'dashboard.html';
+        return;
+      }
+
+      // Handle login form submit
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Set default admin user
+        const user = {
+          id: 1,
+          name: 'Admin',
+          username: 'admin',
+          email: 'admin@sistem.com',
+          role: 'Administrator',
+          status: 'Active',
+          avatar: 'AD',
+          avatarColor: '#2563EB',
+          department: 'IT Management'
+        };
+        sessionStorage.setItem('ms_basic_logged_in', 'true');
+        sessionStorage.setItem('ms_basic_user', JSON.stringify(user));
+        AppState.currentUser = user;
+        AppState.isLoggedIn = true;
+        window.location.href = 'dashboard.html';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan - Management System Premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header"><div class="sidebar-logo">MS</div><div class="sidebar-brand">Management<span>System</span></div><button class="sidebar-close" id="sidebarClose">&times;</button></div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Menu Utama</div>
+    <a href="dashboard.html" class="nav-item" data-page="dashboard"><i class="bi bi-grid-1x2-fill"></i> <span>Dashboard</span></a>
+    <a href="transactions.html" class="nav-item" data-page="transactions"><i class="bi bi-cart-plus"></i> <span>Transaksi</span></a>
+    <a href="reports.html" class="nav-item active" data-page="reports"><i class="bi bi-file-earmark-bar-graph"></i> <span>Laporan</span></a>
+    <div class="nav-label">Master Data</div>
+    <a href="products.html" class="nav-item" data-page="products"><i class="bi bi-boxes"></i> <span>Produk</span></a>
+    <a href="customers.html" class="nav-item" data-page="customers"><i class="bi bi-people"></i> <span>Customer</span></a>
+    <a href="vendors.html" class="nav-item" data-page="vendors"><i class="bi bi-building"></i> <span>Vendor</span></a>
+    <div class="nav-label">Lainnya</div>
+    <a href="notifications.html" class="nav-item" data-page="notifications"><i class="bi bi-bell"></i> <span>Notifikasi</span><span class="badge">3</span></a>
+    <a href="profile.html" class="nav-item" data-page="profile"><i class="bi bi-person-circle"></i> <span>Profile</span></a>
+    <a href="settings.html" class="nav-item" data-page="settings"><i class="bi bi-gear"></i> <span>Pengaturan</span></a>
+    <a href="help.html" class="nav-item" data-page="help"><i class="bi bi-question-circle"></i> <span>Bantuan</span></a>
+  </nav>
+  <div class="sidebar-footer"><div class="sidebar-user"><div class="user-avatar" id="userAvatar">U</div><div class="user-info"><strong class="user-name" id="userName">User</strong><span class="user-role" id="userRole">Role</span></div></div><button class="btn btn-sm btn-ghost" id="logoutBtn" style="color:var(--danger);margin-top:8px;width:100%;"><i class="bi bi-box-arrow-right"></i> Keluar</button></div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<main class="main">
+<header class="navbar-top"><button class="navbar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button><div class="navbar-title">Data <span>Laporan</span></div><div class="navbar-spacer"></div><div class="navbar-right"><button class="navbar-btn" id="themeToggle" data-tooltip="Toggle Theme"><i class="bi bi-moon"></i></button><button class="navbar-btn" onclick="window.location.href='notifications.html'" data-tooltip="Notifikasi"><i class="bi bi-bell"></i><span class="badge-dot"></span></button></div></header>
+<div class="content">
+<div class="breadcrumb"><a href="dashboard.html">Dashboard</a><i class="bi bi-chevron-right"></i><span>Laporan</span></div>
+<div class="page-header"><div class="page-header-left"><h1>Laporan</h1><p>Lihat dan export laporan sistem</p></div><div class="page-actions"><button class="btn btn-secondary" onclick="printPage()"><i class="bi bi-printer"></i> Print</button><button class="btn btn-primary" onclick="showToast('Export PDF (dummy)','info')"><i class="bi bi-file-pdf"></i> Export PDF</button></div></div>
+<div class="report-summary">
+<div class="report-card"><h4>Total Pendapatan</h4><div class="value">Rp 89,2 Jt</div></div>
+<div class="report-card"><h4>Total Transaksi</h4><div class="value">156</div></div>
+<div class="report-card"><h4>Produk Terjual</h4><div class="value">1.245</div></div>
+<div class="report-card"><h4>Rata-rata Transaksi</h4><div class="value">Rp 572rb</div></div>
+</div>
+<div class="card mb-24">
+<div class="card-header"><h3>Filter Laporan</h3></div>
+<div class="card-body">
+<div class="report-filters">
+<div class="form-group"><label class="form-label">Dari Tanggal</label><input type="date" class="form-control" value="2026-01-01"></div>
+<div class="form-group"><label class="form-label">Sampai Tanggal</label><input type="date" class="form-control" value="2026-07-31"></div>
+<div class="form-group"><label class="form-label">Kategori</label><select class="form-control"><option>Semua</option><option>Elektronik</option><option>Fashion</option></select></div>
+<div class="form-group"><label class="form-label">Status</label><select class="form-control"><option>Semua</option><option>Completed</option><option>Pending</option></select></div>
+<div class="form-group" style="align-self:flex-end;"><button class="btn btn-primary" onclick="showToast('Filter diterapkan','success')"><i class="bi bi-search"></i> Terapkan</button></div>
+</div>
+</div></div>
+<div class="dashboard-grid">
+<div class="card"><div class="card-header"><h3>Pendapatan Bulanan</h3></div><div class="card-body"><div class="chart-container"><canvas id="reportChart1"></canvas></div></div></div>
+<div class="card"><div class="card-header"><h3>Distribusi Kategori</h3></div><div class="card-body"><div class="chart-container"><canvas id="reportChart2"></canvas></div></div></div>
+</div>
+</div>
+<footer class="footer"><span>&copy; 2026 Management System Premium Demo</span><a href="../../index.html">Kembali ke Portfolio</a></footer>
+</main></div>
+<div class="toast-container" id="toastContainer"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+<script>
+function initReports() {
+  setActiveNav('reports');
+  renderReportCharts();
+}
+function renderReportCharts() {
+  var ctx1 = document.getElementById('reportChart1');
+  if (ctx1 && typeof Chart !== 'undefined') {
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['Jan','Feb','Mar','Apr','Mei','Jun','Jul'],
+        datasets: [{label:'Pendapatan',data:[180000000,220000000,195000000,250000000,280000000,310000000,290000000],backgroundColor:'#2563EB',borderRadius:6,borderSkipped:false}]
+      },
+      options: {responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{beginAtZero:true,grid:{color:'#F1F5F9'},ticks:{callback:function(v){if(v>=1000000)return'Rp'+(v/1000000).toFixed(1)+'jt';return'Rp'+v;}}}}}
+    });
+  }
+  var ctx2 = document.getElementById('reportChart2');
+  if (ctx2 && typeof Chart !== 'undefined') {
+    new Chart(ctx2, {
+      type: 'doughnut',
+      data: {
+        labels: ['Elektronik','Fashion','Makanan','Rumah Tangga','Otomotif'],
+        datasets: [{data:[42,20,18,12,8],backgroundColor:['#2563EB','#22C55E','#F59E0B','#EF4444','#8B5CF6'],borderWidth:2,borderColor:'#fff'}]
+      },
+      options: {responsive:true,cutout:'65%',plugins:{legend:{position:'bottom',labels:{usePointStyle:true}}}}
+    });
+  }
+}
+document.addEventListener('DOMContentLoaded',initReports);
+</script>
+</body></html>
