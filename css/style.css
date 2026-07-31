@@ -895,6 +895,80 @@ img { max-width: 100%; display: block; }
     background-clip: text;
 }
 
+.price-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 24px;
+    align-items: stretch;
+}
+
+.price-option {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    height: 100%;
+    transition: var(--transition);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.price-option:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+    background: var(--accent-glow);
+}
+
+.price-option .po-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.price-option .po-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.price-option .po-value em {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.price-option .po-desc {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.price-option.popular {
+    border-color: rgba(0, 212, 255, 0.4);
+    background: var(--accent-glow);
+}
+
+[data-theme="light"] .price-option {
+    background: #f7f8fa;
+}
+
+[data-theme="light"] .price-option.popular {
+    background: rgba(0, 212, 255, 0.08);
+}
+
 [data-theme="light"] .price {
     background: linear-gradient(135deg, #0066ff, #00d4ff);
     -webkit-background-clip: text;
