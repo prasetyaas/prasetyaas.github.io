@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Login - Panel manajemen Nusantara Rice Distribution untuk mengelola produk, galeri, paket harga, dan testimoni.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Login | Nusantara Rice Distribution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="https://img.icons8.com/fluency/96/rice-bowl.png" type="image/png">
+</head>
+<body class="admin-login-page">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo">
+            <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" />
+        </div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Memuat Panel Admin...</div>
+    </div>
+
+    <!-- Admin Login -->
+    <div class="admin-login-wrapper">
+        <div class="hero-pattern"></div>
+
+        <div class="admin-login-card">
+            <div class="admin-login-logo">
+                <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" />
+                <h2>Admin Panel</h2>
+                <p><strong>Nusantara Rice Distribution</strong></p>
+                <p>Kelola produk, galeri, harga & testimoni</p>
+            </div>
+
+            <div class="admin-login-error" id="adminLoginError"></div>
+
+            <form class="admin-login-form" id="adminLoginForm">
+                <div class="form-group">
+                    <label for="adminPassword">Password Admin</label>
+                    <input type="password" id="adminPassword" name="adminPassword" placeholder="Masukkan password" required autofocus>
+                </div>
+                <button type="submit" class="btn btn-primary admin-login-btn">
+                    <i class="fas fa-lock"></i> Masuk ke Panel
+                </button>
+            </form>
+
+            <div class="admin-login-info">
+                <i class="fas fa-info-circle"></i>
+                Password demo: <code>admin123</code>
+            </div>
+
+            <div style="text-align:center;margin-top:16px;">
+                <a href="index.html" style="color:var(--gray);font-size:0.85rem;display:inline-flex;align-items:center;gap:6px;">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

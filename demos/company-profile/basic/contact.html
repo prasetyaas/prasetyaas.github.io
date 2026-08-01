@@ -3,168 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak — Karya Mandiri</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Kontak Nusantara Rice Distribution - Hubungi kami untuk pemesanan, kemitraan, dan informasi lebih lanjut. Alamat, telepon, WhatsApp, dan email.">
+    <meta name="keywords" content="kontak distributor beras, hubungi nusantara rice, alamat nusantara rice">
+    <meta name="author" content="Nusantara Rice Distribution">
+    <meta property="og:title" content="Kontak | Nusantara Rice Distribution">
+    <meta property="og:description" content="Hubungi tim kami untuk pemesanan dan kemitraan.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1200&q=80">
+    <title>Kontak | Nusantara Rice Distribution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="https://img.icons8.com/fluency/96/rice-bowl.png" type="image/png">
 </head>
-<body>
+<body data-page="contact">
 
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /></div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Nusantara Rice Distribution</div>
+    </div>
+
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-icon">KM</span>
-                Karya Mandiri
+            <a href="index.html" class="nav-logo" aria-label="Beranda">
+                <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" />
+                <div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div>
             </a>
-            <button class="nav-toggle" id="navToggle">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-toggle" id="navToggle" aria-label="Buka menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Beranda</a></li>
-                <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta active">Kontak</a></li>
+                <li><a href="index.html" class="nav-link" data-nav="home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-nav="about">About</a></li>
+                <li><a href="products.html" class="nav-link" data-nav="products">Products</a></li>
+                <li><a href="gallery.html" class="nav-link" data-nav="gallery">Gallery</a></li>
+                <li><a href="pricing.html" class="nav-link" data-nav="pricing">Pricing</a></li>
+                <li><a href="testimonials.html" class="nav-link" data-nav="testimonials">Testimonial</a></li>
+                <li><a href="faq.html" class="nav-link" data-nav="faq">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link" data-nav="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
+    <div class="nav-menu-overlay"></div>
 
-    <section class="page-header">
-        <div class="container">
-            <h1>Hubungi Kami</h1>
-            <p>Punya project atau pertanyaan? Kami siap membantu Anda.</p>
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="hero-pattern"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container page-hero-content">
+            <h1 class="page-hero-title">Hubungi Kami</h1>
+            <p class="page-hero-subtitle">Kami siap membantu kebutuhan beras Anda. Tim kami akan merespons pesan Anda secepatnya.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">/</span>
+                <span class="current">Kontak</span>
+            </div>
         </div>
     </section>
 
-    <section class="contact-page">
+    <!-- ===== CONTACT ===== -->
+    <section class="section">
         <div class="container">
-            <div class="contact-wrapper">
-                <div>
-                    <div class="contact-info">
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="fab fa-whatsapp"></i></div>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <a href="https://wa.me/6281298578909">+62 812-9857-8909</a>
-                            </div>
+            <div class="contact-grid">
+                <!-- Info -->
+                <div class="contact-info-card reveal reveal-left">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Alamat Kantor & Gudang</h4>
+                            <p>Jl. Raya Cipondoh No. 123<br>Cipondoh, Jakarta Barat 15148</p>
                         </div>
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="far fa-envelope"></i></div>
-                            <div>
-                                <h4>Email</h4>
-                                <a href="mailto:hello@karyamandiri.com">hello@karyamandiri.com</a>
-                            </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 21 5550 1234</p>
                         </div>
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4>Alamat</h4>
-                                <p>Jl. Merdeka No. 123, Jakarta Pusat</p>
-                            </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/6281298578909" target="_blank" rel="noopener">+62 812-9857-8909</a>
                         </div>
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="fab fa-instagram"></i></div>
-                            <div>
-                                <h4>Instagram</h4>
-                                <a href="#">@karyamandiri.official</a>
-                            </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:info@nusantarrice.id">info@nusantarrice.id</a>
                         </div>
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="fab fa-facebook"></i></div>
-                            <div>
-                                <h4>Facebook</h4>
-                                <a href="#">Karya Mandiri Official</a>
-                            </div>
-                        </div>
-                        <div class="contact-item reveal">
-                            <div class="icon"><i class="fab fa-linkedin-in"></i></div>
-                            <div>
-                                <h4>LinkedIn</h4>
-                                <a href="#">Karya Mandiri</a>
-                            </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h4>Jam Operasional</h4>
+                            <p>Senin - Jumat: 08.00 - 17.00<br>Sabtu: 08.00 - 14.00<br>Minggu: Tutup</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form-wrap reveal">
-                    <h3>Kirim Pesan</h3>
-                    <form>
+
+                <!-- Form -->
+                <div class="contact-form-wrap reveal reveal-right">
+                    <h3 style="margin-bottom:8px;">Kirim Pesan</h3>
+                    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:24px;">Isi form di bawah dan tim kami akan menghubungi Anda melalui WhatsApp.</p>
+                    <form id="contactForm" novalidate>
                         <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" placeholder="Masukkan nama Anda">
+                            <label for="contactName">Nama <span class="required">*</span></label>
+                            <input type="text" id="contactName" name="name" placeholder="Nama lengkap Anda" required>
+                            <div class="form-error-message">Nama minimal 3 karakter</div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contactEmail">Email <span class="required">*</span></label>
+                                <input type="email" id="contactEmail" name="email" placeholder="Alamat email Anda" required>
+                                <div class="form-error-message">Format email tidak valid</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Nomor HP</label>
+                                <input type="tel" id="contactPhone" name="phone" placeholder="cth: 0812xxxxxxx">
+                                <div class="form-error-message">Format nomor HP tidak valid</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Masukkan email Anda">
+                            <label for="contactMessage">Pesan <span class="required">*</span></label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Tulis pesan / kebutuhan Anda..." required></textarea>
+                            <div class="form-error-message">Pesan minimal 10 karakter</div>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" placeholder="Ceritakan project atau pertanyaan Anda..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        <button type="submit" class="btn btn-primary" style="width:100%;">
+                            <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- ===== GOOGLE MAPS ===== -->
-            <div class="contact-map reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sid!2sid!4v1" allowfullscreen="" loading="lazy"></iframe>
+            <!-- Map -->
+            <div class="map-placeholder reveal mt-4">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d106.7!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDInMDAuMCJF!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+                    title="Lokasi Nusantara Rice Distribution"
+                    loading="lazy"
+                    allowfullscreen
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
 
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Mari Berbicara Langsung?</h2>
+                <p>Konsultasi gratis untuk kebutuhan beras Anda. Tim kami siap membantu.</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6281298578909" class="btn btn-light" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Sekarang</a>
+                    <a href="pricing.html" class="btn btn-white-outline"><i class="fas fa-tags"></i> Lihat Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <h3>Karya Mandiri</h3>
-                    <p>Mitra terpercaya solusi digital Anda sejak 2015.</p>
+                    <a href="index.html" class="nav-logo">
+                        <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" />
+                        <div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div>
+                    </a>
+                    <p>Distributor beras berkualitas untuk kebutuhan rumah tangga dan bisnis.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Navigasi</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="about.html">Tentang</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="testimonials.html">Testimonial</a></li>
-                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="pricing.html"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Layanan</h4>
+                    <h4>Produk</h4>
                     <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Company Profile</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Premium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Medium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Organik</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Pulen</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras IR 64</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kemasan Retail</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
                     <ul>
-                        <li><a href="https://wa.me/6281298578909">WhatsApp</a></li>
-                        <li><a href="mailto:hello@karyamandiri.com">Email</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Cipondoh No. 123, Jakarta Barat</li>
+                        <li><i class="fas fa-phone"></i> +62 812-9857-8909</li>
+                        <li><i class="fab fa-whatsapp"></i> +62 812-9857-8909</li>
+                        <li><i class="fas fa-envelope"></i> info@nusantarrice.id</li>
+                        <li><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 17.00</li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Karya Mandiri. All rights reserved. | <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></p>
             </div>
         </div>
+        <div class="footer-bottom"><div class="container">&copy; 2026 Nusantara Rice Distribution. <a href="admin-login.html">Admin</a></div></div>
     </footer>
 
-    <a href="https://wa.me/6281298578909" class="floating-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <button class="scroll-top" id="scrollTop" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+    <a href="admin-login.html" class="float-action" aria-label="Masuk Admin Panel"><i class="fas fa-user-cog"></i></a>
 
-    <script src="script.js"></script>
-`n</body>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+</body>
 </html>

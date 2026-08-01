@@ -1,77 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <script>
-        // 404.html fallback for GitHub Pages clean URLs
-        // When user visits /about directly, GitHub Pages serves 404.html
-        // This script redirects to the actual .html file
-        (function() {
-            var path = window.location.pathname;
-            // Get the base path relative to premium directory
-            var premiumIndex = path.indexOf('/demos/company-profile/premium');
-            if (premiumIndex === -1) {
-                // Try to find the page name from the path
-                var segments = path.split('/').filter(Boolean);
-                var lastSegment = segments[segments.length - 1] || '';
-                
-                // Map of known routes
-                var routes = {
-                    '': 'index.html',
-                    'index': 'index.html',
-                    'about': 'about.html',
-                    'products': 'products.html',
-                    'product-detail': 'product-detail.html',
-                    'portfolio': 'portfolio.html',
-                    'blog': 'blog.html',
-                    'blog-post': 'blog-post.html',
-                    'testimonials': 'testimonials.html',
-                    'contact': 'contact.html',
-                    'faq': 'faq.html',
-                    'admin': 'admin/index.html'
-                };
-                
-                if (routes[lastSegment]) {
-                    window.location.replace(routes[lastSegment]);
-                } else if (lastSegment) {
-                    // Try with .html extension
-                    window.location.replace(lastSegment + '.html');
-                } else {
-                    window.location.replace('index.html');
-                }
-            } else {
-                var relativePath = path.substring(premiumIndex + '/demos/company-profile/premium'.length);
-                var segments = relativePath.split('/').filter(Boolean);
-                var lastSegment = segments[segments.length - 1] || '';
-                
-                var routes = {
-                    '': 'index.html',
-                    'index': 'index.html',
-                    'about': 'about.html',
-                    'products': 'products.html',
-                    'product-detail': 'product-detail.html',
-                    'portfolio': 'portfolio.html',
-                    'blog': 'blog.html',
-                    'blog-post': 'blog-post.html',
-                    'testimonials': 'testimonials.html',
-                    'contact': 'contact.html',
-                    'faq': 'faq.html',
-                    'admin': 'admin/index.html'
-                };
-                
-                if (routes[lastSegment]) {
-                    window.location.replace(routes[lastSegment]);
-                } else if (lastSegment) {
-                    window.location.replace(lastSegment + '.html');
-                } else {
-                    window.location.replace('index.html');
-                }
-            }
-        })();
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Halaman Tidak Ditemukan | Aurora Grand Resort</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
-<body>
-    <p>Redirecting...</p>
+<body data-page="404">
+
+    <div id="site-header"></div>
+
+    <div class="error-page">
+        <div class="ep-bg" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1400&q=80')"></div>
+        <div class="ep-shade"></div>
+        <div class="container">
+            <div class="error-code">404</div>
+            <h1>Halaman Tidak Ditemukan</h1>
+            <p>Maaf, halaman yang Anda cari tidak ditemukan atau telah dipindahkan. Mari kembali ke beranda dan temukan pengalaman luar biasa lainnya.</p>
+            <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+                <a href="index.html" class="btn btn-gold btn-lg magnetic" data-page-link><i class="fa-solid fa-house"></i> Kembali ke Beranda</a>
+                <a href="contact.html" class="btn btn-white-outline btn-lg magnetic" data-page-link>Hubungi Kami</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="site-footer"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

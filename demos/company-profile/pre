@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Koleksi kamar dan suite mewah Aurora Grand Resort - Luxury Suite, Executive Room, Family Suite dan Grand Villa.">
+    <meta name="keywords" content="hotel room jakarta, luxury suite, villa mewah, executive room">
+    <meta name="author" content="Aurora Grand Resort">
+    <meta name="robots" content="index, follow">
+    <title>Rooms & Suites | Aurora Grand Resort</title>
+    <link rel="canonical" href="https://auroragrandresort.co.id/rooms.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Rooms & Suites | Aurora Grand Resort">
+    <meta property="og:description" content="Jelajahi koleksi kamar dan suite mewah kami.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80">
+    <meta property="og:url" content="https://auroragrandresort.co.id/rooms.html">
+    <meta property="og:site_name" content="Aurora Grand Resort">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rooms & Suites | Aurora Grand Resort">
+    <meta name="twitter:description" content="Koleksi kamar mewah untuk pengalaman menginap terbaik.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80">
+
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://auroragrandresort.co.id/index.html" },
+            { "@type": "ListItem", "position": 2, "name": "Rooms", "item": "https://auroragrandresort.co.id/rooms.html" }
+        ]
+    }
+    </script>
+</head>
+<body data-page="rooms">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- ===== PAGE HERO ===== -->
+        <section class="page-hero">
+            <div class="ph-bg" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1400&q=80')"></div>
+            <div class="ph-overlay"></div>
+            <div class="container">
+                <span class="hero-badge"><span class="hero-badge-dot"></span> 320 Kamar & Suite</span>
+                <h1>Rooms & <span class="text-gold">Suites</span></h1>
+                <p class="ph-desc">Setiap kamar dirancang dengan detail premium untuk kenyamanan maksimal dan pengalaman menginap yang tak terlupakan.</p>
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html" data-page-link>Home</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>Rooms</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- ===== ROOMS GRID ===== -->
+        <section class="section">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow center">Accommodation</span>
+                    <h2 class="section-title">Pilih <span class="text-gold">Kamar</span> Anda</h2>
+                    <p class="section-desc">Dari suite mewah hingga villa pribadi, kami memiliki pilihan sempurna untuk setiap kebutuhan.</p>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:30px">
+
+                    <article id="luxury-suite" class="room-card reveal tilt-card">
+                        <div class="rc-media">
+                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Aurora Luxury Suite" loading="lazy">
+                            <span class="rc-price">Rp 4.500.000 <small style="font-size:0.68rem">/ malam</small></span>
+                        </div>
+                        <div class="rc-body">
+                            <h3>Aurora Luxury Suite</h3>
+                            <p>Suite paling mewah dengan pemandangan laut tak terbatas, ruang tamu terpisah, dan butler service 24 jam.</p>
+                            <div class="rc-features">
+                                <span><i class="fa-solid fa-check"></i> 120 m²</span>
+                                <span><i class="fa-solid fa-check"></i> 3 Tamu</span>
+                                <span><i class="fa-solid fa-check"></i> King Size</span>
+                                <span><i class="fa-solid fa-check"></i> Butler Service</span>
+                                <span><i class="fa-solid fa-check"></i> Jacuzzi</span>
+                            </div>
+                            <div style="display:flex; gap:12px">
+                                <a href="room-detail.html?id=luxury-suite" class="btn btn-gold btn-sm magnetic" data-page-link>Lihat Detail</a>
+                                <a href="contact.html" class="btn btn-outline btn-sm magnetic" data-page-link>Booking</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="executive" class="room-card reveal tilt-card reveal-delay-1">
+                        <div class="rc-media">
+                            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" alt="Executive Room" loading="lazy">
+                            <span class="rc-price">Rp 2.800.000 <small style="font-size:0.68rem">/ malam</small></span>
+                        </div>
+                        <div class="rc-body">
+                            <h3>Executive Room</h3>
+                            <p>Kamar eksekutif modern dengan akses ke executive lounge, cocok untuk tamu bisnis.</p>
+                            <div class="rc-features">
+                                <span><i class="fa-solid fa-check"></i> 52 m²</span>
+                                <span><i class="fa-solid fa-check"></i> 2 Tamu</span>
+                                <span><i class="fa-solid fa-check"></i> Queen Size</span>
+                                <span><i class="fa-solid fa-check"></i> Executive Lounge</span>
+                                <span><i class="fa-solid fa-check"></i> Work Desk</span>
+                            </div>
+                            <div style="display:flex; gap:12px">
+                                <a href="room-detail.html?id=executive" class="btn btn-gold btn-sm magnetic" data-page-link>Lihat Detail</a>
+                                <a href="contact.html" class="btn btn-outline btn-sm magnetic" data-page-link>Booking</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="family" class="room-card reveal tilt-card">
+                        <div class="rc-media">
+                            <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&q=80" alt="Family Suite" loading="lazy">
+                            <span class="rc-price">Rp 3.500.000 <small style="font-size:0.68rem">/ malam</small></span>
+                        </div>
+                        <div class="rc-body">
+                            <h3>Family Suite</h3>
+                            <p>Suite keluarga dengan 2 kamar tidur, ruang keluarga, dan akses langsung ke kolam renang anak.</p>
+                            <div class="rc-features">
+                                <span><i class="fa-solid fa-check"></i> 85 m²</span>
+                                <span><i class="fa-solid fa-check"></i> 5 Tamu</span>
+                                <span><i class="fa-solid fa-check"></i> King + Twin</span>
+                                <span><i class="fa-solid fa-check"></i> Pool Access</span>
+                                <span><i class="fa-solid fa-check"></i> Kitchenette</span>
+                            </div>
+                            <div style="display:flex; gap:12px">
+                                <a href="room-detail.html?id=family" class="btn btn-gold btn-sm magnetic" data-page-link>Lihat Detail</a>
+                                <a href="contact.html" class="btn btn-outline btn-sm magnetic" data-page-link>Booking</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article id="villa" class="room-card reveal tilt-card reveal-delay-1">
+                        <div class="rc-media">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Grand Villa Aurora" loading="lazy">
+                            <span class="rc-price">Rp 8.500.000 <small style="font-size:0.68rem">/ malam</small></span>
+                        </div>
+                        <div class="rc-body">
+                            <h3>Grand Villa Aurora</h3>
+                            <p>Villa pribadi dengan kolam renang eksklusif, 3 kamar tidur, dan area taman privat.</p>
+                            <div class="rc-features">
+                                <span><i class="fa-solid fa-check"></i> 320 m²</span>
+                                <span><i class="fa-solid fa-check"></i> 6 Tamu</span>
+                                <span><i class="fa-solid fa-check"></i> 3 King Beds</span>
+                                <span><i class="fa-solid fa-check"></i> Private Pool</span>
+                                <span><i class="fa-solid fa-check"></i> Private Chef</span>
+                            </div>
+                            <div style="display:flex; gap:12px">
+                                <a href="room-detail.html?id=villa" class="btn btn-gold btn-sm magnetic" data-page-link>Lihat Detail</a>
+                                <a href="contact.html" class="btn btn-outline btn-sm magnetic" data-page-link>Booking</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AMENITIES ===== -->
+        <section class="section" style="background:var(--navy-900)">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow center">Room Amenities</span>
+                    <h2 class="section-title">Fasilitas <span class="text-gold">Kamar</span></h2>
+                </div>
+                <div class="amenities-grid">
+                    <div class="amenity-item reveal"><i class="fa-solid fa-wifi"></i> Wi-Fi 1 Gbps Gratis</div>
+                    <div class="amenity-item reveal reveal-delay-1"><i class="fa-solid fa-tv"></i> Smart TV 65"</div>
+                    <div class="amenity-item reveal reveal-delay-2"><i class="fa-solid fa-martini-glass"></i> Mini Bar Lengkap</div>
+                    <div class="amenity-item reveal reveal-delay-3"><i class="fa-solid fa-air-conditioner"></i> Smart AC Control</div>
+                    <div class="amenity-item reveal"><i class="fa-solid fa-coffee"></i> Espresso Machine</div>
+                    <div class="amenity-item reveal reveal-delay-1"><i class="fa-solid fa-couch"></i> Premium Bedding</div>
+                    <div class="amenity-item reveal reveal-delay-2"><i class="fa-solid fa-vault"></i> Digital Safe</div>
+                    <div class="amenity-item reveal reveal-delay-3"><i class="fa-solid fa-bell-concierge"></i> 24/7 Room Service</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-banner reveal reveal-zoom">
+                    <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=80')"></div>
+                    <div class="cta-shade"></div>
+                    <h2>Siap untuk <span class="text-gold">Menginap?</span></h2>
+                    <p>Reservasi sekarang dan nikmati penawaran spesial early bird hingga 20%.</p>
+                    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+                        <a href="contact.html" class="btn btn-gold btn-lg magnetic" data-page-link><i class="fa-solid fa-calendar-check"></i> Reservasi Sekarang</a>
+                        <a href="https://wa.me/6281212345678" class="btn btn-white-outline btn-lg magnetic" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Konsultasi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

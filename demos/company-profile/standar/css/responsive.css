@@ -1,0 +1,150 @@
+/* ==================================================
+   SAKURA KOI INDONESIA - Responsive
+   Breakpoints: 1200px, 1024px, 768px, 600px, 480px
+   ================================================== */
+
+/* ===== LARGE DESKTOP (max 1200px) ===== */
+@media (max-width: 1200px) {
+    .featured-koi-grid { grid-template-columns: repeat(3, 1fr); }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; }
+}
+
+/* ===== LAPTOP / TABLET LANDSCAPE (max 1024px) ===== */
+@media (max-width: 1024px) {
+    /* Navbar */
+    .nav-toggle { display: flex; }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100vh;
+        background: var(--primary);
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 90px 30px 40px;
+        gap: 8px;
+        transition: right 0.4s var(--ease);
+        z-index: 998;
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+    }
+    .nav-menu.active { right: 0; }
+    .nav-link { color: rgba(255, 255, 255, 0.85) !important; font-size: 1rem; padding: 12px 0; width: 100%; }
+    .nav-link::after { display: none; }
+    .nav-link:hover { color: var(--accent) !important; padding-left: 10px; }
+    .nav-cta { margin-top: 16px; }
+
+    /* Layouts */
+    .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-koi-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-masonry { columns: 2; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .partner-grid { grid-template-columns: repeat(3, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Timeline mid */
+    .timeline::before { left: 20px; }
+    .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding: 20px 20px 20px 56px; }
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot { left: 12px; right: auto; }
+}
+
+/* ===== TABLET PORTRAIT (max 768px) ===== */
+@media (max-width: 768px) {
+    :root { --nav-height: 64px; }
+
+    /* Hero */
+    .hero { min-height: 90vh; }
+    .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-stats { gap: 24px; }
+    .hero-float { display: none; }
+
+    /* Section */
+    .section-header { margin-bottom: 2.5rem; }
+
+    /* Single column grids */
+    .featured-koi-grid, .featured-services-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .highlights-grid { grid-template-columns: 1fr; margin-top: 0; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .partner-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+    .gallery-masonry { columns: 1; }
+
+    /* Service cards stack */
+    .service-card { flex-direction: column; }
+
+    /* Page hero */
+    .page-hero { padding: calc(var(--nav-height) + 50px) 0 50px; }
+    .page-hero-kana { font-size: 6rem; }
+
+    /* Blog detail */
+    .blog-detail-hero { height: 300px; }
+    .blog-detail-meta { left: 16px; right: 16px; bottom: 16px; }
+
+    /* Footer bottom */
+    .footer-bottom { flex-direction: column; text-align: center; }
+
+    /* CTA */
+    .cta-section { padding: 60px 0; }
+}
+
+/* ===== MOBILE (max 600px) ===== */
+@media (max-width: 600px) {
+    /* Mobile contact bar show */
+    .mobile-contact-bar { display: block; }
+    body { padding-bottom: 56px; }
+    .floating-wa { bottom: 72px; left: 16px; width: 50px; height: 50px; }
+    .back-to-top { bottom: 72px; right: 16px; }
+
+    /* Hero */
+    .hero-cta .btn { width: 100%; }
+    .hero-stat-value { font-size: 1.5rem; }
+    .hero-badge { font-size: 0.65rem; letter-spacing: 1px; }
+
+    /* Stats */
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-number { font-size: 2.2rem; }
+    .stat-number .suffix { font-size: 1.6rem; }
+
+    /* Pricing */
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.popular { transform: none; }
+    .pricing-card.popular:hover { transform: translateY(-8px); }
+
+    /* Buttons */
+    .btn { padding: 13px 26px; font-size: 0.9rem; }
+    .btn-lg { padding: 15px 28px; }
+
+    /* Gallery filters */
+    .filter-btn { padding: 8px 16px; font-size: var(--tiny); }
+
+    /* Nav menu width */
+    .nav-menu { width: 280px; }
+
+    /* Font sizes */
+    .section-title { font-size: 1.7rem; }
+
+    /* Review */
+    .review-card { padding: 28px; }
+
+    /* Form */
+    .contact-form-card, .contact-info-card { padding: 24px; }
+
+    /* Error */
+    .error-code { font-size: 8rem; }
+
+    /* Nav CTA hidden on small */
+    .nav-cta { display: none; }
+}
+
+/* ===== SMALL MOBILE (max 400px) ===== */
+@media (max-width: 400px) {
+    .container { padding: 0 16px; }
+    .hero-stats { flex-direction: column; gap: 14px; }
+    .partner-grid { grid-template-columns: 1fr; }
+    .timeline-compact-item p { font-size: var(--tiny); }
+}

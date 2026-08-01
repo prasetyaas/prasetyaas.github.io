@@ -1,459 +1,660 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LaptopPro Distributor — Distributor Laptop Premium dan Aksesoris Terpercaya. Harga OEM, Garansi Resmi, Pengiriman Cepat.">
-    <title>LaptopPro Distributor — Distributor Laptop Premium</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Aurora Grand Resort — Luxury Resort, Hotel, Convention Hall, Wedding Venue & Restaurant. Experience world-class hospitality and unforgettable events in Jakarta.">
+    <meta name="keywords" content="luxury resort jakarta, hotel bintang lima, convention hall, wedding venue jakarta, fine dining">
+    <meta name="author" content="Aurora Grand Resort">
+    <meta name="robots" content="index, follow">
+    <title>Aurora Grand Resort | Luxury Resort & Convention Jakarta</title>
+    <link rel="canonical" href="https://auroragrandresort.co.id/index.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Aurora Grand Resort | Luxury Resort & Convention">
+    <meta property="og:description" content="World-class luxury resort, convention hall, wedding venue and fine dining in Jakarta.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80">
+    <meta property="og:url" content="https://auroragrandresort.co.id/index.html">
+    <meta property="og:site_name" content="Aurora Grand Resort">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aurora Grand Resort | Luxury Resort">
+    <meta name="twitter:description" content="Luxury resort, convention hall & wedding venue.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <!-- JSON-LD Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Resort",
+        "name": "Aurora Grand Resort",
+        "slogan": "Experience the Extraordinary",
+        "description": "Luxury resort, hotel, convention hall, wedding venue and restaurant in Jakarta.",
+        "email": "info@auroragrandresort.co.id",
+        "telephone": "+622112345678",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Grand Boulevard No. 88",
+            "addressLocality": "Jakarta Selatan",
+            "addressRegion": "DKI Jakarta",
+            "postalCode": "12190",
+            "addressCountry": "ID"
+        }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://auroragrandresort.co.id/index.html"
+        }]
+    }
+    </script>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-logo"><i class="fas fa-laptop"></i> Laptop<span>Pro</span></div>
-        <div class="preloader-bar"><div class="preloader-bar-inner"></div></div>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div class="loading-screen" role="status" aria-label="Memuat halaman">
+        <div class="loading-logo">Aurora <span>Grand</span></div>
+        <div class="loading-line"></div>
+        <div style="font-size:0.75rem; letter-spacing:3px; text-transform:uppercase; color:var(--gray-500)">Experience the Extraordinary</div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-logo"><i class="fas fa-laptop"></i> Laptop<span>Pro</span></a>
-            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+    <!-- ===== DEMO SPLASH GATE (Lanjut Website / Login Admin) ===== -->
+    <div class="demo-gate" role="dialog" aria-modal="true" aria-label="Pilihan demo website">
+        <div class="demo-gate-bg" aria-hidden="true"></div>
+        <div class="demo-gate-inner">
+            <div class="dg-logo"><i class="fa-solid fa-crown"></i></div>
+            <h1>Aurora <span class="text-gold">Grand</span> Resort</h1>
+            <div class="dg-tag">Experience the Extraordinary</div>
+            <div class="dg-badge"><i class="fa-solid fa-gem"></i> Demo Company Profile Premium</div>
+            <p class="dg-desc">Situs company profile luxury resort dengan CMS & Admin Panel lengkap. Pilih mode untuk menjelajah demo ini.</p>
+            <div class="dg-actions">
+                <a href="#" class="btn btn-gold btn-lg magnetic" data-gate-website><i class="fa-solid fa-earth-asia"></i> Lanjut Website</a>
+                <a href="admin/login.html" class="btn btn-white-outline btn-lg magnetic" data-gate-admin><i class="fa-solid fa-user-shield"></i> Login Admin</a>
+            </div>
+            <div class="dg-foot">© 2026 Aurora Grand Resort — Company Profile Enterprise, mulai Rp7.000.000</div>
+        </div>
+    </div>
+
+    <!-- ===== ANIMATED CURSOR ===== -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===== PAGE TRANSITION ===== -->
+    <div class="page-transition" aria-hidden="true"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" aria-label="Navigasi utama">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Beranda Aurora Grand Resort">
+                <span class="nav-logo-icon"><i class="fa-solid fa-crown"></i></span>
+                <span class="nav-logo-text">
+                    <strong>Aurora Grand</strong>
+                </span>
+            </a>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Beranda</a></li>
-                <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="products.html" class="nav-link">Produk</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta">Kontak</a></li>
-                <li>
-                    <div class="lang-switcher">
-                        <button class="active" data-lang="id">ID</button>
-                        <button data-lang="en">EN</button>
+                <li><a href="index.html" class="nav-link active" aria-current="page" data-page-link>Home</a></li>
+                <li><a href="about.html" class="nav-link" data-page-link>About</a></li>
+                <li class="has-mega">
+                    <a href="rooms.html" class="nav-link mega-trigger" data-page-link>Rooms <i class="fa-solid fa-chevron-down chevron"></i></a>
+                    <div class="mega-menu">
+                        <a href="rooms.html#luxury-suite" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-gem"></i></span>
+                            <span><strong>Luxury Suite</strong><small>Suite paling mewah</small></span>
+                        </a>
+                        <a href="rooms.html#executive" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-briefcase"></i></span>
+                            <span><strong>Executive</strong><small>Untuk tamu bisnis</small></span>
+                        </a>
+                        <a href="rooms.html#family" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-children"></i></span>
+                            <span><strong>Family Suite</strong><small>Liburan keluarga</small></span>
+                        </a>
+                        <a href="room-detail.html?id=villa" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-house-chimney"></i></span>
+                            <span><strong>Grand Villa</strong><small>Villa pribadi eksklusif</small></span>
+                        </a>
+                        <a href="rooms.html" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-bed"></i></span>
+                            <span><strong>Semua Kamar</strong><small>Lihat koleksi lengkap</small></span>
+                        </a>
+                        <a href="gallery.html" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-images"></i></span>
+                            <span><strong>Galeri Kamar</strong><small>Foto interior & view</small></span>
+                        </a>
                     </div>
                 </li>
+                <li class="has-mega">
+                    <a href="facilities.html" class="nav-link mega-trigger" data-page-link>Facilities <i class="fa-solid fa-chevron-down chevron"></i></a>
+                    <div class="mega-menu">
+                        <a href="facilities.html#restaurant" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-utensils"></i></span>
+                            <span><strong>Restaurant</strong><small>Skyline Fine Dining</small></span>
+                        </a>
+                        <a href="facilities.html#pool" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-water-ladder"></i></span>
+                            <span><strong>Infinity Pool</strong><small>Panorama laut</small></span>
+                        </a>
+                        <a href="facilities.html#spa" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-spa"></i></span>
+                            <span><strong>Wellness Spa</strong><small>Relaksasi mewah</small></span>
+                        </a>
+                        <a href="facilities.html#fitness" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-dumbbell"></i></span>
+                            <span><strong>Fitness Center</strong><small>Technogym equipment</small></span>
+                        </a>
+                        <a href="facilities.html#meeting" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-user-group"></i></span>
+                            <span><strong>Meeting Room</strong><small>Kapasitas 10-100</small></span>
+                        </a>
+                        <a href="facilities.html#ballroom" class="mega-item" data-page-link>
+                            <span class="mega-icon"><i class="fa-solid fa-champagne-glasses"></i></span>
+                            <span><strong>Grand Ballroom</strong><small>Kapasitas 1.500 tamu</small></span>
+                        </a>
+                    </div>
+                </li>
+                <li><a href="gallery.html" class="nav-link" data-page-link>Gallery</a></li>
+                <li><a href="events.html" class="nav-link" data-page-link>Events</a></li>
+                <li><a href="packages.html" class="nav-link" data-page-link>Packages</a></li>
+                <li><a href="articles.html" class="nav-link" data-page-link>Articles</a></li>
+                <li><a href="career.html" class="nav-link" data-page-link>Career</a></li>
+                <li><a href="faq.html" class="nav-link" data-page-link>FAQ</a></li>
+                <li><a href="contact.html" class="nav-link" data-page-link>Contact</a></li>
+                <li><a href="contact.html" class="btn btn-gold btn-sm nav-cta magnetic" data-page-link><i class="fa-solid fa-calendar-check"></i> Book Now</a></li>
             </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Ganti tema terang/gelap"><i class="fa-solid fa-moon"></i></button>
+                <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
         </div>
     </nav>
+    <div class="nav-overlay" aria-hidden="true"></div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-particles">
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="hero-bg">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80">
+                <source src="https://cdn.coverr.co/videos/coverr-aerials-of-a-luxury-resort-1075/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-bg-poster" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80')"></div>
         </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-badge"><i class="fas fa-star"></i> Distributor Resmi — Est. 2015</div>
-                    <h1>Distributor Laptop <span class="highlight">Premium</span> <span class="accent">Terpercaya</span></h1>
-                    <p>Mitra resmi berbagai merek laptop ternama. Harga distributor, garansi resmi, pengiriman cepat ke seluruh Indonesia. Solusi IT untuk bisnis, pendidikan, dan personal.</p>
-                    <div class="hero-cta">
-                        <a href="products.html" class="btn btn-primary">Lihat Katalog <i class="fas fa-arrow-right"></i></a>
-                        <a href="contact.html" class="btn btn-outline">Hubungi Sales</a>
+            <div class="hero-content">
+                <span class="hero-badge"><span class="hero-badge-dot"></span> Luxury Resort • Jakarta</span>
+                <h1 class="hero-title">
+                    Experience the <span class="gold">Extraordinary</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Selamat datang di Aurora Grand Resort — tempat kemewahan bertemu keahlian kelas dunia.
+                    <span class="typed" data-typed='["Nikmati suite mewah dengan panorama laut.", "Gelar wedding impian di Grand Ballroom kami.", "Rasakan fine dining dengan cita rasa terbaik.", "Rencanakan corporate event yang berkesan."]'></span><span class="typed-cursor">|</span>
+                </p>
+                <div class="hero-cta">
+                    <a href="rooms.html" class="btn btn-gold btn-lg magnetic" data-page-link><i class="fa-solid fa-bed"></i> Explore Rooms</a>
+                    <a href="assets/pdf/aurora-grand-brochure.pdf" class="btn btn-white-outline btn-lg magnetic" download><i class="fa-solid fa-download"></i> Download Brochure</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="25" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Tahun Pengalaman</span>
                     </div>
-                    <div class="hero-stats">
-                        <div class="hero-stat-item"><span class="stat-num">10+</span><span class="stat-lbl">Tahun Pengalaman</span></div>
-                        <div class="hero-stat-item"><span class="stat-num">5000+</span><span class="stat-lbl">Unit Terjual</span></div>
-                        <div class="hero-stat-item"><span class="stat-num">98%</span><span class="stat-lbl">Kepuasan Klien</span></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="320" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Kamar Mewah</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="1500" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Event Sukses</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="98" data-suffix="%">0</span></span>
+                        <span class="hero-stat-label">Kepuasan Tamu</span>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="hero-visual-inner">
-                        <div class="hero-laptop"><i class="fas fa-laptop"></i></div>
-                        <div class="hero-visual-badge">
-                            <i class="fas fa-trophy"></i>
-                            <div><span class="badge-num">#1</span> Distributor</div>
-                        </div>
-                        <div class="hero-visual-badge">
-                            <i class="fas fa-certificate"></i>
-                            <div><span class="badge-num">100%</span> Garansi Resmi</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Brands -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-building"></i> Merek Ternama</span>
-                <h2>Bermitra dengan <span class="highlight">Merek Terbaik</span></h2>
-                <p>Kami menjalin kerjasama resmi dengan berbagai merek laptop terkemuka dunia.</p>
-            </div>
-            <div class="grid-5" style="text-align:center">
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Lenovo</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">HP</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Dell</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Asus</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Acer</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Apple</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">MSI</h3></div>
-                <div class="card" style="padding:28px 16px"><div class="icon" style="width:50px;height:50px;font-size:22px;margin-bottom:12px"><i class="fas fa-laptop"></i></div><h3 style="font-size:14px">Toshiba</h3></div>
-            </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="mouse"></div>
+            <span>Scroll</span>
         </div>
-    </section>
+    </header>
 
-    <!-- Why Us -->
+    <!-- ===== SVG DIVIDER ===== -->
+    <div class="svg-divider" aria-hidden="true">
+        <svg viewBox="0 0 1440 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 90L60 75L120 60L180 75L240 45L300 60L360 30L420 45L480 15L540 30L600 0L660 15L720 0L780 15L840 45L900 30L960 60L1020 45L1080 75L1140 60L1200 90L1260 75L1320 90L1380 75L1440 90V90H0V90Z" fill="#0B0E16"/>
+        </svg>
+    </div>
+
+    <!-- ===== COMPANY HIGHLIGHT ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-medal"></i> Keunggulan</span>
-                <h2>Mengapa Memilih <span class="highlight">LaptopPro</span>?</h2>
-                <p>Kami hadir dengan pengalaman dan jaringan luas untuk memberikan solusi laptop terbaik.</p>
-            </div>
-            <div class="grid-4">
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-tags"></i></div>
-                    <h3>Harga Distributor</h3>
-                    <p>Harga langsung dari distributor resmi, lebih murah dari pasaran umum dengan garansi resmi.</p>
+            <div class="split">
+                <div class="split-media reveal reveal-left">
+                    <div class="main-img">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Suite mewah Aurora Grand Resort" loading="lazy">
+                    </div>
+                    <div class="floating-card float-anim" data-parallax-speed="0.3">
+                        <div class="fc-icon"><i class="fa-solid fa-award"></i></div>
+                        <div>
+                            <strong>5-Star</strong>
+                            <span>Luxury Resort Rating</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Garansi Resmi</h3>
-                    <p>Seluruh produk bergaransi resmi dari masing-masing merek. Aman dan terpercaya.</p>
-                </div>
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-truck"></i></div>
-                    <h3>Pengiriman Cepat</h3>
-                    <p>Pengiriman ke seluruh Indonesia dengan packing aman dan asuransi penuh.</p>
-                </div>
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-headset"></i></div>
-                    <h3>Dukungan 3 Bulan</h3>
-                    <p>Support teknis gratis 3 bulan untuk setiap pembelian. Konsultasi kapan saja.</p>
-                </div>
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Proyek & Corporate</h3>
-                    <p>Melayani pengadaan untuk perusahaan, institusi pendidikan, dan pemerintahan.</p>
-                </div>
-                <div class="card animate-on-scroll">
-                    <div class="icon"><i class="fas fa-wallet"></i></div>
-                    <h3>Cicilan 0%</h3>
-                    <p>Bekerjasama dengan berbagai bank untuk menawarkan cicilan 0% hingga 12 bulan.</p>
+                <div class="split-content reveal reveal-right">
+                    <span class="eyebrow">Company Highlight</span>
+                    <h2 class="section-title">The Epitome of <span class="text-gold">Luxury</span> in the Heart of Jakarta</h2>
+                    <p class="section-desc">
+                        Berlokasi strategis di jantung kota, Aurora Grand Resort menawarkan pengalaman menginap yang tak tertandingi.
+                        Dari suite mewah dengan pemandangan laut hingga ballroom elegan untuk acara besar, kami menghadirkan standar
+                        hospitality kelas dunia untuk tamu domestik maupun internasional.
+                    </p>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:30px">
+                        <div>
+                            <span class="counter-value"><span class="counter" data-target="98">0</span>%</span>
+                            <p style="color:var(--gray-500); font-size:0.82rem">Guest Satisfaction</p>
+                        </div>
+                        <div>
+                            <span class="counter-value"><span class="counter" data-target="40">0</span>+</span>
+                            <p style="color:var(--gray-500); font-size:0.82rem">Negara Asal Tamu</p>
+                        </div>
+                        <div>
+                            <span class="counter-value"><span class="counter" data-target="15">0</span></span>
+                            <p style="color:var(--gray-500); font-size:0.82rem">Awards Diraih</p>
+                        </div>
+                        <div>
+                            <span class="counter-value"><span class="counter" data-target="500">0</span>+</span>
+                            <p style="color:var(--gray-500); font-size:0.82rem">Karyawan Profesional</p>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn btn-gold mt-3 magnetic" style="margin-top:30px" data-page-link>
+                        Discover Our Story <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="section section-alt">
+    <!-- ===== FEATURED FACILITIES (BENTO GRID) ===== -->
+    <section class="section" style="background:var(--navy-900)">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-fire"></i> Produk Unggulan</span>
-                <h2>Produk <span class="highlight">Terpopuler</span></h2>
-                <p>Rekomendasi laptop terbaik untuk kebutuhan Anda.</p>
+            <div class="section-head center">
+                <span class="eyebrow center">Our Facilities</span>
+                <h2 class="section-title">Featured <span class="text-gold">Facilities</span></h2>
+                <p class="section-desc">Rasakan fasilitas kelas dunia yang dirancang untuk kenyamanan dan kemewahan Anda.</p>
             </div>
-            <div class="product-grid">
-                <div class="product-card animate-on-scroll">
-                    <span class="badge badge-featured">Terlaris</span>
-                    <div class="thumb">
-                        <i class="fas fa-laptop"></i>
-                        <div class="overlay">
-                            <a href="product-detail.html?id=1" class="btn btn-primary btn-sm">Lihat Detail</a>
+            <div class="bento">
+                <a href="facilities.html#ballroom" class="bento-item bento-1 reveal reveal-zoom" data-page-link>
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80" alt="Aurora Grand Ballroom" loading="lazy">
+                    <div class="bento-overlay">
+                        <div>
+                            <h4>Aurora Grand Ballroom</h4>
+                            <p>Kapasitas 1.500 tamu</p>
                         </div>
                     </div>
-                    <div class="info">
-                        <div class="brand">Lenovo</div>
-                        <h3>ThinkPad X1 Carbon Gen 11</h3>
-                        <div class="specs">
-                            <span>i7-1365U</span>
-                            <span>16GB</span>
-                            <span>512GB SSD</span>
-                            <span>14" FHD</span>
-                        </div>
-                        <div class="price">
-                            <span class="current">Rp 18.999.000</span>
-                            <span class="old">Rp 22.500.000</span>
-                        </div>
-                        <div class="actions">
-                            <button class="btn btn-primary btn-sm add-to-cart" data-id="1" data-name="ThinkPad X1 Carbon Gen 11" data-price="18999000"><i class="fas fa-shopping-cart"></i> Keranjang</button>
-                            <a href="https://wa.me/6281298578909?text=Halo%20saya%20tertarik%20dengan%20ThinkPad%20X1%20Carbon" class="btn btn-wa btn-sm" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </a>
+                <a href="facilities.html#restaurant" class="bento-item bento-2 reveal reveal-zoom reveal-delay-1" data-page-link>
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Skyline Restaurant" loading="lazy">
+                    <div class="bento-overlay">
+                        <div>
+                            <h4>Skyline Restaurant</h4>
+                            <p>Fine dining level atas</p>
                         </div>
                     </div>
-                </div>
-                <div class="product-card animate-on-scroll">
-                    <span class="badge badge-new">Baru</span>
-                    <div class="thumb">
-                        <i class="fas fa-laptop"></i>
-                        <div class="overlay">
-                            <a href="product-detail.html?id=2" class="btn btn-primary btn-sm">Lihat Detail</a>
+                </a>
+                <a href="facilities.html#pool" class="bento-item bento-3 reveal reveal-zoom reveal-delay-2" data-page-link>
+                    <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80" alt="Infinity Pool" loading="lazy">
+                    <div class="bento-overlay">
+                        <div>
+                            <h4>Infinity Pool</h4>
+                            <p>Panorama laut</p>
                         </div>
                     </div>
-                    <div class="info">
-                        <div class="brand">MacBook</div>
-                        <h3>MacBook Pro M3 Pro</h3>
-                        <div class="specs">
-                            <span>M3 Pro</span>
-                            <span>18GB</span>
-                            <span>512GB SSD</span>
-                            <span>16.2" LQD</span>
-                        </div>
-                        <div class="price">
-                            <span class="current">Rp 29.999.000</span>
-                            <span class="old">Rp 33.999.000</span>
-                        </div>
-                        <div class="actions">
-                            <button class="btn btn-primary btn-sm add-to-cart" data-id="2" data-name="MacBook Pro M3 Pro" data-price="29999000"><i class="fas fa-shopping-cart"></i> Keranjang</button>
-                            <a href="https://wa.me/6281298578909?text=Halo%20saya%20tertarik%20dengan%20MacBook%20Pro%20M3" class="btn btn-wa btn-sm" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </a>
+                <a href="facilities.html#spa" class="bento-item bento-4 reveal reveal-zoom reveal-delay-3" data-page-link>
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80" alt="Wellness Spa" loading="lazy">
+                    <div class="bento-overlay">
+                        <div>
+                            <h4>Wellness Spa</h4>
+                            <p>Relaksasi mewah</p>
                         </div>
                     </div>
-                </div>
-                <div class="product-card animate-on-scroll">
-                    <span class="badge badge-sale">Diskon</span>
-                    <div class="thumb">
-                        <i class="fas fa-laptop"></i>
-                        <div class="overlay">
-                            <a href="product-detail.html?id=3" class="btn btn-primary btn-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <div class="brand">Asus</div>
-                        <h3>ROG Zephyrus G14</h3>
-                        <div class="specs">
-                            <span>R9 7940HS</span>
-                            <span>32GB</span>
-                            <span>1TB SSD</span>
-                            <span>14" QHD</span>
-                        </div>
-                        <div class="price">
-                            <span class="current">Rp 24.999.000</span>
-                            <span class="old">Rp 28.999.000</span>
-                        </div>
-                        <div class="actions">
-                            <button class="btn btn-primary btn-sm add-to-cart" data-id="3" data-name="ROG Zephyrus G14" data-price="24999000"><i class="fas fa-shopping-cart"></i> Keranjang</button>
-                            <a href="https://wa.me/6281298578909?text=Halo%20saya%20tertarik%20dengan%20ROG%20Zephyrus%20G14" class="btn btn-wa btn-sm" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card animate-on-scroll">
-                    <div class="thumb">
-                        <i class="fas fa-laptop"></i>
-                        <div class="overlay">
-                            <a href="product-detail.html?id=4" class="btn btn-primary btn-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <div class="brand">Dell</div>
-                        <h3>XPS 15 9530</h3>
-                        <div class="specs">
-                            <span>i7-13700H</span>
-                            <span>16GB</span>
-                            <span>512GB SSD</span>
-                            <span>15.6" OLED</span>
-                        </div>
-                        <div class="price">
-                            <span class="current">Rp 21.999.000</span>
-                        </div>
-                        <div class="actions">
-                            <button class="btn btn-primary btn-sm add-to-cart" data-id="4" data-name="Dell XPS 15 9530" data-price="21999000"><i class="fas fa-shopping-cart"></i> Keranjang</button>
-                            <a href="https://wa.me/6281298578909?text=Halo%20saya%20tertarik%20dengan%20Dell%20XPS%2015" class="btn btn-wa btn-sm" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center;margin-top:40px">
-                <a href="products.html" class="btn btn-primary">Lihat Semua Produk <i class="fas fa-arrow-right"></i></a>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- ===== FEATURED PACKAGE ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-quote-left"></i> Testimonial</span>
-                <h2>Apa Kata <span class="highlight">Klien Kami</span>?</h2>
-                <p>Ribuan klien telah mempercayakan kebutuhan laptop mereka kepada kami.</p>
+            <div class="section-head center">
+                <span class="eyebrow center">Featured Package</span>
+                <h2 class="section-title">Paket <span class="text-gold">Unggulan</span> Kami</h2>
+                <p class="section-desc">Pilih pengalaman terbaik yang kami rancang khusus untuk Anda.</p>
             </div>
-            <div class="testi-grid">
-                <div class="testi-card animate-on-scroll">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Pelayanan sangat profesional. Pengiriman cepat, barang original dengan garansi resmi. Sangat recommended untuk kebutuhan laptop kantor."</p>
-                    <div class="author">
-                        <div class="avatar"><i class="fas fa-user"></i></div>
-                        <div><h4>Budi Santoso</h4><span>CEO, PT Maju Jaya</span></div>
+            <div class="bento" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: 320px">
+                <div class="package-showcase reveal reveal-zoom" style="grid-column:span 1; position:relative; border-radius:var(--radius-lg); overflow:hidden; background:var(--navy-800); padding:36px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(201,168,106,0.25)">
+                    <div>
+                        <span class="eyebrow">Wedding</span>
+                        <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin:12px 0">Wedding Gold</h3>
+                        <p style="color:var(--gray-500); font-size:0.88rem">Grand Ballroom untuk 500 tamu dengan dekorasi import dan honeymoon villa 2 malam.</p>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <span style="font-family:var(--font-serif); font-size:1.5rem; color:var(--gold-400)">Rp 100JT <small style="font-size:0.7rem; color:var(--gray-500)">/ paket</small></span>
+                        <a href="packages.html" class="btn btn-gold btn-sm" data-page-link>Details</a>
                     </div>
                 </div>
-                <div class="testi-card animate-on-scroll">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Harga bersaing dan pilihan produk lengkap. Proses pengadaan untuk perusahaan jadi sangat mudah. Tim sales responsif banget."</p>
-                    <div class="author">
-                        <div class="avatar"><i class="fas fa-user"></i></div>
-                        <div><h4>Siti Rahmawati</h4><span>Manager IT, Universitas Nusantara</span></div>
+                <div class="package-showcase reveal reveal-zoom reveal-delay-1" style="grid-column:span 1; position:relative; border-radius:var(--radius-lg); overflow:hidden; background:var(--navy-800); padding:36px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,0.05)">
+                    <div>
+                        <span class="eyebrow">Corporate</span>
+                        <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin:12px 0">Day Meeting</h3>
+                        <p style="color:var(--gray-500); font-size:0.88rem">Meeting room 6 jam dengan business lunch, coffee break, dan peralatan lengkap.</p>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <span style="font-family:var(--font-serif); font-size:1.5rem; color:var(--gold-400)">Rp 450K <small style="font-size:0.7rem; color:var(--gray-500)">/ pax</small></span>
+                        <a href="packages.html" class="btn btn-outline btn-sm" data-page-link>Details</a>
                     </div>
                 </div>
-                <div class="testi-card animate-on-scroll">
-                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p>"Sudah 3 tahun jadi langganan. Barang selalu ready, harga terbaik, dan after sales service-nya luar biasa. Top markotop!"</p>
-                    <div class="author">
-                        <div class="avatar"><i class="fas fa-user"></i></div>
-                        <div><h4>Andi Wijaya</h4><span>Founder, Startup Digital</span></div>
+                <div class="package-showcase reveal reveal-zoom reveal-delay-2" style="grid-column:span 1; position:relative; border-radius:var(--radius-lg); overflow:hidden; background:var(--navy-800); padding:36px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,0.05)">
+                    <div>
+                        <span class="eyebrow">Staycation</span>
+                        <h3 style="font-family:var(--font-serif); font-size:1.6rem; margin:12px 0">Grand Villa</h3>
+                        <p style="color:var(--gray-500); font-size:0.88rem">Villa pribadi dengan kolam renang eksklusif dan private chef untuk 6 tamu.</p>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; align-items:center">
+                        <span style="font-family:var(--font-serif); font-size:1.5rem; color:var(--gold-400)">Rp 8.5JT <small style="font-size:0.7rem; color:var(--gray-500)">/ malam</small></span>
+                        <a href="rooms.html#villa" class="btn btn-outline btn-sm" data-page-link>Details</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Preview -->
-    <section class="section section-alt">
+    <!-- ===== AWARDS ===== -->
+    <section class="section-sm" style="background:var(--navy-900)">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag"><i class="fas fa-newspaper"></i> Blog & Berita</span>
-                <h2>Artikel <span class="highlight">Terbaru</span></h2>
-                <p>Tips, berita, dan informasi terbaru seputar teknologi laptop.</p>
-            </div>
-            <div class="blog-grid">
-                <div class="blog-card animate-on-scroll">
-                    <div class="thumb">
-                        <i class="fas fa-microchip"></i>
-                        <div class="date-badge">15 Juli 2026</div>
-                    </div>
-                    <div class="body">
-                        <div class="cat">Tips & Tutorial</div>
-                        <h3>Panduan Memilih Laptop untuk Programmer 2026</h3>
-                        <p>Tips lengkap memilih spesifikasi laptop ideal untuk coding, mulai dari prosesor, RAM, hingga penyimpanan.</p>
-                        <a href="blog-post.html?id=1" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            <div class="awards-grid">
+                <div class="award-card reveal">
+                    <div class="award-icon"><i class="fa-solid fa-award"></i></div>
+                    <h3>Best Luxury Resort</h3>
+                    <span>Indonesia Hospitality Awards 2025</span>
                 </div>
-                <div class="blog-card animate-on-scroll">
-                    <div class="thumb">
-                        <i class="fas fa-chart-line"></i>
-                        <div class="date-badge">10 Juli 2026</div>
-                    </div>
-                    <div class="body">
-                        <div class="cat">Berita Industri</div>
-                        <h3>Tren Laptop AI: Masa Depan Komputasi Personal</h3>
-                        <p>Perkembangan teknologi AI yang terintegrasi dalam laptop modern dan dampaknya pada produktivitas.</p>
-                        <a href="blog-post.html?id=2" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="award-card reveal reveal-delay-1">
+                    <div class="award-icon"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>Top Wedding Venue</h3>
+                    <span>Asia Wedding Guide 2024</span>
                 </div>
-                <div class="blog-card animate-on-scroll">
-                    <div class="thumb">
-                        <i class="fas fa-gamepad"></i>
-                        <div class="date-badge">5 Juli 2026</div>
-                    </div>
-                    <div class="body">
-                        <div class="cat">Gaming</div>
-                        <h3>Rekomendasi Laptop Gaming 2026: Dari Entry ke High-End</h3>
-                        <p>Kumpulan laptop gaming terbaik di tahun 2026 untuk berbagai budget, lengkap dengan spesifikasi.</p>
-                        <a href="blog-post.html?id=3" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="award-card reveal reveal-delay-2">
+                    <div class="award-icon"><i class="fa-solid fa-medal"></i></div>
+                    <h3>Excellent Service</h3>
+                    <span>TripAdvisor Travelers Choice</span>
+                </div>
+                <div class="award-card reveal reveal-delay-3">
+                    <div class="award-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>5-Star Rating</h3>
+                    <span>Google Reviews 4.9/5</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
+    <!-- ===== PARTNERS (MARQUEE) ===== -->
+    <section class="section" style="padding:50px 0">
         <div class="container">
-            <h2>Siap Mendapatkan Laptop Impian?</h2>
-            <p>Konsultasi gratis dengan tim sales profesional kami. Dapatkan penawaran terbaik hari ini!</p>
-            <a href="https://wa.me/6281298578909" class="btn btn-white btn-lg" target="_blank"><i class="fab fa-whatsapp"></i> Hubungi Via WhatsApp</a>
+            <div class="marquee" aria-label="Corporate partners">
+                <div class="marquee-track">
+                    <div class="marquee-item"><i class="fa-solid fa-plane"></i> PT Garuda Indonesia</div>
+                    <div class="marquee-item"><i class="fa-solid fa-earth-asia"></i> Traveloka</div>
+                    <div class="marquee-item"><i class="fa-solid fa-building-columns"></i> Bank Mandiri</div>
+                    <div class="marquee-item"><i class="fa-solid fa-fire"></i> Pertamina</div>
+                    <div class="marquee-item"><i class="fa-solid fa-car"></i> Toyota Astra</div>
+                    <div class="marquee-item"><i class="fa-solid fa-mobile-screen"></i> Grab</div>
+                    <div class="marquee-item"><i class="fa-solid fa-suitcase"></i> Booking.com</div>
+                    <div class="marquee-item"><i class="fa-solid fa-city"></i> Jakarta Convention</div>
+                    <div class="marquee-item"><i class="fa-solid fa-plane"></i> PT Garuda Indonesia</div>
+                    <div class="marquee-item"><i class="fa-solid fa-earth-asia"></i> Traveloka</div>
+                    <div class="marquee-item"><i class="fa-solid fa-building-columns"></i> Bank Mandiri</div>
+                    <div class="marquee-item"><i class="fa-solid fa-fire"></i> Pertamina</div>
+                    <div class="marquee-item"><i class="fa-solid fa-car"></i> Toyota Astra</div>
+                    <div class="marquee-item"><i class="fa-solid fa-mobile-screen"></i> Grab</div>
+                    <div class="marquee-item"><i class="fa-solid fa-suitcase"></i> Booking.com</div>
+                    <div class="marquee-item"><i class="fa-solid fa-city"></i> Jakarta Convention</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="section" style="background:var(--navy-900)">
+        <div class="container">
+            <div class="section-head center">
+                <span class="eyebrow center">Testimonials</span>
+                <h2 class="section-title">Apa Kata <span class="text-gold">Tamu</span> Kami</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card-big">
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-quote">Pengalaman menginap di Aurora Grand Resort benar-benar luar biasa. Pelayanan kelas dunia, kamar yang mewah, dan pemandangan yang menakjubkan. Ini adalah standar baru untuk luxury resort di Indonesia.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">AW</div>
+                                <div>
+                                    <h4>Alexander Wijaya</h4>
+                                    <span>CEO, Wijaya Group</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card-big">
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-quote">Kami mengadakan wedding reception anak kami di Aurora Grand Ballroom. Tim event mereka sangat profesional, setiap detail ditangani dengan sempurna. Semua tamu undangan terkesan!</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">LH</div>
+                                <div>
+                                    <h4>Linda Hartono</h4>
+                                    <span>Ibu dari Mempelai</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card-big">
+                            <div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="testimonial-quote">Sebagai corporate partner, Aurora Grand menjadi venue pilihan utama untuk setiap acara perusahaan kami. Fasilitas MICE-nya lengkap dan support team-nya sangat responsif.</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">MT</div>
+                                <div>
+                                    <h4>Michael Tanuwijaya</h4>
+                                    <span>Director, PT Nusantara Maju</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="t-nav-btn t-prev" aria-label="Testimonial sebelumnya"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button class="t-nav-btn t-next" aria-label="Testimonial berikutnya"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                <div class="testimonial-dots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LATEST NEWS ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head center">
+                <span class="eyebrow center">Latest News</span>
+                <h2 class="section-title">Berita & <span class="text-gold">Artikel</span> Terbaru</h2>
+                <p class="section-desc">Ikuti perkembangan terbaru dari Aurora Grand Resort.</p>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+                <article class="news-card reveal tilt-card">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80" alt="Wedding di Aurora Grand" loading="lazy">
+                        <span class="news-cat">Wedding</span>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta"><span><i class="fa-regular fa-calendar"></i> 12 Des 2025</span><span><i class="fa-regular fa-user"></i> Event Team</span></div>
+                        <h3>5 Alasan Aurora Grand Menjadi Pilihan Utama untuk Wedding Anda</h3>
+                        <p>Mencari venue wedding yang sempurna? Ini alasannya...</p>
+                    </div>
+                </article>
+                <article class="news-card reveal tilt-card reveal-delay-1">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Fine dining Skyline Restaurant" loading="lazy">
+                        <span class="news-cat">Dining</span>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta"><span><i class="fa-regular fa-calendar"></i> 8 Des 2025</span><span><i class="fa-regular fa-user"></i> Culinary Team</span></div>
+                        <h3>Sensasi Kuliner Asia Klasik di Skyline Restaurant</h3>
+                        <p>Chef kami menghadirkan pengalaman fine dining terbaik...</p>
+                    </div>
+                </article>
+                <article class="news-card reveal tilt-card reveal-delay-2">
+                    <div class="news-thumb">
+                        <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=800&q=80" alt="Corporate event" loading="lazy">
+                        <span class="news-cat">Corporate</span>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta"><span><i class="fa-regular fa-calendar"></i> 2 Des 2025</span><span><i class="fa-regular fa-user"></i> Sales & Marketing</span></div>
+                        <h3>Tren MICE 2026: Menyelenggarakan Corporate Event yang Berkesan</h3>
+                        <p>Dari hybrid event hingga gamifikasi, ini tren terbarunya...</p>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align:center; margin-top:40px">
+                <a href="articles.html" class="btn btn-outline magnetic" data-page-link>View All Articles <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-banner reveal reveal-zoom">
+                <div class="cta-bg" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80')"></div>
+                <div class="cta-shade"></div>
+                <h2>Rencanakan Pengalaman <span class="text-gold">Tak Terlupakan</span></h2>
+                <p>Hubungi tim kami untuk reservasi kamar, booking event, atau konsultasi paket pernikahan impian Anda.</p>
+                <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap">
+                    <a href="contact.html" class="btn btn-gold btn-lg magnetic" data-page-link><i class="fa-solid fa-calendar-check"></i> Book Now</a>
+                    <a href="https://wa.me/6281212345678" class="btn btn-white-outline btn-lg magnetic" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3><i class="fas fa-laptop"></i> LaptopPro</h3>
-                    <p>Distributor laptop premium terpercaya sejak 2015. Solusi IT lengkap untuk bisnis, pendidikan, dan personal. Garansi resmi, harga terbaik.</p>
+                    <a href="index.html" class="nav-logo">
+                        <span class="nav-logo-icon"><i class="fa-solid fa-crown"></i></span>
+                        <span class="nav-logo-text">
+                            <strong>Aurora Grand</strong>
+                            <span>Resort & Convention</span>
+                        </span>
+                    </a>
+                    <p>Luxury resort, convention hall, wedding venue dan fine dining restaurant di jantung kota Jakarta.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Halaman</h4>
+                    <h4>Explore</h4>
                     <ul>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="products.html">Katalog Produk</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="testimonials.html">Testimonial</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="about.html" data-page-link>About Us</a></li>
+                        <li><a href="rooms.html" data-page-link>Rooms</a></li>
+                        <li><a href="facilities.html" data-page-link>Facilities</a></li>
+                        <li><a href="gallery.html" data-page-link>Gallery</a></li>
+                        <li><a href="events.html" data-page-link>Events</a></li>
+                        <li><a href="packages.html" data-page-link>Packages</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Produk</h4>
+                    <h4>Company</h4>
                     <ul>
-                        <li><a href="products.html">Laptop Bisnis</a></li>
-                        <li><a href="products.html">Laptop Gaming</a></li>
-                        <li><a href="products.html">Laptop Pendidikan</a></li>
-                        <li><a href="products.html">Aksesoris</a></li>
-                        <li><a href="products.html">Workstation</a></li>
+                        <li><a href="career.html" data-page-link>Career</a></li>
+                        <li><a href="articles.html" data-page-link>Articles</a></li>
+                        <li><a href="faq.html" data-page-link>FAQ</a></li>
+                        <li><a href="contact.html" data-page-link>Contact</a></li>
+                        <li><a href="admin/login.html" target="_blank" rel="noopener">Admin Panel</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
-                    <ul>
-                        <li><a href="https://wa.me/6281298578909"><i class="fab fa-whatsapp"></i> +62 812-9857-8909</a></li>
-                        <li><a href="mailto:hello@laptoppro.com"><i class="fas fa-envelope"></i> hello@laptoppro.com</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> @laptoppro.id</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> LaptopPro TV</a></li>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan penawaran eksklusif dan info terbaru dari kami.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih! Anda berhasil berlangganan newsletter kami.');">
+                        <input type="email" placeholder="Email Anda" aria-label="Email untuk newsletter" required>
+                        <button type="submit" aria-label="Berlangganan"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                    <ul class="footer-contact" style="margin-top:24px">
+                        <li><i class="fa-solid fa-location-dot"></i> Jl. Grand Boulevard No. 88, Jakarta Selatan</li>
+                        <li><i class="fa-solid fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@auroragrandresort.co.id</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 LaptopPro Distributor. All rights reserved. | Website Powered by LaptopPro</p>
-                <a href="admin/index.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a>
+                <p>© 2026 Aurora Grand Resort. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="https://prasetyaas.github.io" target="_blank" rel="noopener">Demo by Prasetya Adhytiatama Saputra</a>
+                    <a href="admin/login.html" target="_blank" rel="noopener">Admin Login</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Buttons -->
-    <div class="floating-btns">
-        <a href="https://wa.me/6281298578909" class="floating-btn floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <button class="floating-btn floating-chat" id="cartToggle"><i class="fas fa-shopping-cart"></i></button>
+    <!-- ===== FLOATING CONTACT ===== -->
+    <div class="floating-contact">
+        <a href="https://wa.me/6281212345678" class="fc-btn fc-whatsapp" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="fc-tooltip">Chat WhatsApp</span>
+        </a>
+        <a href="contact.html" class="fc-btn fc-booking" aria-label="Booking sekarang" data-page-link>
+            <i class="fa-solid fa-calendar-check"></i>
+            <span class="fc-tooltip">Booking Sekarang</span>
+        </a>
     </div>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h3>
-            <button class="close-btn" id="cartClose"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="cart-items" id="cartItems">
-            <div style="text-align:center;padding:40px 20px;color:var(--text-muted)">
-                <i class="fas fa-shopping-bag" style="font-size:48px;display:block;margin-bottom:16px;opacity:0.2"></i>
-                <p>Keranjang masih kosong</p>
-            </div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total</span>
-                <span class="total-price" id="cartTotal">Rp 0</span>
-            </div>
-            <a href="https://wa.me/6281298578909" class="btn btn-primary" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Checkout via WhatsApp</a>
-        </div>
-    </div>
-
-    <!-- Demo Info -->
-    <div style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;background:#0f172a;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 20px rgba(0,0,0,0.3);border-left:4px solid #f59e0b;max-width:90%">
-        <i class="fas fa-lock" style="color:#f59e0b"></i>
-        <span>🔐 Demo Admin: <strong style="color:#f59e0b">admin@laptoppro.com</strong> / <strong style="color:#f59e0b">admin123</strong></span>
-        <a href="admin/index.html" style="color:#fff;background:#1e40af;padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:12px;white-space:nowrap">Login Admin</a>
-    </div>
-
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

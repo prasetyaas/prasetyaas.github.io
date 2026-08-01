@@ -1,0 +1,10 @@
+# Icons Directory
+
+Letakkan file favicon dan ikon website di folder ini. Contoh:
+
+- `favicon.ico`
+- `favicon.png`
+- `logo.png`
+- dll.
+
+Saat ini website menggunakan ikon dari Font Awesome dan favicon placeholder dari Icons8.

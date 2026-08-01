@@ -1,152 +1,516 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-page="home">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kohaku Koi Farm — Peternak dan supplier ikan koi premium sejak 2010. Kualitas juara, harga bersahabat.">
-    <title>Kohaku Koi Farm — Pusat Ikan Koi Premium</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Sakura Koi Indonesia - Importir ikan koi premium Jepang, budidaya, penjualan, pembuatan kolam, dan perawatan koi. Premium Japanese Koi for Every Pond.">
+    <meta name="keywords" content="koi jepang, importir koi, budidaya koi, kolam koi, perawatan koi, koi premium, jual koi">
+    <meta name="author" content="Sakura Koi Indonesia">
+    <meta name="robots" content="index, follow">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://sakurakoi.co.id/index.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sakura Koi Indonesia | Premium Japanese Koi for Every Pond">
+    <meta property="og:description" content="Menghadirkan ikan koi berkualitas premium untuk kolektor, hobiis, dan kebutuhan komersial.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=1200&q=80">
+    <meta property="og:url" content="https://sakurakoi.co.id/index.html">
+    <meta property="og:site_name" content="Sakura Koi Indonesia">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sakura Koi Indonesia | Premium Japanese Koi">
+    <meta name="twitter:description" content="Importir ikan koi premium Jepang untuk kolektor, hobiis, dan komersial.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=1200&q=80">
+    <title>Sakura Koi Indonesia | Premium Japanese Koi for Every Pond</title>
+
+    <!-- Favicon (placeholder koi) -->
+    <link rel="icon" href="https://img.icons8.com/color/96/fish--v1.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <nav class="navbar" id="navbar">
+
+    <!-- ===== JSON-LD Organization ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Sakura Koi Indonesia",
+        "slogan": "Premium Japanese Koi for Every Pond",
+        "description": "Importir dan budidaya ikan koi Jepang premium.",
+        "email": "info@sakurakoi.co.id",
+        "telephone": "+6281234567890",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Koi Indah No. 88",
+            "addressLocality": "Bogor",
+            "addressRegion": "Jawa Barat",
+            "postalCode": "16750",
+            "addressCountry": "ID"
+        }
+    }
+    </script>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div class="loading-screen" role="status" aria-label="Memuat halaman">
+        <span class="loading-kana">錦鯉</span>
+        <div class="loading-logo">Sakura <span>Koi</span></div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Premium Japanese Koi</div>
+    </div>
+
+    <!-- ===== ANIMATED CURSOR ===== -->
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- ===== SCROLL PROGRESS ===== -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar" aria-label="Navigasi utama">
         <div class="container">
-            <a href="index.html" class="nav-logo"><span class="logo-icon">🐟</span> Kohaku Koi Farm</a>
-            <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+            <a href="index.html" class="nav-logo" aria-label="Beranda Sakura Koi Indonesia">
+                <span class="nav-logo-icon"><i class="fas fa-water"></i></span>
+                <span class="nav-logo-text">
+                    <strong>Sakura Koi</strong>
+                    <span>Indonesia</span>
+                </span>
+            </a>
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Ganti tema terang/gelap"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                <button class="nav-toggle" id="navToggle" aria-label="Buka menu" aria-expanded="false"><span></span><span></span><span></span></button>
+            </div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Beranda</a></li>
-                <li><a href="about.html" class="nav-link">Tentang</a></li>
+                <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="koi.html" class="nav-link">Koi</a></li>
                 <li><a href="services.html" class="nav-link">Layanan</a></li>
-                <li><a href="portfolio.html" class="nav-link">Produk</a></li>
+                <li><a href="gallery.html" class="nav-link">Galeri</a></li>
                 <li><a href="blog.html" class="nav-link">Blog</a></li>
-                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
+                <li><a href="pricing.html" class="nav-link">Harga</a></li>
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta">Kontak</a></li>
+                <li><a href="contact.html" class="nav-link">Kontak</a></li>
+                <li><a href="contact.html" class="btn btn-gold nav-cta"><i class="fab fa-whatsapp"></i> Konsultasi</a></li>
             </ul>
         </div>
     </nav>
+    <div class="nav-menu-overlay" aria-hidden="true"></div>
 
-    <section class="hero">
-        <div class="hero-ripples">
-            <div class="hero-ripple"></div>
-            <div class="hero-ripple"></div>
-            <div class="hero-ripple"></div>
-            <div class="hero-ripple"></div>
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+        <div class="hero-bg">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=1200&q=80">
+                <source src="https://cdn.coverr.co/videos/coverr-a-koi-fish-swimming-in-a-pond-5448/1080p.mp4" type="video/mp4">
+            </video>
+            <div class="hero-bg-poster" style="background-image:url('https://images.unsplash.com/photo-1561047029-3000c68339ca?w=1200&q=80')"></div>
         </div>
-        <div class="hero-koi-container">
-            <div class="hero-koi-swim ltr">🐟</div>
-            <div class="hero-koi-swim rtl">🐠</div>
-            <div class="hero-koi-swim ltr">🐡</div>
-            <div class="hero-koi-swim rtl">🐟</div>
-        </div>
-        <div class="hero-bubbles">
-            <div class="hero-bubble"></div>
-            <div class="hero-bubble"></div>
-            <div class="hero-bubble"></div>
-            <div class="hero-bubble"></div>
-            <div class="hero-bubble"></div>
-        </div>
-        <div class="container">
-            <!-- TOP: Hero Content -->
-            <div class="hero-top">
-                <div class="hero-badge"><i class="fas fa-fish"></i> Kohaku Koi Farm — Est. 2010</div>
-                <h1>Pusat Ikan Koi<br><span class="highlight">Premium</span> <span class="accent">Terpercaya</span></h1>
-                <p>Kami adalah peternak dan supplier ikan koi kualitas juara. Setiap ikan kami rawat dengan standar tertinggi untuk menghasilkan koi dengan warna, bentuk, dan kesehatan prima.</p>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern" aria-hidden="true"></div>
+
+        <!-- Floating Japanese elements -->
+        <div class="hero-float f1" aria-hidden="true">鯉</div>
+        <div class="hero-float f2" aria-hidden="true">桜</div>
+        <div class="hero-float f3" aria-hidden="true">水</div>
+        <div class="hero-float f4" aria-hidden="true">錦</div>
+
+        <div class="container hero-anim">
+            <div class="hero-content">
+                <span class="hero-badge"><span class="hero-badge-dot"></span> Importir Koi Jepang Terpercaya</span>
+                <h1 class="hero-title">The Beauty of <span class="gold">Authentic</span> Japanese Koi</h1>
+                <p class="hero-subtitle">Menghadirkan ikan koi berkualitas premium untuk kolektor, hobiis, dan kebutuhan komersial — <span class="typed" data-typed='["dari farm terbaik Niigata Jepang", "dengan garansi kualitas", "untuk setiap kolam Anda"]'></span></p>
                 <div class="hero-cta">
-                    <a href="portfolio.html" class="btn btn-primary">Lihat Koleksi <i class="fas fa-arrow-right"></i></a>
-                    <a href="contact.html" class="btn btn-outline">Hubungi Kami</a>
+                    <a href="koi.html" class="btn btn-gold btn-lg"><i class="fas fa-fish"></i> Explore Collection</a>
+                    <a href="assets/pdf/catalogue-sakura-koi.pdf" class="btn btn-outline btn-lg" download><i class="fas fa-download"></i> Download Catalogue</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="15" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Tahun Pengalaman</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="5000" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Koi Terjual</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="98" data-suffix="%">0</span></span>
+                        <span class="hero-stat-label">Survival Rate</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value"><span class="counter" data-target="30" data-suffix="+">0</span></span>
+                        <span class="hero-stat-label">Kota Terjangkau</span>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <!-- MIDDLE: Gallery -->
-            <div class="hero-gallery">
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#dc2626,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff"><i class="fas fa-fish"></i></div>
-                    <h4>Kohaku</h4>
-                    <span>Premium</span>
-                    <div class="grade grade-premium">★ Juara</div>
-                </div>
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#2563eb,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff"><i class="fas fa-fish"></i></div>
-                    <h4>Taisho Sanke</h4>
-                    <span>Elegant</span>
-                    <div class="grade grade-elite">★ Elite</div>
-                </div>
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#1e293b,#dc2626);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff"><i class="fas fa-fish"></i></div>
-                    <h4>Showa</h4>
-                    <span>Kontes</span>
-                    <div class="grade grade-premium">★ Juara</div>
-                </div>
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#fff,#dc2626);display:flex;align-items:center;justify-content:center;font-size:32px;color:#dc2626"><i class="fas fa-fish"></i></div>
-                    <h4>Tancho</h4>
-                    <span>Langka</span>
-                    <div class="grade grade-elite">★ Elite</div>
-                </div>
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#64748b,#e2e8f0);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff"><i class="fas fa-fish"></i></div>
-                    <h4>Asagi</h4>
-                    <span>Classic</span>
-                    <div class="grade grade-classic">Klasik</div>
-                </div>
-                <div class="hero-gallery-card">
-                    <div class="koi-img" style="background:linear-gradient(135deg,#f59e0b,#fbbf24);display:flex;align-items:center;justify-content:center;font-size:32px;color:#fff"><i class="fas fa-fish"></i></div>
-                    <h4>Ogon</h4>
-                    <span>Emas</span>
-                    <div class="grade grade-premium">★ Premium</div>
-                </div>
-            </div>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-mouse"><span></span></div>
+            <span class="scroll-text">Scroll</span>
+        </div>
 
-            <!-- BOTTOM: Stats -->
-            <div class="hero-bottom">
-                <div class="hero-stat-item"><span class="stat-num">500+</span><span class="stat-lbl">Koi Terjual</span></div>
-                <div class="hero-stat-item"><span class="stat-num">200+</span><span class="stat-lbl">Pelanggan</span></div>
-                <div class="hero-stat-item"><span class="stat-num">14+</span><span class="stat-lbl">Tahun</span></div>
+        <!-- Wave -->
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,40 C120,75 240,5 360,40 C480,75 600,5 720,40 C840,75 960,5 1080,40 C1200,75 1320,5 1440,40 L1440,80 L0,80 Z" fill="#F8FAFC"/>
+                <path d="M0,50 C160,85 320,15 480,50 C640,85 800,15 960,50 C1120,85 1280,15 1440,50 L1440,80 L0,80 Z" fill="#F8FAFC" opacity="0.5"/>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ===== COMPANY HIGHLIGHTS ===== -->
+    <section class="section section-bg-alt">
+        <div class="container">
+            <div class="highlights-grid">
+                <div class="highlight-card reveal">
+                    <div class="highlight-icon"><i class="fas fa-plane-arrival"></i></div>
+                    <h3>Import Langsung Jepang</h3>
+                    <p>Koi premium dari farm terbaik di Niigata, Jepang.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Garansi Kualitas</h3>
+                    <p>Setiap koi dijamin sehat dengan dokumen lengkap.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-paw"></i></div>
+                    <h3>Perawatan Profesional</h3>
+                    <p>Tim ahli siap merawat kolam dan kesehatan koi Anda.</p>
+                </div>
+                <div class="highlight-card">
+                    <div class="highlight-icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3>Pengiriman Nasional</h3>
+                    <p>Pengiriman aman ke seluruh Indonesia dengan jaminan hidup.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== FEATURED KOI ===== -->
     <section class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Keunggulan</span>
-                <h2>Mengapa <span class="highlight">Kohaku Koi Farm</span>?</h2>
-                <p>Kami hadir dengan pengalaman dan dedikasi tinggi untuk menghasilkan koi terbaik.</p>
+            <div class="section-header reveal">
+                <span class="section-tag">Featured Collection</span>
+                <h2 class="section-title">Koleksi Koi <span class="gold">Unggulan</span></h2>
+                <p class="section-desc">Beberapa jenis koi terbaik yang paling diminati kolektor di seluruh Indonesia.</p>
+                <div class="gold-divider"></div>
             </div>
-            <div class="grid-4">
-                <div class="card"><div class="icon"><i class="fas fa-medal"></i></div><h3>14+ Tahun</h3><p>Pengalaman breeding koi Kohaku kualitas juara sejak 2010.</p></div>
-                <div class="card"><div class="icon"><i class="fas fa-fish"></i></div><h3>500+ Ekor</h3><p>Telah mempercayakan koi kepada lebih dari 200 pelanggan.</p></div>
-                <div class="card"><div class="icon"><i class="fas fa-headset"></i></div><h3>Konsultasi Gratis</h3><p>Bantuan dan saran perawatan koi gratis seumur hidup.</p></div>
-                <div class="card"><div class="icon"><i class="fas fa-truck"></i></div><h3>Kirim Aman</h3><p>Packing khusus dengan oksigen murni untuk perjalanan aman.</p></div>
+            <div class="featured-koi-grid" data-render="featured-koi">
+                <!-- Diisi oleh render.js -->
+            </div>
+            <div style="text-align:center;margin-top:40px" class="reveal">
+                <a href="koi.html" class="btn btn-primary btn-lg">Lihat Semua Koleksi <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section class="cta-banner">
+    <!-- ===== FEATURED SERVICES ===== -->
+    <section class="section section-bg-alt">
         <div class="container">
-            <h2>Tertarik dengan Koi Kami?</h2>
-            <p>Konsultasi gratis. Tim kami siap membantu Anda memilih koi impian.</p>
-            <a href="contact.html" class="btn btn-white"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
+            <div class="section-header reveal">
+                <span class="section-tag">Our Services</span>
+                <h2 class="section-title">Layanan <span class="gold">Premium</span></h2>
+                <p class="section-desc">Solusi lengkap untuk kebutuhan koi Anda, dari import hingga perawatan.</p>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="featured-services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-seedling"></i></div>
+                    <div>
+                        <h3>Budidaya Koi</h3>
+                        <p>Program budidaya koi dengan indukan berkualitas dari Jepang, termasuk pendampingan teknis.</p>
+                        <a href="services.html" class="service-link">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card reveal stagger-delay-2">
+                    <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+                    <div>
+                        <h3>Import Jepang</h3>
+                        <p>Import koi langsung dari farm Niigata dengan dokumen lengkap dan karantina ketat.</p>
+                        <a href="services.html" class="service-link">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card reveal stagger-delay-3">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <div>
+                        <h3>Pembuatan Kolam</h3>
+                        <p>Desain dan konstruksi kolam koi profesional dengan sistem filtrasi modern.</p>
+                        <a href="services.html" class="service-link">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card reveal stagger-delay-4">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <div>
+                        <h3>Perawatan & Consult</h3>
+                        <p>Konsultasi dan perawatan berkala untuk kesehatan serta keindahan koi Anda.</p>
+                        <a href="services.html" class="service-link">Pelajari <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ===== COMPANY STATISTICS ===== -->
+    <section class="stats-section">
+        <span class="stats-bg-kanji" aria-hidden="true">鯉</span>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box reveal">
+                    <div class="stat-number"><span class="counter" data-target="10" data-suffix="">0</span><span class="suffix">+</span></div>
+                    <div class="stat-label">Partner Farm Jepang</div>
+                </div>
+                <div class="stat-box reveal stagger-delay-2">
+                    <div class="stat-number"><span class="counter" data-target="5000" data-suffix="+">0</span></div>
+                    <div class="stat-label">Koi Terjual</div>
+                </div>
+                <div class="stat-box reveal stagger-delay-3">
+                    <div class="stat-number"><span class="counter" data-target="40" data-suffix="+">0</span></div>
+                    <div class="stat-label">Kolam Dibangun</div>
+                </div>
+                <div class="stat-box reveal stagger-delay-4">
+                    <div class="stat-number"><span class="counter" data-target="1000" data-suffix="+">0</span></div>
+                    <div class="stat-label">Pelanggan Setia</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Our Journey</span>
+                <h2 class="section-title">Perjalanan <span class="gold">Kami</span></h2>
+                <p class="section-desc">Dari kecintaan pada koi hingga menjadi importir terpercaya di Indonesia.</p>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2010</span>
+                        <h3>Awal Mula</h3>
+                        <p>Sakura Koi Indonesia berdiri dengan visi menghadirkan koi premium Jepang di Indonesia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013</span>
+                        <h3>Kolam Budidaya Pertama</h3>
+                        <p>Pembangunan kolam budidaya pertama sebagai pusat karantina dan pemeliharaan.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2017</span>
+                        <h3>Kemitraan Farm Jepang</h3>
+                        <p>Menjalin kemitraan resmi dengan farm-farm premium di Niigata, Jepang.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2020</span>
+                        <h3>Ekspansi Jaringan</h3>
+                        <p>Memperluas layanan ke lebih dari 30 kota dengan jaringan pengiriman yang aman.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h3>Pusat Koi Terlengkap</h3>
+                        <p>Menjadi destinasi utama para kolektor koi premium di Indonesia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CUSTOMER REVIEW SLIDER ===== -->
+    <section class="section reviews-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonial</span>
+                <h2 class="section-title">Apa Kata <span class="gold">Pelanggan</span></h2>
+                <p class="section-desc">Kepercayaan pelanggan adalah prioritas utama kami.</p>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="review-slider">
+                <div class="review-track" data-render="testimonials">
+                    <!-- Diisi oleh render.js -->
+                </div>
+                <div class="review-nav">
+                    <button class="review-btn review-prev" aria-label="Testimoni sebelumnya"><i class="fas fa-chevron-left"></i></button>
+                    <div class="review-dots"></div>
+                    <button class="review-btn review-next" aria-label="Testimoni berikutnya"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LATEST ARTICLES ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Blog & News</span>
+                <h2 class="section-title">Artikel <span class="gold">Terbaru</span></h2>
+                <p class="section-desc">Tips, panduan, dan berita seputar dunia koi Jepang.</p>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="featured-koi-grid" data-render="latest-articles">
+                <!-- Diisi oleh render.js -->
+            </div>
+            <div style="text-align:center;margin-top:40px" class="reveal">
+                <a href="blog.html" class="btn btn-outline-dark">Lihat Semua Artikel <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <span class="cta-kanji" aria-hidden="true">幸</span>
+        <div class="cta-ring" aria-hidden="true"></div>
+        <div class="container">
+            <h2 class="reveal">Wujudkan Kolam Koi <span class="gold">Impian</span> Anda</h2>
+            <p class="reveal">Konsultasikan kebutuhan koi Anda dengan tim profesional kami. Gratis konsultasi pertama!</p>
+            <div class="reveal">
+                <a href="contact.html" class="btn btn-gold btn-lg"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
+                <a href="assets/pdf/catalogue-sakura-koi.pdf" class="btn btn-outline btn-lg" style="margin-left:12px" download><i class="fas fa-download"></i> Download Katalog</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
+        <div class="footer-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0,30 C180,60 360,0 540,30 C720,60 900,0 1080,30 C1260,60 1440,0 1440,30 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/>
+            </svg>
+        </div>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand"><h3>🐟 Kohaku Koi Farm</h3><p>Peternak dan supplier ikan koi premium sejak 2010. Kualitas juara, harga bersahabat.</p><div class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-tiktok"></i></a></div></div>
-                <div class="footer-links"><h4>Halaman</h4><ul><li><a href="index.html">Beranda</a></li><li><a href="about.html">Tentang</a></li><li><a href="services.html">Layanan</a></li><li><a href="portfolio.html">Produk</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Kontak</a></li></ul></div>
-                <div class="footer-links"><h4>Kontak</h4><ul><li><a href="https://wa.me/6281298578909">WhatsApp</a></li><li><a href="mailto:hello@kohakukoi.com">Email</a></li><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li></ul></div>
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-brand">
+                        <span class="nav-logo-icon"><i class="fas fa-water"></i></span>
+                        <div class="nav-logo-text"><strong>Sakura Koi</strong><span>Indonesia</span></div>
+                    </div>
+                    <p>Importir dan budidaya ikan koi premium Jepang. Menghadirkan keindahan, ketenangan, dan kemakmuran ke setiap kolam Anda.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Koi Collection</a></li>
+                        <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Budidaya</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Import Jepang</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Pembuatan Kolam</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Perawatan Koi</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Konsultasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Collection</h4>
+                    <ul>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Kohaku</a></li>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Sanke</a></li>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Tancho</a></li>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Ogon</a></li>
+                        <li><a href="koi.html"><i class="fas fa-chevron-right"></i> Butterfly Koi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan tips dan info koi terbaru langsung di email Anda.</p>
+                    <form class="newsletter-form" aria-label="Form newsletter">
+                        <input type="email" placeholder="Email Anda" aria-label="Alamat email">
+                        <button type="submit" aria-label="Berlangganan"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                    <ul class="footer-contact" style="margin-top:20px">
+                        <li><i class="fas fa-phone"></i> <span data-setting="phone">+62 812-3456-7890</span></li>
+                        <li><i class="fas fa-envelope"></i> <span data-setting="email">info@sakurakoi.co.id</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-setting="address">Jl. Koi Indah No. 88, Bogor</span></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-bottom"><p>&copy; 2026 Kohaku Koi Farm. All rights reserved. | <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></p></div>
+            <div class="footer-bottom">
+                <span>© <span id="year">2025</span> Sakura Koi Indonesia. All Rights Reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="about.html">Tentang</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Kontak</a>
+                    <a href="admin-login.html">Admin</a>
+                </div>
+            </div>
         </div>
     </footer>
-    <a href="https://wa.me/6281298578909" class="floating-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
-    <div style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;background:#0f172a;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3);border-left:4px solid #f59e0b;max-width:90%">
-        <i class="fas fa-lock" style="color:#f59e0b"></i>
-        <span>🔐 Demo Admin: <strong style="color:#f59e0b">admin</strong> / <strong style="color:#f59e0b">admin123</strong></span>
-        <a href="admin.html" style="color:#fff;background:#dc2626;padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:12px;white-space:nowrap">Masuk</a>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- ===== FLOATING WHATSAPP ===== -->
+    <a href="#" class="floating-wa" data-setting-whatsapp aria-label="Chat WhatsApp" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <span class="floating-wa-tooltip">Chat kami sekarang</span>
+    </a>
+
+    <!-- ===== MOBILE STICKY CONTACT ===== -->
+    <div class="mobile-contact-bar">
+        <div class="mcb-inner">
+            <a href="tel:+6281234567890" class="mcb-call" aria-label="Telepon"><i class="fas fa-phone"></i><span>Call</span></a>
+            <a href="#" class="mcb-wa" data-setting-whatsapp aria-label="WhatsApp"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
+            <a href="mailto:info@sakurakoi.co.id" class="mcb-mail" aria-label="Email"><i class="fas fa-envelope"></i><span>Email</span></a>
+        </div>
     </div>
-    <script src="script.js"></script>
-`n</body>
+
+    <!-- ===== BANNER ADMIN LOGIN (Demo) - Di atas area hero, inline style agar pasti tampil ===== -->
+    <div id="adminDemoPopup" role="dialog" aria-label="Pemberitahuan admin login" style="position:fixed; top:76px; left:0; right:0; z-index:99999; background:linear-gradient(135deg,#0F172A,#1E293B); color:#ffffff; padding:14px 20px; box-shadow:0 8px 30px rgba(0,0,0,0.4); font-family:Poppins, Arial, sans-serif; border-bottom:3px solid #D4AF37;">
+        <div style="max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;">
+            <div style="width:40px; height:40px; flex-shrink:0; background:linear-gradient(135deg,#D4AF37,#B8962E); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#0F172A;"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+            <div style="flex:1; min-width:200px; text-align:left;">
+                <div style="font-weight:700; font-size:0.95rem;">Demo Admin Panel</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.75); margin-top:2px;">Website ini dilengkapi Admin Panel untuk mengelola konten. Password demo: <code style="background:rgba(37,99,235,0.3); color:#93C5FD; padding:1px 6px; border-radius:4px;">admin123</code></div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="admin-login.html" style="display:inline-flex; align-items:center; gap:6px; background:linear-gradient(135deg,#2563EB,#0F172A); color:#ffffff; font-size:0.8rem; font-weight:600; padding:10px 18px; border-radius:30px; text-decoration:none; box-shadow:0 6px 18px rgba(37,99,235,0.35); white-space:nowrap;">Langsung Login Admin <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <button onclick="document.getElementById('adminDemoPopup').style.display='none'" style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.12); color:#ffffff; font-size:0.8rem; font-weight:600; padding:10px 18px; border-radius:30px; border:none; cursor:pointer; white-space:nowrap;">Lanjut Website</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPTS (urutan penting) ===== -->
+    <script src="js/data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/slider.js"></script>
+</body>
 </html>

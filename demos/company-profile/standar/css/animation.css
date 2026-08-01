@@ -1,0 +1,246 @@
+/* ==================================================
+   SAKURA KOI INDONESIA - Animations
+   Keyframes, Transitions, Special Effects
+   ================================================== */
+
+/* ===== KEYFRAMES ===== */
+
+/* Spin (loading & decorative) */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Slow Spin (decorative rings) */
+@keyframes spinSlow {
+    to { transform: rotate(360deg); }
+}
+
+/* Pulse (heartbeat-like) */
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* Pulse Ring (floating WA, play button) */
+@keyframes pulseRing {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Scroll wheel indicator */
+@keyframes scrollWheel {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(12px); }
+}
+
+/* Floating Y (Japanese elements, shapes) */
+@keyframes floatY {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(3deg); }
+}
+
+/* Floating X (slight horizontal drift) */
+@keyframes floatX {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(15px); }
+}
+
+/* Koi Swimming (error 404 number) */
+@keyframes swim {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-12px) rotate(4deg); }
+}
+
+/* Koi tail-like wave */
+@keyframes tailWave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.8); }
+}
+
+/* Water ripple effect */
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(4); opacity: 0; }
+}
+
+/* Shimmer (skeleton loading) */
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Gradient shift */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Ken Burns (slow zoom on hero background) */
+@keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.12); }
+}
+
+/* Blink caret (typing effect) */
+@keyframes blinkCaret {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Slide up fade (page transition) */
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide in left */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in right */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Zoom in */
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Bounce (scroll indicator arrow) */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* Shake (error state) */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* Wave motion (SVG wave) */
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Stagger fade up (for cards) */
+@keyframes staggerFadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating toast (naik-turun halus di tengah layar) */
+@keyframes floatToast {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-14px); }
+}
+
+/* ===== ANIMATION UTILITY CLASSES ===== */
+
+/* Page reveal transition */
+.page-transition {
+    animation: slideUpFade 0.7s var(--ease) both;
+}
+
+/* Stagger delays (applied to cards inside a grid) */
+.stagger-delay-1 { animation-delay: 0.1s; }
+.stagger-delay-2 { animation-delay: 0.2s; }
+.stagger-delay-3 { animation-delay: 0.3s; }
+.stagger-delay-4 { animation-delay: 0.4s; }
+.stagger-delay-5 { animation-delay: 0.5s; }
+.stagger-delay-6 { animation-delay: 0.6s; }
+
+/* Hero text entrance */
+.hero-anim .hero-badge { animation: fadeIn 1s 0.2s var(--ease) both; }
+.hero-anim .hero-title { animation: slideUpFade 1s 0.4s var(--ease) both; }
+.hero-anim .hero-subtitle { animation: slideUpFade 1s 0.6s var(--ease) both; }
+.hero-anim .hero-cta { animation: slideUpFade 1s 0.8s var(--ease) both; }
+.hero-anim .hero-stats { animation: slideUpFade 1s 1s var(--ease) both; }
+
+/* Fade in on view (used with IntersectionObserver via .reveal already) */
+.animate-on-scroll { opacity: 0; }
+.animate-on-scroll.in-view {
+    animation: slideUpFade 0.8s var(--ease) both;
+}
+
+/* Ken Burns on page hero background */
+.page-hero-bg { animation: kenBurns 18s ease-in-out infinite alternate; }
+
+/* Gradient text animation */
+.gradient-animate {
+    background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent));
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
+}
+
+/* ===== HOVER EFFECTS (non-essential decorative) ===== */
+
+/* Tilt effect on cards (applied via JS adding .tilt) */
+.tilt { transition: transform 0.3s var(--ease); will-change: transform; }
+
+/* Image zoom on hover wrapper */
+.img-zoom-wrap { overflow: hidden; }
+.img-zoom-wrap img { transition: transform 0.6s var(--ease); }
+.img-zoom-wrap:hover img { transform: scale(1.08); }
+
+/* Link underline grow */
+.link-underline { position: relative; }
+.link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s var(--ease);
+}
+.link-underline:hover::after { width: 100%; }
+
+/* ===== WAVE SVG ANIMATION ===== */
+
+/* Wrapping element for animated waves */
+.wave-anim {
+    position: relative;
+    width: 200%;
+    animation: waveMove 12s linear infinite;
+}
+
+/* ===== LOADING DELAYS (page load stagger) ===== */
+.loading-delay-1 { animation-delay: 0.1s; }
+.loading-delay-2 { animation-delay: 0.2s; }
+.loading-delay-3 { animation-delay: 0.3s; }
+.loading-delay-4 { animation-delay: 0.4s; }
+.loading-delay-5 { animation-delay: 0.5s; }
+
+/* ===== PREFERS REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .reveal, .reveal-left, .reveal-right, .reveal-zoom {
+        opacity: 1;
+        transform: none;
+    }
+}

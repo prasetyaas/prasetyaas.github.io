@@ -1,0 +1,59 @@
+/* Script sekali jalan untuk membuat folder & PDF placeholder.
+   Jalankan: node generate-placeholder.js
+   (Script generator, bukan bagian dari website) */
+const fs = require('fs');
+const path = require('path');
+
+const base = __dirname;
+
+// Buat folder
+['assets/pdf', 'assets/images', 'admin/css', 'admin/js', 'admin/images', 'css', 'js'].forEach((dir) => {
+    const full = path.join(base, dir);
+    if (!fs.existsSync(full)) {
+        fs.mkdirSync(full, { recursive: true });
+        console.log('Created folder:', dir);
+    }
+});
+
+// Buat file PDF placeholder yang valid (Brochure)
+const pdfPath = path.join(base, 'assets', 'pdf', 'aurora-grand-brochure.pdf');
+const pdfContent = `%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 250 >>
+stream
+BT
+/F1 24 Tf
+72 770 Td
+(Aurora Grand Resort) Tj
+/F1 14 Tf
+0 -30 Td
+(Company Profile - Luxury Resort & Convention) Tj
+/F1 10 Tf
+0 -50 Td
+(Aurora Grand Resort menghadirkan pengalaman menginap dan event kelas dunia.) Tj
+0 -20 Td
+(Untuk informasi lebih lanjut: info@auroragrandresort.co.id) Tj
+0 -20 Td
+(Tel: +62 21 1234 5678 | www.auroragrandresort.co.id) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+trailer
+<< /Root 1 0 R >>
+%%EOF
+`;
+
+fs.writeFileSync(pdfPath, pdfContent, 'latin1');
+console.log('Created placeholder PDF:', pdfPath);

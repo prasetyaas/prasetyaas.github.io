@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Info | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="contact">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="fa-solid fa-chevron-right"></i><span>Contact Information</span></nav>
+                        <h1>Kontak <span style="color:var(--gold)">Perusahaan</span></h1>
+                        <div class="subtitle">Kelola informasi kontak yang tampil di halaman kontak website.</div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn-admin btn-gold-a" data-open-modal="addModal"><i class="fa-solid fa-plus"></i> Tambah Kontak</button>
+                    </div>
+                </div>
+
+                <!-- Contact Cards -->
+                <div class="stats-grid" style="margin-bottom:24px">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="stat-info">
+                            <strong style="font-size:0.95rem">Alamat</strong>
+                            <span>Jl. Grand Boulevard No. 88</span>
+                            <span style="font-size:0.72rem; color:var(--gold)">Jakarta Selatan</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-phone"></i></div>
+                        <div class="stat-info">
+                            <strong style="font-size:0.95rem">Telepon</strong>
+                            <span>+62 21 1234 5678</span>
+                            <span style="font-size:0.72rem; color:var(--gold)">+62 811 2222 3333</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="stat-info">
+                            <strong style="font-size:0.95rem">Email</strong>
+                            <span>info@auroragrandresort.co.id</span>
+                            <span style="font-size:0.72rem; color:var(--gold)">reservation@aurora...</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="fa-solid fa-clock"></i></div>
+                        <div class="stat-info">
+                            <strong style="font-size:0.95rem">Jam Buka</strong>
+                            <span>Front Desk 24 Jam</span>
+                            <span style="font-size:0.72rem; color:var(--gold)">Restaurant 06-23</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="admin-card" style="padding:24px; margin-bottom:24px">
+                    <h3 style="font-family:var(--font-serif); font-size:1.1rem; margin-bottom:20px">Media Sosial</h3>
+                    <div class="form-grid-a">
+                        <div class="form-group-a">
+                            <label><i class="fa-brands fa-instagram" style="color:var(--gold); margin-right:6px"></i> Instagram</label>
+                            <input type="text" value="https://instagram.com/auroragrandresort">
+                        </div>
+                        <div class="form-group-a">
+                            <label><i class="fa-brands fa-facebook" style="color:var(--gold); margin-right:6px"></i> Facebook</label>
+                            <input type="text" value="https://facebook.com/auroragrandresort">
+                        </div>
+                        <div class="form-group-a">
+                            <label><i class="fa-brands fa-linkedin" style="color:var(--gold); margin-right:6px"></i> LinkedIn</label>
+                            <input type="text" value="https://linkedin.com/company/auroragrandresort">
+                        </div>
+                        <div class="form-group-a">
+                            <label><i class="fa-brands fa-youtube" style="color:var(--gold); margin-right:6px"></i> YouTube</label>
+                            <input type="text" value="https://youtube.com/@auroragrandresort">
+                        </div>
+                    </div>
+                    <button class="btn-admin btn-gold-a" onclick="Admin.toast('Informasi kontak berhasil disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan</button>
+                </div>
+
+                <!-- Map Embed Config -->
+                <div class="admin-card" style="padding:24px">
+                    <h3 style="font-family:var(--font-serif); font-size:1.1rem; margin-bottom:20px">Konfigurasi Google Maps</h3>
+                    <div class="form-group-a">
+                        <label>Embed URL / Koordinat</label>
+                        <input type="text" value="-6.204589, 106.829740 (Jakarta Selatan)">
+                    </div>
+                    <div class="form-group-a">
+                        <label>Zoom Level</label>
+                        <select>
+                            <option>14 (Dekat)</option>
+                            <option selected>16 (Standar)</option>
+                            <option>18 (Detail)</option>
+                        </select>
+                    </div>
+                    <button class="btn-admin btn-gold-a" onclick="Admin.toast('Pengaturan peta berhasil disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan Pengaturan</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Modal -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-address-book" style="color:var(--gold); margin-right:8px"></i> Tambah Kontak</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group-a"><label>Jenis Kontak</label><select><option>Alamat</option><option>Telepon</option><option>Email</option><option>Jam Buka</option></select></div>
+                <div class="form-group-a"><label>Judul</label><input type="text" placeholder="Contoh: Telepon Reservasi"></div>
+                <div class="form-group-a"><label>Nilai / Isi</label><input type="text" placeholder="Isi kontak..."></div>
+                <div class="form-group-a"><label>Urutan</label><input type="number" value="1"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-outline-a" data-modal-close="addModal">Batal</button>
+                <button class="btn-admin btn-gold-a" data-save-form="addModal" data-save-message="Kontak berhasil ditambahkan."><i class="fa-solid fa-check"></i> Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

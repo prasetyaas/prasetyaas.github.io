@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detail kamar Aurora Grand Resort - Informasi lengkap kamar dan fasilitasnya.">
+    <meta name="author" content="Aurora Grand Resort">
+    <meta name="robots" content="index, follow">
+    <title>Room Detail | Aurora Grand Resort</title>
+    <link rel="canonical" href="https://auroragrandresort.co.id/room-detail.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Room Detail | Aurora Grand Resort">
+    <meta property="og:description" content="Informasi lengkap kamar kami.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80">
+    <meta property="og:url" content="https://auroragrandresort.co.id/room-detail.html">
+    <meta property="og:site_name" content="Aurora Grand Resort">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="room-detail">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- ===== ROOM DETAIL HERO ===== -->
+        <section class="room-detail-hero" id="roomHero">
+            <div class="rdh-bg" id="roomBg" style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1400&q=80')"></div>
+            <div class="rdh-shade"></div>
+            <div class="container">
+                <div class="rdh-content">
+                    <span class="hero-badge"><span class="hero-badge-dot"></span> <span id="roomBadge">Luxury Suite</span></span>
+                    <h1 id="roomTitle">Aurora <span class="text-gold">Luxury Suite</span></h1>
+                    <div class="rdh-price" id="roomPrice">Rp 4.500.000 <span style="font-size:0.8rem; color:var(--gray-400)">/ malam</span></div>
+                    <div style="display:flex; gap:14px; flex-wrap:wrap">
+                        <a href="contact.html" class="btn btn-gold btn-lg magnetic" data-page-link><i class="fa-solid fa-calendar-check"></i> Booking Sekarang</a>
+                        <a href="rooms.html" class="btn btn-white-outline btn-lg magnetic" data-page-link><i class="fa-solid fa-arrow-left"></i> Semua Kamar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== OVERVIEW + BOOKING ===== -->
+        <section class="section">
+            <div class="container">
+                <div class="split">
+                    <div class="split-content reveal reveal-left">
+                        <span class="eyebrow">Room Overview</span>
+                        <h2 class="section-title">Kenyamanan <span class="text-gold">Maksimal</span></h2>
+                        <p class="section-desc" id="roomDesc">
+                            Suite paling mewah dengan pemandangan laut tak terbatas, ruang tamu terpisah, dan butler service 24 jam.
+                        </p>
+                        <div class="rc-features" style="margin-top:24px" id="roomMetrics">
+                            <span><i class="fa-solid fa-ruler-combined"></i> <span id="mSize">120 m²</span></span>
+                            <span><i class="fa-solid fa-users"></i> <span id="mCapacity">3 Tamu</span></span>
+                            <span><i class="fa-solid fa-bed"></i> <span id="mBed">King Size</span></span>
+                        </div>
+                        <div class="amenities-grid" style="margin-top:30px; grid-template-columns:repeat(2,1fr)" id="roomAmenities">
+                            <div class="amenity-item"><i class="fa-solid fa-check"></i> Butler Service</div>
+                            <div class="amenity-item"><i class="fa-solid fa-check"></i> Sea View</div>
+                            <div class="amenity-item"><i class="fa-solid fa-check"></i> Jacuzzi</div>
+                            <div class="amenity-item"><i class="fa-solid fa-check"></i> Mini Bar</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="booking-card reveal reveal-right">
+                            <h3>Booking <span class="text-gold">Cepat</span></h3>
+                            <form onsubmit="event.preventDefault(); SiteComponents.showToast('Permintaan booking Anda telah terkirim. Kami akan menghubungi Anda.'); this.reset();">
+                                <div class="form-group">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" placeholder="Nama Anda" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" placeholder="nama@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Check-in</label>
+                                    <input type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Tanggal Check-out</label>
+                                    <input type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Jumlah Tamu</label>
+                                    <select>
+                                        <option>1 Tamu</option>
+                                        <option>2 Tamu</option>
+                                        <option>3 Tamu</option>
+                                        <option>4+ Tamu</option>
+                                    </select>
+                                </div>
+                                <div class="price-summary"><span>Total per Malam</span><strong id="bookingPrice">Rp 4.500.000</strong></div>
+                                <button type="submit" class="btn btn-gold btn-block magnetic"><i class="fa-solid fa-calendar-check"></i> Booking Sekarang</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HORIZONTAL GALLERY ===== -->
+        <section class="section" style="background:var(--navy-900)">
+            <div class="container">
+                <div class="section-head center">
+                    <span class="eyebrow center">Gallery</span>
+                    <h2 class="section-title">Lihat <span class="text-gold">Kamar</span></h2>
+                </div>
+                <div class="horizontal-gallery" id="roomGallery">
+                    <div class="hg-item"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Interior kamar" loading="lazy"></div>
+                    <div class="hg-item"><img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80" alt="Kamar tidur" loading="lazy"></div>
+                    <div class="hg-item"><img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80" alt="Kamar mandi" loading="lazy"></div>
+                    <div class="hg-item"><img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80" alt="Ruang tamu" loading="lazy"></div>
+                    <div class="hg-item"><img src="https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=800&q=80" alt="Balkon" loading="lazy"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Banner | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="hero">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="fa-solid fa-chevron-right"></i><span>Hero Banner</span></nav>
+                        <h1>Manajemen <span style="color:var(--gold)">Hero Banner</span></h1>
+                        <div class="subtitle">Kelola banner utama yang tampil di halaman depan website.</div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn-admin btn-gold-a" data-open-modal="addModal"><i class="fa-solid fa-plus"></i> Tambah Banner</button>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <div class="table-header">
+                        <h3>Daftar Hero Banner</h3>
+                        <div class="table-actions">
+                            <div class="search-input"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Cari banner..."></div>
+                            <select class="filter-select"><option>Semua Status</option><option>Publish</option><option>Draft</option></select>
+                        </div>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No</th><th>Gambar</th><th>Judul</th><th>Subtitle</th><th>Status</th><th>Tanggal</th><th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=80&q=80" alt="Hero 1" style="width:70px; height:44px; object-fit:cover; border-radius:8px"></td>
+                                    <td><strong>Experience the Extraordinary</strong></td>
+                                    <td>Luxury Resort • Jakarta</td>
+                                    <td><span class="status-badge published">Publish</span></td>
+                                    <td>01 Jan 2026</td>
+                                    <td class="table-actions-cell">
+                                        <button class="btn-admin btn-icon-a btn-outline-a" data-edit-id="1" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                        <button class="btn-admin btn-icon-a btn-danger-a" data-delete-name="Banner Hero Utama" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=80&q=80" alt="Hero 2" style="width:70px; height:44px; object-fit:cover; border-radius:8px"></td>
+                                    <td><strong>Wedding Impian Anda</strong></td>
+                                    <td>Grand Ballroom 1.500 tamu</td>
+                                    <td><span class="status-badge published">Publish</span></td>
+                                    <td>28 Des 2025</td>
+                                    <td class="table-actions-cell">
+                                        <button class="btn-admin btn-icon-a btn-outline-a" data-edit-id="2" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                        <button class="btn-admin btn-icon-a btn-danger-a" data-delete-name="Banner Wedding" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=80&q=80" alt="Hero 3" style="width:70px; height:44px; object-fit:cover; border-radius:8px"></td>
+                                    <td><strong>Infinity Pool Experience</strong></td>
+                                    <td>Panorama laut tak terbatas</td>
+                                    <td><span class="status-badge draft">Draft</span></td>
+                                    <td>20 Des 2025</td>
+                                    <td class="table-actions-cell">
+                                        <button class="btn-admin btn-icon-a btn-outline-a" data-edit-id="3" title="Edit"><i class="fa-solid fa-pen"></i></button>
+                                        <button class="btn-admin btn-icon-a btn-danger-a" data-delete-name="Banner Infinity Pool" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination">
+                        <span>Menampilkan 1-3 dari 3 data</span>
+                        <div class="pagination-a"><button class="page-btn-a active">1</button></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal-overlay" id="addModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-image" style="color:var(--gold); margin-right:8px"></i> Tambah Hero Banner</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid-a">
+                    <div class="form-group-a full"><label>Judul Banner</label><input type="text" placeholder="Masukkan judul banner"></div>
+                    <div class="form-group-a full"><label>Subtitle</label><input type="text" placeholder="Masukkan subtitle"></div>
+                    <div class="form-group-a full"><label>Gambar</label><input type="text" placeholder="URL gambar"></div>
+                    <div class="form-group-a"><label>Status</label><select><option>Publish</option><option>Draft</option></select></div>
+                    <div class="form-group-a"><label>Urutan</label><input type="number" value="1"></div>
+                    <div class="form-group-a full"><label>Deskripsi</label><textarea rows="3" placeholder="Deskripsi singkat banner"></textarea></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-outline-a" data-modal-close="addModal">Batal</button>
+                <button class="btn-admin btn-gold-a" data-save-form="addModal" data-save-message="Hero banner berhasil disimpan."><i class="fa-solid fa-check"></i> Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal" style="max-width:420px">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--danger); margin-right:8px"></i> Konfirmasi Hapus</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body"><p>Apakah Anda yakin ingin menghapus data ini?</p></div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-outline-a" data-modal-close="deleteModal">Batal</button>
+                <button class="btn-admin btn-danger-a"><i class="fa-solid fa-trash"></i> Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Manager | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="media">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="fa-solid fa-chevron-right"></i><span>Media Manager</span></nav>
+                        <h1>Media <span style="color:var(--gold)">Manager</span></h1>
+                        <div class="subtitle">Kelola image library, video library dan upload file.</div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn-admin btn-gold-a" onclick="Admin.toast('Fitur upload dibuka. Pilih file untuk diunggah.')"><i class="fa-solid fa-upload"></i> Upload Media</button>
+                    </div>
+                </div>
+
+                <div class="admin-card" style="padding:20px; margin-bottom:20px">
+                    <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center">
+                        <div class="search-input" style="flex:1; min-width:220px"><i class="fa-solid fa-magnifying-glass"></i><input type="text" placeholder="Cari media..." style="width:100%"></div>
+                        <select class="filter-select"><option>Semua Tipe</option><option>Image</option><option>Video</option></select>
+                        <select class="filter-select"><option>Semua Folder</option><option>Rooms</option><option>Gallery</option><option>Events</option></select>
+                    </div>
+                </div>
+
+                <div class="media-grid">
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=200&q=80" alt="Media 1" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="luxury-suite.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=200&q=80" alt="Media 2" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="grand-ballroom.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=200&q=80" alt="Media 3" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="infinity-pool.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=200&q=80" alt="Media 4" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="fine-dining.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=200&q=80" alt="Media 5" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="wellness-spa.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=200&q=80" alt="Media 6" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="grand-villa.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=200&q=80" alt="Media 7" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="wedding-setup.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&q=80" alt="Media 8" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="fitness-center.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=200&q=80" alt="Media 9" loading="lazy">
+                        <span class="media-type image">Image</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Pratinjau gambar.')" title="Preview"><i class="fa-solid fa-eye"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="meeting-room.jpg" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="media-item">
+                        <div style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#111624,#1A2035);color:var(--gold)">
+                            <div style="text-align:center"><i class="fa-solid fa-circle-play" style="font-size:2rem;display:block;margin-bottom:8px"></i><small>hero-video.mp4</small></div>
+                        </div>
+                        <span class="media-type video">Video</span>
+                        <div class="media-overlay">
+                            <button onclick="Admin.toast('Memutar video.')" title="Play"><i class="fa-solid fa-play"></i></button>
+                            <button onclick="Admin.toast('Media diunduh.')" title="Download"><i class="fa-solid fa-download"></i></button>
+                            <button data-delete-name="hero-video.mp4" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal" style="max-width:420px">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--danger); margin-right:8px"></i> Konfirmasi Hapus</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body"><p>Apakah Anda yakin ingin menghapus media ini?</p></div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-outline-a" data-modal-close="deleteModal">Batal</button>
+                <button class="btn-admin btn-danger-a"><i class="fa-solid fa-trash"></i> Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

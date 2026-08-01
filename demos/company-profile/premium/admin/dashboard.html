@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="dashboard">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <!-- ===== PAGE HEADER ===== -->
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb">
+                            <a href="dashboard.html">Dashboard</a>
+                            <i class="fa-solid fa-chevron-right"></i>
+                            <span>Overview</span>
+                        </nav>
+                        <h1>Selamat Datang, <span style="color:var(--gold)">Admin</span> 👋</h1>
+                        <div class="subtitle">Berikut ringkasan aktivitas website Anda hari ini.</div>
+                    </div>
+                    <div class="page-actions">
+                        <a href="../index.html" target="_blank" class="btn-admin btn-outline-a"><i class="fa-solid fa-globe"></i> Lihat Website</a>
+                        <button class="btn-admin btn-gold-a" onclick="Admin.toast('Membuka halaman untuk membuat konten baru.')"><i class="fa-solid fa-plus"></i> Konten Baru</button>
+                    </div>
+                </div>
+
+                <!-- ===== STATS ===== -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="fa-solid fa-eye"></i></div>
+                        <div class="stat-info">
+                            <strong>24.582</strong>
+                            <span>Pengunjung Hari Ini</span>
+                            <div class="trend"><i class="fa-solid fa-arrow-trend-up"></i> +12.5%</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="stat-info">
+                            <strong>148</strong>
+                            <span>Total Konten</span>
+                            <div class="trend"><i class="fa-solid fa-arrow-trend-up"></i> +8 barus</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="stat-info">
+                            <strong>37</strong>
+                            <span>Inquiry Masuk</span>
+                            <div class="trend" style="color:var(--warning)">12 belum dibaca</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="fa-solid fa-user-group"></i></div>
+                        <div class="stat-info">
+                            <strong>12</strong>
+                            <span>Total Pengguna</span>
+                            <div class="trend">3 online</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== CHARTS ROW ===== -->
+                <div class="dashboard-grid">
+                    <div class="admin-card">
+                        <div class="table-header">
+                            <h3>Statistik Pengunjung</h3>
+                            <div style="display:flex; gap:8px; align-items:center">
+                                <select class="filter-select">
+                                    <option>7 Hari Terakhir</option>
+                                    <option>30 Hari Terakhir</option>
+                                    <option>12 Bulan</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <div class="chart-bars">
+                                <div class="chart-bar"><div class="bar-fill" data-height="40"></div><span>Sen</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="65"></div><span>Sel</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="50"></div><span>Rab</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="75"></div><span>Kam</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="58"></div><span>Jum</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="88"></div><span>Sab</span></div>
+                                <div class="chart-bar"><div class="bar-fill" data-height="70"></div><span>Min</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="table-header"><h3>Sumber Traffic</h3></div>
+                        <div class="donut-wrap">
+                            <div class="donut"><strong>24.5K</strong></div>
+                        </div>
+                        <div style="padding:0 24px 24px; display:grid; gap:10px; font-size:0.82rem">
+                            <div style="display:flex; justify-content:space-between; align-items:center">
+                                <span><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--gold); margin-right:8px"></span>Direct</span>
+                                <strong>35%</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center">
+                                <span><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--success); margin-right:8px"></span>Search</span>
+                                <strong>25%</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center">
+                                <span><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--info); margin-right:8px"></span>Social</span>
+                                <strong>15%</strong>
+                            </div>
+                            <div style="display:flex; justify-content:space-between; align-items:center">
+                                <span><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--danger); margin-right:8px"></span>Other</span>
+                                <strong>25%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ACTIVITY + CALENDAR ===== -->
+                <div class="dashboard-grid">
+                    <div class="admin-card">
+                        <div class="table-header">
+                            <h3>Aktivitas Terbaru</h3>
+                            <a href="#" style="color:var(--gold); font-size:0.82rem" onclick="event.preventDefault()">Lihat Semua</a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(201,168,106,0.12); color:var(--gold)"><i class="fa-solid fa-pen"></i></div>
+                                <div><p><strong>Admin</strong> memperbarui konten <strong>Luxury Suite</strong></p><small>2 menit lalu</small></div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(47,164,110,0.12); color:var(--success)"><i class="fa-solid fa-check"></i></div>
+                                <div><p>Inquiry baru dari <strong>Budi Santoso</strong></p><small>1 jam lalu</small></div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(74,159,232,0.12); color:var(--info)"><i class="fa-solid fa-upload"></i></div>
+                                <div><p><strong>Media</strong> diunggah ke galeri</p><small>3 jam lalu</small></div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon" style="background:rgba(232,168,62,0.12); color:var(--warning)"><i class="fa-solid fa-box"></i></div>
+                                <div><p>Paket <strong>Wedding Gold</strong> diperbarui</p><small>5 jam lalu</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="table-header"><h3>Kalender Event</h3></div>
+                        <div style="padding:20px 24px">
+                            <div class="calendar-grid" id="adminCalendar">
+                                <div class="cal-day header">Min</div>
+                                <div class="cal-day header">Sen</div>
+                                <div class="cal-day header">Sel</div>
+                                <div class="cal-day header">Rab</div>
+                                <div class="cal-day header">Kam</div>
+                                <div class="cal-day header">Jum</div>
+                                <div class="cal-day header">Sab</div>
+                                <div class="cal-day other">29</div>
+                                <div class="cal-day other">30</div>
+                                <div class="cal-day">1</div>
+                                <div class="cal-day">2</div>
+                                <div class="cal-day event">3</div>
+                                <div class="cal-day">4</div>
+                                <div class="cal-day">5</div>
+                                <div class="cal-day">6</div>
+                                <div class="cal-day event">7</div>
+                                <div class="cal-day">8</div>
+                                <div class="cal-day">9</div>
+                                <div class="cal-day">10</div>
+                                <div class="cal-day">11</div>
+                                <div class="cal-day">12</div>
+                                <div class="cal-day">13</div>
+                                <div class="cal-day">14</div>
+                                <div class="cal-day">15</div>
+                                <div class="cal-day today">16</div>
+                                <div class="cal-day">17</div>
+                                <div class="cal-day event">18</div>
+                                <div class="cal-day">19</div>
+                                <div class="cal-day">20</div>
+                                <div class="cal-day">21</div>
+                                <div class="cal-day">22</div>
+                                <div class="cal-day">23</div>
+                                <div class="cal-day event">24</div>
+                                <div class="cal-day">25</div>
+                                <div class="cal-day">26</div>
+                                <div class="cal-day">27</div>
+                                <div class="cal-day">28</div>
+                                <div class="cal-day">29</div>
+                                <div class="cal-day">30</div>
+                                <div class="cal-day">31</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== QUICK ACCESS ===== -->
+                <div class="admin-card" style="padding:24px">
+                    <h3 style="font-family:var(--font-serif); font-size:1.1rem; margin-bottom:16px">Akses Cepat</h3>
+                    <div class="quick-grid">
+                        <a href="hero.html" class="quick-item"><i class="fa-solid fa-image"></i><span>Hero Banner</span></a>
+                        <a href="rooms.html" class="quick-item"><i class="fa-solid fa-bed"></i><span>Rooms</span></a>
+                        <a href="gallery.html" class="quick-item"><i class="fa-solid fa-images"></i><span>Gallery</span></a>
+                        <a href="articles.html" class="quick-item"><i class="fa-solid fa-newspaper"></i><span>Articles</span></a>
+                        <a href="events.html" class="quick-item"><i class="fa-solid fa-champagne-glasses"></i><span>Events</span></a>
+                        <a href="messages.html" class="quick-item"><i class="fa-solid fa-inbox"></i><span>Inquiry</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-wrapper" style="display:none"></div>
+
+    <!-- Delete Modal (shared) -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal" style="max-width:420px">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-triangle-exclamation" style="color:var(--danger); margin-right:8px"></i> Konfirmasi Hapus</h3>
+                <button class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat dibatalkan.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-admin btn-outline-a" data-modal-close="deleteModal">Batal</button>
+                <button class="btn-admin btn-danger-a"><i class="fa-solid fa-trash"></i> Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Aurora Grand Resort</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div class="login-page">
+        <div class="login-bg"></div>
+
+        <div class="login-card">
+            <div class="login-logo">
+                <div class="ll-icon"><i class="fa-solid fa-crown"></i></div>
+                <div>
+                    <strong>Aurora Grand</strong>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+
+            <h1 class="login-title">Welcome Back</h1>
+            <p class="login-sub">Masuk untuk mengelola website Anda</p>
+
+            <form id="loginForm">
+                <div class="form-group-a" style="margin-bottom:18px">
+                    <label for="username">Email / Username</label>
+                    <input type="text" id="username" placeholder="admin@auroragrandresort.co.id" required>
+                </div>
+                <div class="form-group-a" style="margin-bottom:0">
+                    <label for="password">Password</label>
+                    <div class="password-wrap">
+                        <input type="password" id="password" placeholder="Masukkan password" required>
+                        <span class="password-toggle" id="showPassword"><i class="fa-solid fa-eye"></i></span>
+                    </div>
+                </div>
+
+                <div class="checkbox-row">
+                    <label><input type="checkbox"> Ingat saya</label>
+                    <a href="#">Lupa password?</a>
+                </div>
+
+                <button type="submit" class="btn-admin btn-gold-a login-btn" id="loginBtn">
+                    <span class="login-text"><i class="fa-solid fa-right-to-bracket"></i> Masuk</span>
+                    <span class="login-loading"><span class="spinner"></span> Memuat...</span>
+                </button>
+            </form>
+
+            <p class="login-info">Demo: gunakan <strong style="color:var(--gold)">admin@auroragrandresort.co.id</strong> / <strong style="color:var(--gold)">admin123</strong></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('loginForm');
+            const btn = document.getElementById('loginBtn');
+            const showPw = document.getElementById('showPassword');
+            const pwInput = document.getElementById('password');
+            const eye = showPw.querySelector('i');
+
+            showPw.addEventListener('click', () => {
+                const isPassword = pwInput.type === 'password';
+                pwInput.type = isPassword ? 'text' : 'password';
+                eye.className = isPassword ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                btn.classList.add('loading');
+                setTimeout(() => window.location.href = 'dashboard.html', 1200);
+            });
+        });
+    </script>
+</body>
+</html>

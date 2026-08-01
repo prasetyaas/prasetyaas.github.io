@@ -3,99 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang — Karya Mandiri</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Tentang Nusantara Rice Distribution - Sejarah, visi, misi, nilai perusahaan, dan timeline perjalanan distributor beras terpercaya sejak 2012.">
+    <meta name="keywords" content="tentang distributor beras, sejarah perusahaan beras, visi misi nusantara rice">
+    <meta name="author" content="Nusantara Rice Distribution">
+    <meta property="og:title" content="Tentang Kami | Nusantara Rice Distribution">
+    <meta property="og:description" content="Mengenal perjalanan dan komitmen Nusantara Rice Distribution.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&q=80">
+    <title>Tentang Kami | Nusantara Rice Distribution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="https://img.icons8.com/fluency/96/rice-bowl.png" type="image/png">
 </head>
-<body>
+<body data-page="about">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /></div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Nusantara Rice Distribution</div>
+    </div>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-icon">KM</span>
-                Karya Mandiri
+            <a href="index.html" class="nav-logo" aria-label="Beranda">
+                <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" />
+                <div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div>
             </a>
-            <button class="nav-toggle" id="navToggle">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-toggle" id="navToggle" aria-label="Buka menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link">Beranda</a></li>
-                <li><a href="about.html" class="nav-link active">Tentang</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta">Kontak</a></li>
+                <li><a href="index.html" class="nav-link" data-nav="home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-nav="about">About</a></li>
+                <li><a href="products.html" class="nav-link" data-nav="products">Products</a></li>
+                <li><a href="gallery.html" class="nav-link" data-nav="gallery">Gallery</a></li>
+                <li><a href="pricing.html" class="nav-link" data-nav="pricing">Pricing</a></li>
+                <li><a href="testimonials.html" class="nav-link" data-nav="testimonials">Testimonial</a></li>
+                <li><a href="faq.html" class="nav-link" data-nav="faq">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link" data-nav="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
+    <div class="nav-menu-overlay"></div>
 
-    <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Tentang Kami</h1>
-            <p>Mengenal lebih dekat perjalanan dan tim di balik Karya Mandiri.</p>
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="hero-pattern"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="container page-hero-content">
+            <h1 class="page-hero-title">Tentang Kami</h1>
+            <p class="page-hero-subtitle">Menjadi distributor beras terpercaya dengan komitmen kualitas dan pelayanan terbaik sejak 2012.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="sep">/</span>
+                <span class="current">Tentang</span>
+            </div>
         </div>
     </section>
 
-    <!-- ===== STORY ===== -->
-    <section class="about-page">
+    <!-- ===== SEJARAH ===== -->
+    <section class="section">
         <div class="container">
-            <div class="about-story reveal">
-                <div class="about-story-image">
-                    <i class="fas fa-building"></i>
-                    <div class="year-badge">
-                        <h3 data-profile="year">2015</h3>
-                        <p>Berdiri</p>
-                    </div>
+            <div class="about-block">
+                <div class="about-block-text reveal reveal-left">
+                    <span class="section-tag">Sejarah</span>
+                    <h3>Dari Gudang Kecil <span class="highlight">Menjadi Distributor Nasional</span></h3>
+                    <p>Nusantara Rice Distribution didirikan pada tahun 2012 oleh sekelompok pengusaha muda yang memiliki visi untuk menghadirkan beras berkualitas dengan harga yang adil bagi masyarakat Indonesia.</p>
+                    <p>Berawal dari satu gudang sederhana di daerah Cipondoh, Jakarta Barat, kami mulai dengan mendistribusikan beras ke warung-warung dan toko kelontong di sekitar lokasi.</p>
+                    <p>Kini, setelah lebih dari satu dekade, kami telah berkembang menjadi salah satu distributor beras terpercaya yang melayani lebih dari 500 mitra bisnis di 30+ kota di Indonesia, dengan jaringan petani binaan lebih dari 1200 petani.</p>
                 </div>
-                <div class="about-story-content">
-                    <h2>Perjalanan Kami</h2>
-                    <p data-profile="desc">Bermula dari sebuah mimpi untuk membantu bisnis lokal go digital, Karya Mandiri didirikan pada tahun 2015 di Jakarta. Dengan modal semangat dan keahlian, kami mulai dari project kecil hingga dipercaya oleh puluhan perusahaan.</p>
-                    <p>Kami percaya bahwa setiap bisnis berhak memiliki kehadiran digital yang profesional. Itulah mengapa kami selalu memberikan yang terbaik dalam setiap project yang kami kerjakan.</p>
-                    <p>Hingga saat ini, kami telah menyelesaikan lebih dari 50 project dan terus berkembang untuk memberikan solusi digital terbaik bagi klien kami.</p>
+                <div class="about-block-image reveal reveal-right">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Gudang penyimpanan Nusantara Rice" loading="lazy">
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- ===== MILESTONES ===== -->
-            <div class="about-milestones">
-                <div class="milestone-card reveal">
-                    <span class="number">50+</span>
-                    <span class="label">Project Selesai</span>
+    <!-- ===== VISI MISI ===== -->
+    <section class="section" style="background:var(--light-gray);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Visi & Misi</span>
+                <h2 class="section-title">Arah <span class="highlight">Perusahaan</span></h2>
+            </div>
+            <div class="vision-mission">
+                <div class="vm-card reveal reveal-left">
+                    <div class="vm-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Visi</h3>
+                    <p>Menjadi distributor beras terdepan di Indonesia yang memberikan kontribusi nyata bagi ketahanan pangan nasional dan kesejahteraan petani serta mitra bisnis.</p>
                 </div>
-                <div class="milestone-card reveal">
-                    <span class="number">35+</span>
-                    <span class="label">Client Puas</span>
-                </div>
-                <div class="milestone-card reveal">
-                    <span class="number">8+</span>
-                    <span class="label">Tahun Berpengalaman</span>
+                <div class="vm-card reveal reveal-right">
+                    <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Misi</h3>
+                    <p>Menghadirkan beras berkualitas dengan harga terjangkau, membangun kemitraan berkelanjutan dengan petani dan mitra, serta menerapkan teknologi modern untuk efisiensi distribusi nasional.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- ===== TEAM ===== -->
-            <div class="about-team reveal">
-                <h2>Tim Kami</h2>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <div class="avatar"><i class="fas fa-user-tie"></i></div>
-                        <h4>Prasetya</h4>
-                        <span>Founder & Developer</span>
-                    </div>
-                    <div class="team-card">
-                        <div class="avatar"><i class="fas fa-user-cog"></i></div>
-                        <h4>Ahmad Fauzi</h4>
-                        <span>UI/UX Designer</span>
-                    </div>
-                    <div class="team-card">
-                        <div class="avatar"><i class="fas fa-user-ninja"></i></div>
-                        <h4>Rina Wijaya</h4>
-                        <span>Project Manager</span>
-                    </div>
-                    <div class="team-card">
-                        <div class="avatar"><i class="fas fa-user-graduate"></i></div>
-                        <h4>Doni Saputra</h4>
-                        <span>Full-Stack Developer</span>
-                    </div>
+    <!-- ===== NILAI PERUSAHAAN ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nilai Perusahaan</span>
+                <h2 class="section-title">Nilai yang <span class="highlight">Kami Pegang</span></h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal delay-1"><div class="value-icon"><i class="fas fa-gem"></i></div><h4>Integritas</h4><p>Kejujuran dan transparansi dalam setiap transaksi dan kemitraan.</p></div>
+                <div class="value-card reveal delay-2"><div class="value-icon"><i class="fas fa-award"></i></div><h4>Kualitas</h4><p>Standar kualitas tertinggi pada setiap produk yang kami distribusikan.</p></div>
+                <div class="value-card reveal delay-3"><div class="value-icon"><i class="fas fa-handshake"></i></div><h4>Kemitraan</h4><p>Membangun hubungan jangka panjang yang saling menguntungkan.</p></div>
+                <div class="value-card reveal delay-4"><div class="value-icon"><i class="fas fa-leaf"></i></div><h4>Keberlanjutan</h4><p>Berkomitmen pada praktik bisnis yang ramah lingkungan.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KEUNGGULAN ===== -->
+    <section class="section" style="background:var(--cream);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Keunggulan</span>
+                <h2 class="section-title">Mengapa <span class="highlight">Kami Berbeda?</span></h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card reveal delay-1"><div class="why-icon"><i class="fas fa-tractor"></i></div><h3>1200+ Petani Mitra</h3><p>Kemitraan langsung dengan petani untuk stabilitas pasokan dan harga.</p></div>
+                <div class="why-card reveal delay-2"><div class="why-icon"><i class="fas fa-industry"></i></div><h3>Gudang Modern</h3><p>Fasilitas penyimpanan dengan sistem pengendalian suhu dan kelembaban.</p></div>
+                <div class="why-card reveal delay-3"><div class="why-icon"><i class="fas fa-truck-fast"></i></div><h3>Armada Sendiri</h3><p>Ratusan armada terawat memastikan pengiriman tepat waktu.</p></div>
+                <div class="why-card reveal delay-1"><div class="why-icon"><i class="fas fa-flask"></i></div><h3>Quality Control</h3><p>Laboratorium QC internal untuk menguji kualitas setiap batch.</p></div>
+                <div class="why-card reveal delay-2"><div class="why-icon"><i class="fas fa-satellite-dish"></i></div><h3>Manajemen Digital</h3><p>Sistem inventori dan order modern untuk efisiensi layanan.</p></div>
+                <div class="why-card reveal delay-3"><div class="why-icon"><i class="fas fa-medal"></i></div><h3>Sertifikasi SNI</h3><p>Produk bersertifikat Standard Nasional Indonesia (SNI).</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TIMELINE ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Perjalanan</span>
+                <h2 class="section-title">Timeline <span class="highlight">Perusahaan</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal"><div class="timeline-dot"></div><span class="timeline-year">2012</span><div class="timeline-content"><h4>Berdirinya Perusahaan</h4><p>Nusantara Rice Distribution didirikan dengan satu gudang kecil di Jl. Raya Cipondoh, Jakarta Barat.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-dot"></div><span class="timeline-year">2015</span><div class="timeline-content"><h4>Ekspansi ke 10 Kota</h4><p>Memperluas jangkauan distribusi hingga 10 kota di Pulau Jawa dan mulai membuka kemitraan petani.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-dot"></div><span class="timeline-year">2018</span><div class="timeline-content"><h4>Sertifikasi SNI</h4><p>Mendapatkan sertifikasi SNI untuk produk-produk utama dan membangun laboratorium quality control.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-dot"></div><span class="timeline-year">2021</span><div class="timeline-content"><h4>Gudang Modern</h4><p>Membangun gudang modern dengan kapasitas 5.000 ton dan sistem manajemen stok digital.</p></div></div>
+                <div class="timeline-item reveal"><div class="timeline-dot"></div><span class="timeline-year">2024</span><div class="timeline-content"><h4>500+ Mitra Bisnis</h4><p>Melayani lebih dari 500 mitra bisnis dan 1200 petani mitra di 30+ kota di seluruh Indonesia.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOTO GUDANG & TIM ===== -->
+    <section class="section" style="background:var(--light-gray);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Fasilitas</span>
+                <h2 class="section-title">Gudang & <span class="highlight">Tim Kami</span></h2>
+            </div>
+            <div class="about-grid-page">
+                <div class="about-block-image reveal reveal-left"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80" alt="Gudang beras modern" loading="lazy"></div>
+                <div class="about-block-image reveal reveal-right"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Tim Nusantara Rice" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Mari Bergabung dengan Kami</h2>
+                <p>Jadilah mitra bisnis kami dan nikmati layanan distribusi beras berkualitas dengan harga terbaik.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+                    <a href="pricing.html" class="btn btn-white-outline"><i class="fas fa-tags"></i> Lihat Paket</a>
                 </div>
             </div>
         </div>
@@ -104,57 +189,59 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <h3>Karya Mandiri</h3>
-                    <p>Mitra terpercaya solusi digital Anda sejak 2015. Berkomitmen memberikan hasil terbaik untuk setiap project.</p>
+                    <a href="index.html" class="nav-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /><div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div></a>
+                    <p>Distributor beras berkualitas untuk kebutuhan rumah tangga dan bisnis.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Navigasi</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="about.html">Tentang</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="testimonials.html">Testimonial</a></li>
-                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="pricing.html"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Layanan</h4>
+                    <h4>Produk</h4>
                     <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Company Profile</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Premium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Medium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Organik</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Pulen</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras IR 64</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kemasan Retail</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
                     <ul>
-                        <li><a href="https://wa.me/6281298578909">WhatsApp</a></li>
-                        <li><a href="mailto:hello@karyamandiri.com">Email</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Cipondoh No. 123, Jakarta Barat</li>
+                        <li><i class="fas fa-phone"></i> +62 812-9857-8909</li>
+                        <li><i class="fab fa-whatsapp"></i> +62 812-9857-8909</li>
+                        <li><i class="fas fa-envelope"></i> info@nusantarrice.id</li>
+                        <li><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 17.00</li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Karya Mandiri. All rights reserved. | <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></p>
             </div>
         </div>
+        <div class="footer-bottom"><div class="container">&copy; 2026 Nusantara Rice Distribution. <a href="admin-login.html">Admin</a></div></div>
     </footer>
 
-    <!-- ===== FLOATING WA ===== -->
-    <a href="https://wa.me/6281298578909" class="floating-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <button class="scroll-top" id="scrollTop" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+    <a href="admin-login.html" class="float-action" aria-label="Masuk Admin Panel"><i class="fas fa-user-cog"></i></a>
 
-    <script src="script.js"></script>
-`n</body>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+</body>
 </html>

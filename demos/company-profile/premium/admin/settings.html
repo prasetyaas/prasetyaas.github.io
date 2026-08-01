@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Settings | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="settings">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="fa-solid fa-chevron-right"></i><span>Settings</span></nav>
+                        <h1>Pengaturan <span style="color:var(--gold)">Website</span></h1>
+                        <div class="subtitle">Kelola identitas, SEO, media sosial, dan konfigurasi website.</div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <div class="admin-card" style="padding:16px; align-self:start">
+                        <nav class="settings-nav">
+                            <a href="#identity" class="active" data-scroll="identity"><i class="fa-solid fa-building"></i> Identitas</a>
+                            <a href="#seo" data-scroll="seo"><i class="fa-solid fa-magnifying-glass-chart"></i> SEO</a>
+                            <a href="#socials" data-scroll="socials"><i class="fa-solid fa-share-nodes"></i> Media Sosial</a>
+                            <a href="#analytics" data-scroll="analytics"><i class="fa-solid fa-chart-simple"></i> Analytics</a>
+                            <a href="#email" data-scroll="email"><i class="fa-solid fa-envelope-circle-check"></i> Email Config</a>
+                        </nav>
+                    </div>
+
+                    <div>
+                        <div class="admin-card" id="identity" style="padding:28px; margin-bottom:20px">
+                            <h3 style="font-family:var(--font-serif); font-size:1.2rem; margin-bottom:24px"><i class="fa-solid fa-building" style="color:var(--gold); margin-right:10px"></i> Identitas Perusahaan</h3>
+                            <div class="form-grid-a">
+                                <div class="form-group-a"><label>Nama Website</label><input type="text" value="Aurora Grand Resort"></div>
+                                <div class="form-group-a"><label>Tagline</label><input type="text" value="Experience the Extraordinary"></div>
+                                <div class="form-group-a full"><label>Deskripsi Website</label><textarea rows="3">Luxury resort, hotel, convention hall, wedding venue dan restaurant di Jakarta.</textarea></div>
+                                <div class="form-group-a"><label>Logo URL</label><input type="text" value="https://img.icons8.com/color/96/crown.png"></div>
+                                <div class="form-group-a"><label>Favicon URL</label><input type="text" value="https://img.icons8.com/color/96/crown.png"></div>
+                                <div class="form-group-a"><label>URL Website</label><input type="text" value="https://auroragrandresort.co.id"></div>
+                                <div class="form-group-a"><label>Bahasa Default</label><select><option selected>Indonesia</option><option>English</option></select></div>
+                            </div>
+                            <button class="btn-admin btn-gold-a" onclick="Admin.toast('Pengaturan identitas disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan</button>
+                        </div>
+
+                        <div class="admin-card" id="seo" style="padding:28px; margin-bottom:20px">
+                            <h3 style="font-family:var(--font-serif); font-size:1.2rem; margin-bottom:24px"><i class="fa-solid fa-magnifying-glass-chart" style="color:var(--gold); margin-right:10px"></i> SEO Settings</h3>
+                            <div class="form-grid-a">
+                                <div class="form-group-a full"><label>Meta Title Default</label><input type="text" value="Aurora Grand Resort | Luxury Resort & Convention Jakarta"></div>
+                                <div class="form-group-a full"><label>Meta Description Default</label><textarea rows="3">Luxury resort, convention hall, wedding venue dan fine dining restaurant di Jakarta.</textarea></div>
+                                <div class="form-group-a"><label>Meta Keywords</label><input type="text" value="luxury resort, wedding venue, convention hall, hotel jakarta"></div>
+                                <div class="form-group-a"><label>Canonical URL</label><input type="text" value="https://auroragrandresort.co.id"></div>
+                                <div class="form-group-a"><label>Open Graph Image</label><input type="text" value="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200"></div>
+                                <div class="form-group-a"><label>Favicon</label><input type="text" value="https://img.icons8.com/color/96/crown.png"></div>
+                            </div>
+                            <button class="btn-admin btn-gold-a" onclick="Admin.toast('Pengaturan SEO disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan</button>
+                        </div>
+
+                        <div class="admin-card" id="socials" style="padding:28px; margin-bottom:20px">
+                            <h3 style="font-family:var(--font-serif); font-size:1.2rem; margin-bottom:24px"><i class="fa-solid fa-share-nodes" style="color:var(--gold); margin-right:10px"></i> Media Sosial</h3>
+                            <div class="form-grid-a">
+                                <div class="form-group-a"><label><i class="fa-brands fa-instagram"></i> Instagram</label><input type="text" value="https://instagram.com/auroragrandresort"></div>
+                                <div class="form-group-a"><label><i class="fa-brands fa-facebook"></i> Facebook</label><input type="text" value="https://facebook.com/auroragrandresort"></div>
+                                <div class="form-group-a"><label><i class="fa-brands fa-tiktok"></i> TikTok</label><input type="text" value="https://tiktok.com/@auroragrandresort"></div>
+                                <div class="form-group-a"><label><i class="fa-brands fa-youtube"></i> YouTube</label><input type="text" value="https://youtube.com/@auroragrandresort"></div>
+                            </div>
+                            <button class="btn-admin btn-gold-a" onclick="Admin.toast('Media sosial disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan</button>
+                        </div>
+
+                        <div class="dashboard-grid" style="margin-bottom:20px">
+                            <div class="admin-card" id="analytics" style="padding:28px">
+                                <h3 style="font-family:var(--font-serif); font-size:1.2rem; margin-bottom:24px"><i class="fa-solid fa-chart-simple" style="color:var(--gold); margin-right:10px"></i> Google Analytics</h3>
+                                <div class="form-group-a"><label>GA4 Measurement ID</label><input type="text" value="G-XXXXXXXXXX" placeholder="G-XXXXXXXXXX"></div>
+                                <div class="form-group-a"><label>Status</label><select><option>Placeholder (Belum Aktif)</option><option>Aktif</option></select></div>
+                                <button class="btn-admin btn-gold-a" onclick="Admin.toast('Pengaturan analytics disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                            </div>
+                            <div class="admin-card" id="email" style="padding:28px">
+                                <h3 style="font-family:var(--font-serif); font-size:1.2rem; margin-bottom:24px"><i class="fa-solid fa-envelope-circle-check" style="color:var(--gold); margin-right:10px"></i> Email Configuration</h3>
+                                <div class="form-group-a"><label>SMTP Host</label><input type="text" value="smtp.auroragrandresort.co.id" placeholder="smtp.example.com"></div>
+                                <div class="form-group-a"><label>Email Pengirim</label><input type="text" value="no-reply@auroragrandresort.co.id"></div>
+                                <div class="form-group-a"><label>Status</label><select><option>Placeholder (Belum Dikonfigurasi)</option><option>Terhubung</option></select></div>
+                                <button class="btn-admin btn-gold-a" onclick="Admin.toast('Pengaturan email disimpan.')"><i class="fa-solid fa-floppy-disk"></i> Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('[data-scroll]').forEach(a => {
+            a.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('[data-scroll]').forEach(x => x.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById(this.dataset.scroll)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

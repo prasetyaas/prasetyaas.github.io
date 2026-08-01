@@ -3,188 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karya Mandiri — Solusi Digital Terpercaya</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Nusantara Rice Distribution - Distributor beras berkualitas untuk kebutuhan rumah tangga dan bisnis. Beras premium, medium, organik, pulen, IR 64, dan kemasan retail. Harga distributor murah.">
+    <meta name="keywords" content="distributor beras, beras premium, beras organik, supplier beras, beras IR 64, grosir beras, jual beras">
+    <meta name="author" content="Nusantara Rice Distribution">
+    <meta property="og:title" content="Nusantara Rice Distribution | Kualitas Beras Terbaik untuk Indonesia">
+    <meta property="og:description" content="Distributor beras berkualitas untuk kebutuhan rumah tangga dan bisnis. Beras premium pilihan dengan harga distributor terbaik.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1200&q=80">
+    <meta property="og:url" content="demos/company-profile/basic/index.html">
+    <title>Nusantara Rice Distribution | Distributor Beras Berkualitas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="https://img.icons8.com/fluency/96/rice-bowl.png" type="image/png">
 </head>
-<body>
+<body data-page="home">
+
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" /></div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Nusantara Rice Distribution</div>
+    </div>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-icon">KM</span>
-                Karya Mandiri
+            <a href="index.html" class="nav-logo" aria-label="Beranda Nusantara Rice">
+                <img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo Nusantara Rice" />
+                <div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div>
             </a>
-            <button class="nav-toggle" id="navToggle">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-toggle" id="navToggle" aria-label="Buka menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Beranda</a></li>
-                <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-                <li><a href="testimonials.html" class="nav-link">Testimonial</a></li>
-                <li><a href="contact.html" class="nav-link nav-cta">Kontak</a></li>
+                <li><a href="index.html" class="nav-link" data-nav="home">Home</a></li>
+                <li><a href="about.html" class="nav-link" data-nav="about">About</a></li>
+                <li><a href="products.html" class="nav-link" data-nav="products">Products</a></li>
+                <li><a href="gallery.html" class="nav-link" data-nav="gallery">Gallery</a></li>
+                <li><a href="pricing.html" class="nav-link" data-nav="pricing">Pricing</a></li>
+                <li><a href="testimonials.html" class="nav-link" data-nav="testimonials">Testimonial</a></li>
+                <li><a href="faq.html" class="nav-link" data-nav="faq">FAQ</a></li>
+                <li><a href="contact.html" class="nav-link" data-nav="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
+    <div class="nav-menu-overlay"></div>
 
     <!-- ===== HERO ===== -->
     <section class="hero" id="hero">
-        <div class="container">
+        <div class="hero-pattern"></div>
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="container hero-container">
             <div class="hero-content">
-            <div class="hero-badge">
-                    <span class="dot"></span>
-                    Since <span data-profile="year">2015</span>
-                </div>
-                <h1><span data-hero="title">Mitra Terpercaya</span><br><span class="highlight" data-hero="highlight">Solusi Digital</span> Anda</h1>
-                <p data-hero="desc">Kami menghadirkan website profesional yang tidak hanya cantik, tapi juga bekerja keras untuk bisnis Anda. Dari company profile hingga sistem kompleks.</p>
+                <span class="hero-badge"><span class="hero-badge-dot"></span> Distributor Beras Terpercaya Sejak 2012</span>
+                <h1 class="hero-title">Distributor Beras <span class="highlight">Berkualitas</span> untuk Kebutuhan Rumah Tangga dan Bisnis</h1>
+                <p class="hero-subtitle">Nusantara Rice Distribution menghadirkan beras premium pilihan langsung dari petani binaan dengan kualitas terbaik, harga distributor, dan pengiriman ke seluruh Indonesia.</p>
                 <div class="hero-cta">
-                    <a href="portfolio.html" class="btn btn-primary">
-                        Lihat Portfolio <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="contact.html" class="btn btn-outline">
-                        <i class="fas fa-comment"></i> Hubungi Kami
-                    </a>
+                    <a href="products.html" class="btn btn-light"><i class="fas fa-box-open"></i> Lihat Produk</a>
+                    <a href="contact.html" class="btn btn-white-outline"><i class="fas fa-headset"></i> Hubungi Kami</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="hero-stat">
-                        <h3>50+</h3>
-                        <p>Project Selesai</p>
-                    </div>
-                    <div class="hero-stat">
-                        <h3>35+</h3>
-                        <p>Client Puas</p>
-                    </div>
-                    <div class="hero-stat">
-                        <h3>8+</h3>
-                        <p>Tahun Pengalaman</p>
-                    </div>
+                    <div class="hero-stat"><span class="hero-stat-value">12+</span><span class="hero-stat-label">Tahun Pengalaman</span></div>
+                    <div class="hero-stat"><span class="hero-stat-value">500+</span><span class="hero-stat-label">Mitra Bisnis</span></div>
+                    <div class="hero-stat"><span class="hero-stat-value">30+</span><span class="hero-stat-label">Kota Terjangkau</span></div>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-card">
-                    <div class="hero-card-icon">
-                        <i class="fas fa-laptop-code"></i>
+                <div class="hero-card hero-card-main image-zoom-wrap">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=600&q=80" alt="Karung beras premium Nusantara Rice" loading="eager">
+                </div>
+                <div class="hero-card hero-card-1 hero-card-float">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" alt="Sawah hijau petani mitra" loading="lazy">
+                </div>
+                <div class="hero-card hero-card-2 hero-card-float">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=400&q=80" alt="Gudang penyimpanan modern" loading="lazy">
+                </div>
+                <div class="hero-badge-chip"><i class="fas fa-award"></i> Sertifikasi SNI</div>
+            </div>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <div class="scroll-mouse"><div class="scroll-mouse-dot"></div></div>
+            <span class="scroll-text">Scroll</span>
+        </div>
+    </section>
+
+    <!-- ===== COMPANY HIGHLIGHT ===== -->
+    <section class="section highlight-section">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-image reveal reveal-left">
+                    <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=700&q=80" alt="Gudang beras Nusantara Rice Distribution" loading="lazy">
+                </div>
+                <div class="highlight-content reveal reveal-right">
+                    <span class="section-tag">Tentang Kami</span>
+                    <h2 class="section-title">Nusantara Rice <span class="highlight">Distribution</span></h2>
+                    <p style="color:var(--gray);margin-bottom:20px;">Sejak 2012, kami berkomitmen menghadirkan beras berkualitas dengan harga terjangkau. Berawal dari satu gudang kecil di Jawa Barat, kini kami melayani lebih dari 500 mitra bisnis di 30+ kota di Indonesia.</p>
+                    <div class="highlight-feature">
+                        <div class="highlight-feature-icon"><i class="fas fa-leaf"></i></div>
+                        <div><h4>100% Beras Pilihan</h4><p>Beras langsung dari petani binaan dengan quality control ketat</p></div>
                     </div>
-                    <h3>Yang Kami Tawarkan</h3>
-                    <p>Website company profile profesional siap pakai dengan desain premium dan fitur lengkap.</p>
-                    <ul class="card-list">
-                        <li><i class="fas fa-check-circle"></i> Desain Premium + Animasi</li>
-                        <li><i class="fas fa-check-circle"></i> 5 Halaman Lengkap</li>
-                        <li><i class="fas fa-check-circle"></i> Portfolio & Testimonial</li>
-                        <li><i class="fas fa-check-circle"></i> Google Maps & Social Media</li>
-                    </ul>
+                    <div class="highlight-feature">
+                        <div class="highlight-feature-icon"><i class="fas fa-truck"></i></div>
+                        <div><h4>Armada Distribusi Sendiri</h4><p>Pengiriman cepat dan tepat waktu dengan armada yang terawat</p></div>
+                    </div>
+                    <div class="highlight-feature">
+                        <div class="highlight-feature-icon"><i class="fas fa-handshake"></i></div>
+                        <div><h4>Kemitraan Berkelanjutan</h4><p>Membangun kemitraan kuat dengan petani dan mitra bisnis</p></div>
+                    </div>
+                    <div class="mt-4"><a href="about.html" class="btn btn-primary">Selengkapnya <i class="fas fa-arrow-right"></i></a></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== LAYANAN ===== -->
-    <section class="about-page" style="padding: 80px 0;">
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section class="section">
         <div class="container">
             <div class="section-header reveal">
-                <span class="section-tag">Layanan</span>
-                <h2>Yang Kami Sediakan</h2>
-                <p>Paket lengkap untuk kebutuhan company profile perusahaan Anda.</p>
+                <span class="section-tag">Keunggulan</span>
+                <h2 class="section-title">Mengapa Memilih <span class="highlight">Kami?</span></h2>
+                <p class="section-desc">Komitmen kami adalah memberikan kualitas terbaik dengan pelayanan profesional untuk setiap mitra.</p>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
-                <div class="milestone-card reveal">
-                    <div class="number" style="font-size: 28px; margin-bottom: 12px;"><i class="fas fa-paint-brush"></i></div>
-                    <h4 style="font-size: 18px; margin-bottom: 8px;">Desain Premium</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Tampilan modern dengan animasi halus yang memukau.</p>
-                </div>
-                <div class="milestone-card reveal">
-                    <div class="number" style="font-size: 28px; margin-bottom: 12px;"><i class="fas fa-mobile-alt"></i></div>
-                    <h4 style="font-size: 18px; margin-bottom: 8px;">Responsive</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Tampil sempurna di desktop, tablet, dan smartphone.</p>
-                </div>
-                <div class="milestone-card reveal">
-                    <div class="number" style="font-size: 28px; margin-bottom: 12px;"><i class="fas fa-headset"></i></div>
-                    <h4 style="font-size: 18px; margin-bottom: 8px;">Support 1 Bulan</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Bantuan penuh selama sebulan setelah website live.</p>
-                </div>
-                <div class="milestone-card reveal">
-                    <div class="number" style="font-size: 28px; margin-bottom: 12px;"><i class="fas fa-shield-alt"></i></div>
-                    <h4 style="font-size: 18px; margin-bottom: 8px;">Admin Panel</h4>
-                    <p style="font-size: 14px; color: var(--text-muted);">Kelola konten website dengan mudah via panel admin.</p>
-                </div>
+            <div class="why-grid">
+                <div class="why-card reveal delay-1"><div class="why-icon"><i class="fas fa-medal"></i></div><h3>Kualitas Premium</h3><p>Beras dipilih dengan quality control ketat dan standar SNI untuk menjamin kepuasan pelanggan.</p></div>
+                <div class="why-card reveal delay-2"><div class="why-icon"><i class="fas fa-tags"></i></div><h3>Harga Kompetitif</h3><p>Langsung dari petani tanpa perantara, sehingga harga lebih murah tanpa mengorbankan kualitas.</p></div>
+                <div class="why-card reveal delay-3"><div class="why-icon"><i class="fas fa-truck-fast"></i></div><h3>Pengiriman Cepat</h3><p>Armada sendiri dengan rute teroptimasi menjamin pengiriman tepat waktu ke seluruh wilayah.</p></div>
+                <div class="why-card reveal delay-1"><div class="why-icon"><i class="fas fa-boxes-stacked"></i></div><h3>Stok Selalu Tersedia</h3><p>Gudang besar dengan manajemen stok modern memastikan ketersediaan barang setiap saat.</p></div>
+                <div class="why-card reveal delay-2"><div class="why-icon"><i class="fas fa-headset"></i></div><h3>Dukungan Penuh</h3><p>Tim profesional siap membantu 6 hari seminggu, dari pemesanan hingga pengiriman.</p></div>
+                <div class="why-card reveal delay-3"><div class="why-icon"><i class="fas fa-leaf"></i></div><h3>Ramah Lingkungan</h3><p>Bermitra dengan petani organik dan menerapkan praktik pertanian berkelanjutan.</p></div>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURED PRODUCTS ===== -->
+    <section class="section" style="background:var(--light-gray);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Produk Unggulan</span>
+                <h2 class="section-title">Produk <span class="highlight">Terlaris</span></h2>
+                <p class="section-desc">Pilihan beras kualitas terbaik yang menjadi favorit pelanggan kami.</p>
+            </div>
+            <div class="featured-grid" id="featuredProducts"></div>
+            <div class="text-center mt-4"><a href="products.html" class="btn btn-outline">Lihat Semua Produk <i class="fas fa-arrow-right"></i></a></div>
+        </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-section">
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal"><div class="stat-icon"><i class="fas fa-tractor"></i></div><span class="stat-number counter" data-target="1200" data-suffix="+">0</span><span class="stat-label">Petani Mitra</span></div>
+                <div class="stat-item reveal delay-1"><div class="stat-icon"><i class="fas fa-bag-shopping"></i></div><span class="stat-number counter" data-target="50" data-suffix="+">0</span><span class="stat-label">Jenis Beras</span></div>
+                <div class="stat-item reveal delay-2"><div class="stat-icon"><i class="fas fa-truck"></i></div><span class="stat-number counter" data-target="2500" data-suffix="+">0</span><span class="stat-label">Ton/Tahun</span></div>
+                <div class="stat-item reveal delay-3"><div class="stat-icon"><i class="fas fa-face-smile"></i></div><span class="stat-number counter" data-target="500" data-suffix="+">0</span><span class="stat-label">Mitra Bisnis</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL PREVIEW ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimoni</span>
+                <h2 class="section-title">Apa Kata <span class="highlight">Pelanggan?</span></h2>
+                <p class="section-desc">Kepercayaan mitra adalah kebanggaan kami.</p>
+            </div>
+            <div class="testimonials-grid-page" id="homeTestimonials"></div>
+            <div class="text-center mt-4"><a href="testimonials.html" class="btn btn-outline">Lihat Semua Testimoni <i class="fas fa-arrow-right"></i></a></div>
         </div>
     </section>
 
     <!-- ===== CTA ===== -->
-    <section style="padding: 80px 0; background: var(--navy); text-align: center;">
+    <section class="cta-section">
         <div class="container">
-            <h2 style="font-size: 36px; color: #fff; margin-bottom: 16px;">Siap Memulai?</h2>
-            <p style="font-size: 16px; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 32px;">
-                Konsultasi gratis tanpa biaya. Ceritakan kebutuhan website Anda.
-            </p>
-            <a href="contact.html" class="btn btn-white">
-                <i class="fab fa-whatsapp"></i> Konsultasi Gratis
-            </a>
+            <div class="cta-content reveal">
+                <h2>Siap Bermitra dengan Kami?</h2>
+                <p>Jadilah bagian dari ribuan mitra bisnis yang telah mempercayakan kebutuhan beras berkualitas kepada Nusantara Rice Distribution.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light"><i class="fas fa-envelope"></i> Hubungi Kami</a>
+                    <a href="pricing.html" class="btn btn-white-outline"><i class="fas fa-tags"></i> Lihat Paket</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <h3>Karya Mandiri</h3>
-                    <p>Mitra terpercaya solusi digital Anda sejak 2015. Berkomitmen memberikan hasil terbaik untuk setiap project.</p>
+                    <a href="index.html" class="nav-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /><div class="nav-logo-text"><strong>Nusantara Rice</strong><span>Distribution</span></div></a>
+                    <p>Distributor beras berkualitas untuk kebutuhan rumah tangga dan bisnis.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Navigasi</h4>
+                    <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="about.html">Tentang</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="testimonials.html">Testimonial</a></li>
-                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Products</a></li>
+                        <li><a href="pricing.html"><i class="fas fa-chevron-right"></i> Pricing</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Layanan</h4>
+                    <h4>Produk</h4>
                     <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Company Profile</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">IT Consulting</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Premium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Medium</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Organik</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras Pulen</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Beras IR 64</a></li>
+                        <li><a href="products.html"><i class="fas fa-chevron-right"></i> Kemasan Retail</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Kontak</h4>
+                <div class="footer-contact">
+                    <h4>Kontak Kami</h4>
                     <ul>
-                        <li><a href="https://wa.me/6281298578909">WhatsApp</a></li>
-                        <li><a href="mailto:hello@karyamandiri.com">Email</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Raya Cipondoh No. 123, Jakarta Barat</li>
+                        <li><i class="fas fa-phone"></i> +62 812-9857-8909</li>
+                        <li><i class="fab fa-whatsapp"></i> +62 812-9857-8909</li>
+                        <li><i class="fas fa-envelope"></i> info@nusantarrice.id</li>
+                        <li><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 17.00</li>
                     </ul>
                 </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Karya Mandiri. All rights reserved. | <a href="admin.html" class="admin-link"><i class="fas fa-lock"></i> Admin Panel</a></p>
             </div>
         </div>
+        <div class="footer-bottom"><div class="container">&copy; 2026 Nusantara Rice Distribution. All Rights Reserved. <a href="admin-login.html">Admin</a></div></div>
     </footer>
 
-    <!-- ===== FLOATING WA ===== -->
-    <a href="https://wa.me/6281298578909" class="floating-wa" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <button class="scroll-top" id="scrollTop" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
+    <a href="admin-login.html" class="float-action" aria-label="Masuk Admin Panel"><i class="fas fa-user-cog"></i></a>
 
-    <div style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999;background:#1e293b;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,0.3);border-left:4px solid #0d9488;max-width:90%">
-        <i class="fas fa-lock" style="color:#0d9488"></i>
-        <span>🔐 Demo Admin: <strong style="color:#0d9488">admin</strong> / <strong style="color:#0d9488">admin123</strong></span>
-        <a href="admin.html" style="color:#fff;background:#0d9488;padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;font-size:12px;white-space:nowrap">Masuk</a>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+    <script>
+        /* Render Featured Products */
+        (function () {
+            const container = document.getElementById('featuredProducts');
+            if (!container) return;
+            const products = (typeof NRD_STORE !== 'undefined') ? NRD_STORE.getProducts().filter(p => p.featured).slice(0, 3) : [];
+            if (products.length === 0) { container.innerHTML = '<p class="text-center" style="grid-column:1/-1;color:var(--gray);">Belum ada produk unggulan.</p>'; return; }
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card reveal';
+                card.style.transitionDelay = (index * 0.1) + 's';
+                card.innerHTML = `
+                    <div class="product-image"><img src="${product.image || 'https://via.placeholder.com/600x400?text=Beras'}" alt="${product.name}" loading="lazy"><span class="product-badge">Terlaris</span></div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p>${product.description.substring(0, 90)}...</p>
+                        <div class="product-meta"><span class="product-price">${product.price}</span><a href="products.html" class="product-link">Detail <i class="fas fa-arrow-right"></i></a></div>
+                    </div>`;
+                container.appendChild(card);
+            });
+        })();
+
+        /* Render Home Testimonials */
+        (function () {
+            const container = document.getElementById('homeTestimonials');
+            if (!container) return;
+            const testimonials = (typeof NRD_STORE !== 'undefined') ? NRD_STORE.getTestimonials().slice(0, 3) : [];
+            if (testimonials.length === 0) { container.innerHTML = '<p class="text-center" style="grid-column:1/-1;color:var(--gray);">Belum ada testimoni.</p>'; return; }
+            testimonials.forEach((testi, index) => {
+                const card = document.createElement('div');
+                card.className = 'testimonial-card-page reveal';
+                card.style.transitionDelay = (index * 0.1) + 's';
+                const stars = Array.from({ length: 5 }, (_, i) => `<i class="fas fa-star" style="${i >= testi.rating ? 'opacity:0.2' : ''}"></i>`).join('');
+                const initial = (testi.name || 'U').charAt(0).toUpperCase();
+                card.innerHTML = `
+                    <div class="testimonial-stars">${stars}</div>
+                    <p class="testimonial-text-page">"${testi.text}"</p>
+                    <div class="testimonial-author-page">
+                        <div class="testimonial-avatar">${testi.avatar ? `<img src="${testi.avatar}" alt="Foto ${testi.name}" loading="lazy" />` : `<span>${initial}</span>`}</div>
+                        <div><h4>${testi.name}</h4><span>${testi.position || 'Pelanggan'}</span></div>
+                    </div>`;
+                container.appendChild(card);
+            });
+        })();
+
+        /* Panggil reveal ulang agar elemen yang baru dirender tampil */
+        if (typeof window.initReveal === 'function') {
+            window.initReveal();
+        }
+    </script>
+
+    <!-- ===== BANNER ADMIN LOGIN (Demo) - Di atas area hero, inline style agar pasti tampil ===== -->
+    <div id="adminDemoPopup" role="dialog" aria-label="Pemberitahuan admin login" style="position:fixed; top:90px; left:0; right:0; z-index:99999; background:linear-gradient(135deg,#1B5E20,#2E7D32); color:#ffffff; padding:14px 20px; box-shadow:0 8px 30px rgba(0,0,0,0.4); font-family:Poppins, Arial, sans-serif; border-bottom:3px solid #A67C52;">
+        <div style="max-width:1250px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px;">
+            <div style="width:40px; height:40px; flex-shrink:0; background:linear-gradient(135deg,#A67C52,#8B5E3C); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:#ffffff;"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+            <div style="flex:1; min-width:200px; text-align:left;">
+                <div style="font-weight:700; font-size:0.95rem;">Demo Admin Panel</div>
+                <div style="font-size:0.75rem; color:rgba(255,255,255,0.8); margin-top:2px;">Website ini dilengkapi Admin Panel untuk mengelola konten. Password demo: <code style="background:rgba(255,255,255,0.2); color:#FFF8E8; padding:1px 6px; border-radius:4px;">admin123</code></div>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <a href="admin-login.html" style="display:inline-flex; align-items:center; gap:6px; background:#ffffff; color:#1B5E20; font-size:0.8rem; font-weight:700; padding:10px 18px; border-radius:30px; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,0.2); white-space:nowrap;">Langsung Login Admin <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <button onclick="document.getElementById('adminDemoPopup').style.display='none'" style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.15); color:#ffffff; font-size:0.8rem; font-weight:600; padding:10px 18px; border-radius:30px; border:none; cursor:pointer; white-space:nowrap;">Lanjut Website</button>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
-`n</body>
+</body>
 </html>

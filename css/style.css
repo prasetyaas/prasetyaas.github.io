@@ -915,6 +915,7 @@ img { max-width: 100%; display: block; }
     justify-content: space-between;
     gap: 6px;
     height: 100%;
+    min-height: 120px;
     transition: var(--transition);
     cursor: pointer;
     text-decoration: none;
@@ -940,6 +941,10 @@ img { max-width: 100%; display: block; }
     font-size: 18px;
     font-weight: 800;
     color: var(--text-primary);
+    white-space: normal;
+    line-height: 1.2;
+    text-align: center;
+    word-break: break-word;
 }
 
 .price-option .po-value em {
@@ -959,6 +964,11 @@ img { max-width: 100%; display: block; }
 .price-option.popular {
     border-color: rgba(0, 212, 255, 0.4);
     background: var(--accent-glow);
+}
+
+/* Uniform height for Company Profile price option boxes */
+#pricing-company .price-option {
+    min-height: 150px;
 }
 
 [data-theme="light"] .price-option {

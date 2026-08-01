@@ -1,0 +1,9 @@
+# Sakura Koi Indonesia - robots.txt
+# Izinkan semua crawler untuk halaman publik
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /admin-login.html
+
+# Sitemap
+Sitemap: https://sakurakoi.co.id/assets/sitemap.xml

@@ -1,209 +1,51 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel — Karya Mandiri</title>
-    <link rel="stylesheet" href="admin.css">
+    <meta name="description" content="Admin Panel - Kelola produk, galeri, paket harga, dan testimoni Nusantara Rice Distribution.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Panel | Nusantara Rice Distribution</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="https://img.icons8.com/fluency/96/rice-bowl.png" type="image/png">
 </head>
-<body>
-
-    <!-- ===== TOAST NOTIFICATION ===== -->
-    <div class="toast" id="toast">
-        <i class="fas fa-info-circle"></i>
-        <span id="toastMessage">🔐 Demo Mode — Login: <strong>admin</strong> / <strong>admin123</strong></span>
-    </div>
-
-    <div class="login-page" id="loginPage">
-        <div class="login-box">
-            <h1>🔐 Admin Panel</h1>
-            <p>Masuk untuk mengelola konten website</p>
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" id="loginUser" placeholder="admin" value="admin">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" id="loginPass" placeholder="••••••••" value="admin123">
-            </div>
-            <button class="login-btn" onclick="handleLogin()"><i class="fas fa-sign-in-alt"></i> Masuk</button>
-            <p class="login-error" id="loginError">Username atau password salah!</p>
-            <p style="text-align:center;font-size:12px;color:var(--text-muted);margin-top:16px;">Demo: admin / admin123</p>
-        </div>
-    </div>
-
-    <!-- ===== DASHBOARD ===== -->
-    <div class="dashboard" id="dashboard" style="display:none;">
-        <aside class="sidebar">
-            <h2><span>KM</span> Admin</h2>
-            <nav class="sidebar-nav">
-                <a href="#" class="active" data-section="profile"><i class="fas fa-building"></i> Profil</a>
-                <a href="#" data-section="hero"><i class="fas fa-home"></i> Hero</a>
-                <a href="#" data-section="portfolio"><i class="fas fa-images"></i> Portfolio</a>
-                <a href="#" data-section="testimonials"><i class="fas fa-quote-right"></i> Testimonial</a>
-                <a href="#" data-section="blog"><i class="fas fa-newspaper"></i> Blog</a>
-                <a href="#" data-section="contact"><i class="fas fa-address-card"></i> Kontak</a>
+<body class="admin-body">
+    <div class="loading-screen"><div class="loading-logo"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /></div><div class="loading-spinner"></div><div class="loading-text">Memuat Panel Admin...</div></div>
+    <div class="admin-shell" id="adminShell">
+        <button class="admin-sidebar-toggle" aria-label="Buka menu admin"><i class="fas fa-bars"></i></button>
+        <aside class="admin-sidebar">
+            <div class="admin-sidebar-brand"><img src="https://img.icons8.com/fluency/96/rice-bowl.png" alt="Logo" /><div><strong>Nusantara Rice</strong><span>Admin Panel</span></div></div>
+            <nav class="admin-nav">
+                <button class="admin-nav-item active" data-module="products"><i class="fas fa-box"></i> Produk</button>
+                <button class="admin-nav-item" data-module="gallery"><i class="fas fa-images"></i> Galeri</button>
+                <button class="admin-nav-item" data-module="pricing"><i class="fas fa-tags"></i> Paket Harga</button>
+                <button class="admin-nav-item" data-module="testimonials"><i class="fas fa-comment-dots"></i> Testimoni</button>
             </nav>
-            <button class="logout-btn" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i> Keluar</button>
+            <div class="admin-sidebar-footer"><a href="index.html"><i class="fas fa-external-link-alt"></i> Lihat Website</a><a href="#" id="adminLogout"><i class="fas fa-sign-out-alt"></i> Logout</a></div>
         </aside>
-
-        <main class="main-content">
-            <h1 id="sectionTitle">Dashboard</h1>
-
-            <!-- Profile -->
-            <div class="admin-section active" id="sec-profile">
-                <div class="form-card">
-                    <h3>Profil Perusahaan</h3>
-                    <div class="form-group">
-                        <label>Nama Perusahaan</label>
-                        <input type="text" id="edCompanyName" value="Karya Mandiri">
-                    </div>
-                    <div class="form-group">
-                        <label>Tagline</label>
-                        <input type="text" id="edTagline" value="Mitra Terpercaya Solusi Digital Anda">
-                    </div>
-                    <div class="form-group">
-                        <label>Deskripsi Singkat</label>
-                        <textarea id="edCompanyDesc" rows="3">Kami menghadirkan website profesional yang tidak hanya cantik, tapi juga bekerja keras untuk bisnis Anda.</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Tahun Berdiri</label>
-                        <input type="text" id="edYear" value="2015">
-                    </div>
-                    <button class="btn-save" onclick="saveProfile()"><i class="fas fa-save"></i> Simpan</button>
-                </div>
-            </div>
-
-            <!-- Hero -->
-            <div class="admin-section" id="sec-hero">
-                <div class="form-card">
-                    <h3>Hero Section</h3>
-                    <div class="form-group">
-                        <label>Judul Utama</label>
-                        <input type="text" id="edHeroTitle" value="Mitra Terpercaya">
-                    </div>
-                    <div class="form-group">
-                        <label>Highlight (gradien)</label>
-                        <input type="text" id="edHeroHighlight" value="Solusi Digital">
-                    </div>
-                    <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea id="edHeroDesc" rows="3">Kami menghadirkan website profesional yang tidak hanya cantik, tapi juga bekerja keras untuk bisnis Anda. Dari company profile hingga sistem kompleks.</textarea>
-                    </div>
-                    <button class="btn-save" onclick="saveHero()"><i class="fas fa-save"></i> Simpan</button>
-                </div>
-            </div>
-
-            <!-- Portfolio -->
-            <div class="admin-section" id="sec-portfolio">
-                <div class="form-card">
-                    <h3>Tambah Portfolio</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Nama Project</label>
-                            <input type="text" id="edPortName" placeholder="Nama project">
-                        </div>
-                        <div class="form-group">
-                            <label>Kategori</label>
-                            <select id="edPortCat">
-                                <option value="web">Website</option>
-                                <option value="ecommerce">E-Commerce</option>
-                                <option value="app">Aplikasi</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Deskripsi</label>
-                        <textarea id="edPortDesc" rows="2" placeholder="Deskripsi project"></textarea>
-                    </div>
-                    <button class="btn-save" onclick="addPortfolio()"><i class="fas fa-plus"></i> Tambah</button>
-                </div>
-                <div class="form-card">
-                    <h3>Daftar Portfolio</h3>
-                    <div class="item-list" id="portfolioList"></div>
-                </div>
-            </div>
-
-            <!-- Testimonials -->
-            <div class="admin-section" id="sec-testimonials">
-                <div class="form-card">
-                    <h3>Tambah Testimonial</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Nama Client</label>
-                            <input type="text" id="edTestName" placeholder="Nama client">
-                        </div>
-                        <div class="form-group">
-                            <label>Jabatan</label>
-                            <input type="text" id="edTestRole" placeholder="CEO, PT Contoh">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Testimonial</label>
-                        <textarea id="edTestText" rows="2" placeholder="Tulis testimonial..."></textarea>
-                    </div>
-                    <button class="btn-save" onclick="addTestimonial()"><i class="fas fa-plus"></i> Tambah</button>
-                </div>
-                <div class="form-card">
-                    <h3>Daftar Testimonial</h3>
-                    <div class="item-list" id="testimonialList"></div>
-                </div>
-            </div>
-
-            <!-- Blog -->
-            <div class="admin-section" id="sec-blog">
-                <div class="form-card">
-                    <h3>Tambah Artikel</h3>
-                    <div class="form-group">
-                        <label>Judul Artikel</label>
-                        <input type="text" id="edBlogTitle" placeholder="Judul artikel">
-                    </div>
-                    <div class="form-group">
-                        <label>Konten</label>
-                        <textarea id="edBlogContent" rows="4" placeholder="Tulis konten artikel..."></textarea>
-                    </div>
-                    <button class="btn-save" onclick="addBlog()"><i class="fas fa-plus"></i> Tambah</button>
-                </div>
-                <div class="form-card">
-                    <h3>Daftar Artikel</h3>
-                    <div class="item-list" id="blogList"></div>
-                </div>
-            </div>
-
-            <!-- Contact -->
-            <div class="admin-section" id="sec-contact">
-                <div class="form-card">
-                    <h3>Informasi Kontak</h3>
-                    <div class="form-group">
-                        <label>WhatsApp</label>
-                        <input type="text" id="edWA" value="6281298578909">
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="text" id="edEmail" value="hello@karyamandiri.com">
-                    </div>
-                    <div class="form-group">
-                        <label>Alamat</label>
-                        <input type="text" id="edAddress" value="Jl. Merdeka No. 123, Jakarta Pusat">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Instagram</label>
-                            <input type="text" id="edIG" value="@karyamandiri.official">
-                        </div>
-                        <div class="form-group">
-                            <label>Facebook</label>
-                            <input type="text" id="edFB" value="Karya Mandiri Official">
-                        </div>
-                    </div>
-                    <button class="btn-save" onclick="saveContact()"><i class="fas fa-save"></i> Simpan</button>
-                </div>
-            </div>
-
+        <main class="admin-main">
+            <div class="admin-header"><div><h1>Dashboard Admin</h1><p>Kelola konten website Nusantara Rice Distribution</p></div>
+            <div class="admin-header-actions"><a href="index.html" class="btn-admin btn-admin-outline"><i class="fas fa-eye"></i> Lihat Website</a><button class="btn-admin btn-admin-warning" onclick="resetAllData()"><i class="fas fa-redo"></i> Reset Data</button></div></div>
+            <section class="admin-module" data-module="products"><div class="admin-card"><div class="admin-card-header"><h2><i class="fas fa-box" style="color:var(--green);margin-right:8px;"></i> Manajemen Produk</h2><button class="btn-admin btn-admin-primary" id="addProductBtn"><i class="fas fa-plus"></i> Tambah Produk</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Foto</th><th>Nama</th><th>Kategori</th><th>Harga</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="productsTableBody"></tbody></table></div></div></section>
+            <section class="admin-module" data-module="gallery" style="display:none;"><div class="admin-card"><div class="admin-card-header"><h2><i class="fas fa-images" style="color:var(--green);margin-right:8px;"></i> Manajemen Galeri</h2><button class="btn-admin btn-admin-primary" id="addGalleryBtn"><i class="fas fa-plus"></i> Tambah Foto</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Foto</th><th>Judul</th><th>Kategori</th><th>Aksi</th></tr></thead><tbody id="galleryTableBody"></tbody></table></div></div></section>
+            <section class="admin-module" data-module="pricing" style="display:none;"><div class="admin-card"><div class="admin-card-header"><h2><i class="fas fa-tags" style="color:var(--green);margin-right:8px;"></i> Manajemen Paket Harga</h2><button class="btn-admin btn-admin-primary" id="addPricingBtn"><i class="fas fa-plus"></i> Tambah Paket</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Nama Paket</th><th>Harga</th><th>Minimal Order</th><th>Benefit</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="pricingTableBody"></tbody></table></div></div></section>
+            <section class="admin-module" data-module="testimonials" style="display:none;"><div class="admin-card"><div class="admin-card-header"><h2><i class="fas fa-comment-dots" style="color:var(--green);margin-right:8px;"></i> Manajemen Testimoni</h2><button class="btn-admin btn-admin-primary" id="addTestimonialBtn"><i class="fas fa-plus"></i> Tambah Testimoni</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Foto</th><th>Nama / Jabatan</th><th>Rating</th><th>Testimoni</th><th>Aksi</th></tr></thead><tbody id="testimonialsTableBody"></tbody></table></div></div></section>
         </main>
     </div>
-
-    <script src="admin.js"></script>
-`n</body>
+    <div class="admin-modal-overlay" id="productModal"><div class="admin-modal"><div class="admin-modal-header"><h3 id="productModalTitle">Tambah Produk</h3><button class="admin-modal-close" aria-label="Tutup">&times;</button></div><form id="productForm" class="admin-form"><div class="admin-form-grid"><div class="form-group full"><label for="productName">Nama Produk *</label><input type="text" id="productName" placeholder="cth: Beras Premium Cap Nusantara" required></div><div class="form-group"><label for="productCategory">Kategori *</label><select id="productCategory"><option value="Premium Rice">Premium Rice</option><option value="Medium Rice">Medium Rice</option><option value="Beras Organik">Beras Organik</option><option value="Beras Pulen">Beras Pulen</option><option value="Beras IR">Beras IR</option><option value="Beras Kemasan Retail">Beras Kemasan Retail</option></select></div><div class="form-group"><label for="productPrice">Harga *</label><input type="text" id="productPrice" placeholder="cth: Rp 15.000" required></div><div class="form-group full"><label for="productDescription">Deskripsi *</label><textarea id="productDescription" rows="3" placeholder="Deskripsi produk" required></textarea></div><div class="form-group full"><label for="productImage">URL Gambar</label><input type="url" id="productImage" placeholder="https://... (biarkan kosong untuk default)"></div><div class="form-group full"><label for="productHighlights">Keunggulan (satu per baris)</label><textarea id="productHighlights" rows="4" placeholder="Butiran panjang & utuh&#10;Aroma harum alami"></textarea></div><div class="form-group full"><label for="productPackaging">Ukuran Kemasan (pisahkan dengan koma)</label><input type="text" id="productPackaging" placeholder="5 Kg, 10 Kg, 25 Kg, 50 Kg"></div><div class="form-group full"><label><input type="checkbox" id="productFeatured" style="width:auto;margin-right:8px;accent-color:var(--green);"> Tampilkan sebagai produk unggulan</label></div></div><div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;"><button type="button" class="btn-admin btn-admin-outline" onclick="closeModal('productModal')">Batal</button><button type="submit" class="btn-admin btn-admin-primary"><i class="fas fa-save"></i> Simpan</button></div></form></div></div>
+    <div class="admin-modal-overlay" id="galleryModal"><div class="admin-modal"><div class="admin-modal-header"><h3 id="galleryModalTitle">Tambah Foto</h3><button class="admin-modal-close" aria-label="Tutup">&times;</button></div><form id="galleryForm" class="admin-form"><div class="admin-form-grid"><div class="form-group full"><label for="galleryTitle">Judul Foto *</label><input type="text" id="galleryTitle" placeholder="cth: Gudang Penyimpanan Utama" required></div><div class="form-group"><label for="galleryCategory">Kategori *</label><select id="galleryCategory"><option value="gudang">Gudang</option><option value="distribusi">Distribusi</option><option value="produk">Produk</option><option value="kendaraan">Kendaraan</option><option value="packing">Packing</option></select></div><div class="form-group"><label for="galleryImage">URL Gambar *</label><input type="url" id="galleryImage" placeholder="https://..." required></div></div><div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;"><button type="button" class="btn-admin btn-admin-outline" onclick="closeModal('galleryModal')">Batal</button><button type="submit" class="btn-admin btn-admin-primary"><i class="fas fa-save"></i> Simpan</button></div></form></div></div>
+    <div class="admin-modal-overlay" id="pricingModal"><div class="admin-modal"><div class="admin-modal-header"><h3 id="pricingModalTitle">Tambah Paket</h3><button class="admin-modal-close" aria-label="Tutup">&times;</button></div><form id="pricingForm" class="admin-form"><div class="admin-form-grid"><div class="form-group"><label for="pricingName">Nama Paket *</label><input type="text" id="pricingName" placeholder="cth: Retail" required></div><div class="form-group"><label for="pricingTagline">Tagline</label><input type="text" id="pricingTagline" placeholder="Untuk kebutuhan rumah tangga"></div><div class="form-group"><label for="pricingPrice">Harga *</label><input type="text" id="pricingPrice" placeholder="cth: 57.000" required></div><div class="form-group"><label for="pricingPeriod">Periode / Satuan</label><input type="text" id="pricingPeriod" placeholder="cth: per 5 kg"></div><div class="form-group full"><label for="pricingMinOrder">Minimal Order *</label><input type="text" id="pricingMinOrder" placeholder="cth: Min. 1 karung (5 kg)" required></div><div class="form-group full"><label for="pricingBenefits">Benefit (satu per baris, format: Teks | Deskripsi)</label><textarea id="pricingBenefits" rows="5" placeholder="Harga kompetitif | Langsung dari distributor&#10;Pengiriman cepat | H+1"></textarea></div><div class="form-group full"><label for="pricingRiceTypes">Jenis Beras (pisahkan dengan koma)</label><input type="text" id="pricingRiceTypes" placeholder="Beras Medium, Beras IR 64"></div><div class="form-group full"><label for="pricingBonus">Bonus (satu per baris)</label><textarea id="pricingBonus" rows="2" placeholder="Bonus 1 karung setiap 50 karung"></textarea></div><div class="form-group full"><label><input type="checkbox" id="pricingFeatured" style="width:auto;margin-right:8px;accent-color:var(--green);"> Highlight paket ini</label></div></div><div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;"><button type="button" class="btn-admin btn-admin-outline" onclick="closeModal('pricingModal')">Batal</button><button type="submit" class="btn-admin btn-admin-primary"><i class="fas fa-save"></i> Simpan</button></div></form></div></div>
+    <div class="admin-modal-overlay" id="testimonialModal"><div class="admin-modal"><div class="admin-modal-header"><h3 id="testimonialModalTitle">Tambah Testimoni</h3><button class="admin-modal-close" aria-label="Tutup">&times;</button></div><form id="testimonialForm" class="admin-form"><div class="admin-form-grid"><div class="form-group"><label for="testimonialName">Nama *</label><input type="text" id="testimonialName" placeholder="cth: Budi Santoso" required></div><div class="form-group"><label for="testimonialPosition">Jabatan / Posisi</label><input type="text" id="testimonialPosition" placeholder="cth: Pemilik RM Sederhana"></div><div class="form-group"><label for="testimonialAvatar">URL Foto</label><input type="url" id="testimonialAvatar" placeholder="https://... (opsional)"></div><div class="form-group"><label for="testimonialRating">Rating</label><select id="testimonialRating"><option value="5">5 - Sangat Baik</option><option value="4">4 - Baik</option><option value="3">3 - Cukup</option><option value="2">2 - Kurang</option><option value="1">1 - Sangat Kurang</option></select></div><div class="form-group full"><label for="testimonialText">Teks Testimoni *</label><textarea id="testimonialText" rows="4" placeholder="Kualitas beras sangat baik..." required></textarea></div></div><div style="display:flex;gap:10px;margin-top:20px;justify-content:flex-end;"><button type="button" class="btn-admin btn-admin-outline" onclick="closeModal('testimonialModal')">Batal</button><button type="submit" class="btn-admin btn-admin-primary"><i class="fas fa-save"></i> Simpan</button></div></form></div></div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/admin.js"></script>
+</body>
 </html>

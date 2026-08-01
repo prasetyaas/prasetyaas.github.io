@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | Aurora Grand Admin</title>
+    <link rel="icon" href="https://img.icons8.com/color/96/crown.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body data-page="reports">
+
+    <div class="admin-wrapper">
+        <div class="admin-main">
+            <div class="admin-content">
+
+                <div class="page-header">
+                    <div>
+                        <nav class="admin-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="fa-solid fa-chevron-right"></i><span>Reports</span></nav>
+                        <h1>Laporan & <span style="color:var(--gold)">Statistik</span></h1>
+                        <div class="subtitle">Ringkasan statistik pengunjung, konten dan aktivitas website.</div>
+                    </div>
+                    <div class="page-actions">
+                        <button class="btn-admin btn-outline-a" onclick="Admin.toast('Laporan PDF sedang diunduh...')"><i class="fa-solid fa-download"></i> Export PDF</button>
+                        <button class="btn-admin btn-gold-a" onclick="Admin.toast('Laporan Excel sedang diunduh...')"><i class="fa-solid fa-file-excel"></i> Export Excel</button>
+                    </div>
+                </div>
+
+                <!-- Visitor Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon gold"><i class="fa-solid fa-eye"></i></div>
+                        <div class="stat-info">
+                            <strong>128.450</strong>
+                            <span>Total Pengunjung</span>
+                            <div class="trend"><i class="fa-solid fa-arrow-trend-up"></i> +18.2%</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <div class="stat-info">
+                            <strong>64.2%</strong>
+                            <span>Pengunjung Mobile</span>
+                            <div class="trend">35.8% Desktop</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><i class="fa-solid fa-clock"></i></div>
+                        <div class="stat-info">
+                            <strong>4m 32s</strong>
+                            <span>Rata-rata Durasi</span>
+                            <div class="trend"><i class="fa-solid fa-arrow-trend-up"></i> +32 detik</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><i class="fa-solid fa-right-left"></i></div>
+                        <div class="stat-info">
+                            <strong>3.8%</strong>
+                            <span>Bounce Rate</span>
+                            <div class="trend" style="color:var(--success)">Sangat baik</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visitor chart placeholder -->
+                <div class="admin-card" style="margin-bottom:20px">
+                    <div class="table-header">
+                        <h3>Pengunjung Bulanan (Placeholder)</h3>
+                        <select class="filter-select"><option>2026</option><option>2025</option></select>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-bars">
+                            <div class="chart-bar"><div class="bar-fill" data-height="30"></div><span>Jan</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="42"></div><span>Feb</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="35"></div><span>Mar</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="55"></div><span>Apr</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="48"></div><span>Mei</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="62"></div><span>Jun</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="70"></div><span>Jul</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="58"></div><span>Agu</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="80"></div><span>Sep</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="72"></div><span>Okt</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="90"></div><span>Nov</span></div>
+                            <div class="chart-bar"><div class="bar-fill" data-height="85"></div><span>Des</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content stats + Activity -->
+                <div class="dashboard-grid">
+                    <div class="admin-card">
+                        <div class="table-header"><h3>Statistik Konten</h3></div>
+                        <div style="padding:10px 24px 24px; display:grid; gap:14px">
+                            <div>
+                                <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px"><span>Artikel & Blog</span><strong>48</strong></div>
+                                <div style="height:8px; background:var(--admin-border); border-radius:8px; overflow:hidden">
+                                    <div style="height:100%; width:80%; border-radius:8px; background:linear-gradient(90deg,var(--gold-light),var(--gold-dark))"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px"><span>Foto Galeri</span><strong>156</strong></div>
+                                <div style="height:8px; background:var(--admin-border); border-radius:8px; overflow:hidden">
+                                    <div style="height:100%; width:65%; border-radius:8px; background:linear-gradient(90deg,var(--success),#3AB97E)"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px"><span>Kamar & Suite</span><strong>4</strong></div>
+                                <div style="height:8px; background:var(--admin-border); border-radius:8px; overflow:hidden">
+                                    <div style="height:100%; width:35%; border-radius:8px; background:linear-gradient(90deg,var(--info),#6BB6F0)"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:6px"><span>Event & Paket</span><strong>12</strong></div>
+                                <div style="height:8px; background:var(--admin-border); border-radius:8px; overflow:hidden">
+                                    <div style="height:100%; width:50%; border-radius:8px; background:linear-gradient(90deg,var(--danger),#F07687)"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="admin-card">
+                        <div class="table-header"><h3>Aktivitas Terakhir</h3></div>
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-icon" style="background:rgba(201,168,106,0.12);color:var(--gold)"><i class="fa-solid fa-pen"></i></div><div><p><strong>Konten rooms</strong> diperbarui</p><small>10 menit lalu</small></div></div>
+                            <div class="activity-item"><div class="activity-icon" style="background:rgba(47,164,110,0.12);color:var(--success)"><i class="fa-solid fa-comment"></i></div><div><p>Inquiry baru diterima</p><small>1 jam lalu</small></div></div>
+                            <div class="activity-item"><div class="activity-icon" style="background:rgba(74,159,232,0.12);color:var(--info)"><i class="fa-solid fa-user-plus"></i></div><div><p>Pengguna baru ditambahkan</p><small>3 jam lalu</small></div></div>
+                            <div class="activity-item"><div class="activity-icon" style="background:rgba(232,168,62,0.12);color:var(--warning)"><i class="fa-solid fa-upload"></i></div><div><p>Media baru diunggah</p><small>5 jam lalu</small></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Analytics Placeholder -->
+                <div class="admin-card" style="padding:24px; display:flex; align-items:center; gap:16px; justify-content:space-between; flex-wrap:wrap">
+                    <div style="display:flex; align-items:center; gap:14px">
+                        <div style="width:52px;height:52px;border-radius:14px;background:rgba(74,159,232,0.12);color:var(--info);display:grid;place-items:center;font-size:1.3rem"><i class="fa-brands fa-google"></i></div>
+                        <div>
+                            <h3 style="font-family:var(--font-serif); font-size:1.05rem">Google Analytics</h3>
+                            <p style="font-size:0.8rem; color:var(--admin-text-muted)">Terhubung dengan GA4 — Property ID: G-XXXXXXXXXX (Placeholder)</p>
+                        </div>
+                    </div>
+                    <button class="btn-admin btn-outline-a" onclick="Admin.toast('Menghubungkan Google Analytics...')"><i class="fa-solid fa-plug"></i> Konfigurasi</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
