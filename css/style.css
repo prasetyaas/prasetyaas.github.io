@@ -1015,11 +1015,22 @@ img { max-width: 100%; display: block; }
     color: var(--text-muted);
 }
 
+.demo-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.demo-buttons .btn-demo-card {
+    width: 100%;
+}
+
 .btn-demo-card {
     width: 100%;
     justify-content: center;
     padding: 10px;
-    margin-top: 8px;
     border-radius: var(--radius-sm);
     font-size: 13px;
     font-weight: 500;

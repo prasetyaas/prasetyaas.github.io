@@ -1,94 +1,162 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Management System Premium - Login</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/layout.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoNexa — Bengkel Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="login-page">
-    <div class="login-box">
-      <div class="login-logo">
-        <div class="logo-icon">MS</div>
-        <h1>Management System</h1>
-        <p>Premium Demo — Masuk untuk melanjutkan</p>
-      </div>
 
-      <div class="user-selector" id="userSelector">
-        <div class="user-option selected" data-user='{"id":1,"name":"Admin","username":"admin","email":"admin@sistem.com","role":"Administrator","avatarColor":"#2563EB","department":"IT Management"}'>
-          <div class="uo-avatar" style="background:#2563EB">AD</div>
-          <div class="uo-name">Admin</div>
-          <div class="uo-role">Administrator</div>
-        </div>
-        <div class="user-option" data-user='{"id":2,"name":"Siti Nurhaliza","username":"siti","email":"siti@sistem.com","role":"Manager","avatarColor":"#8B5CF6","department":"Finance"}'>
-          <div class="uo-avatar" style="background:#8B5CF6">SN</div>
-          <div class="uo-name">Siti Nurhaliza</div>
-          <div class="uo-role">Manager</div>
-        </div>
-        <div class="user-option" data-user='{"id":3,"name":"Budi Hartono","username":"budi","email":"budi@sistem.com","role":"Staff","avatarColor":"#22C55E","department":"Sales"}'>
-          <div class="uo-avatar" style="background:#22C55E">BH</div>
-          <div class="uo-name">Budi Hartono</div>
-          <div class="uo-role">Staff</div>
-        </div>
+<!-- ====== LOGIN SCREEN ====== -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-left">
+    <div class="login-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
       </div>
-
+      <div class="brand-text">
+        <strong>AutoNexa</strong>
+        <span>Bengkel Management</span>
+      </div>
+    </div>
+    <h2>Kelola bengkel Anda<br>dengan <em>presisi</em>.</h2>
+    <p class="login-lead">Dari antrean kendaraan hingga servis selesai — semua dalam satu alur kerja.</p>
+    <ul class="login-features">
+      <li><span class="lf-ic">01</span> Service order & work queue real-time</li>
+      <li><span class="lf-ic">02</span> Inventory spare part & transaksi stok</li>
+      <li><span class="lf-ic">03</span> Penjadwalan mekanik & slot bay</li>
+      <li><span class="lf-ic">04</span> Laporan pendapatan harian</li>
+    </ul>
+    <p class="login-copy">© 2026 AutoNexa · Standard Edition</p>
+  </div>
+  <div class="login-panel">
+    <div class="login-card">
+      <div class="login-card-head">
+        <h3>Masuk ke Workspace</h3>
+        <p>Gunakan akun Anda untuk melanjutkan</p>
+      </div>
       <form id="loginForm">
-        <button type="submit" class="btn btn-primary btn-full login-btn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
-          Masuk ke Aplikasi
-        </button>
+        <label class="field">
+          <span>Email / Username</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input id="loginEmail" type="text" value="admin@autonexa.id" required>
+          </div>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input id="loginPass" type="password" value="admin123" required>
+          </div>
+        </label>
+        <div class="login-options">
+          <label class="chk"><input type="checkbox" checked><span>Ingat saya</span></label>
+          <a href="#" onclick="App.toast('Reset password dikirim ke email Anda','info');return false;">Lupa password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Masuk <span class="btn-arrow">→</span></button>
       </form>
-
-      <div class="login-demo-info">
-        <strong>Demo Mode</strong><br>
-        Pilih pengguna dan klik tombol masuk.<br>
-        Tidak perlu password — sistem langsung masuk.
-      </div>
-
-      <div class="login-back">
-        <a href="../../index.html"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Kembali ke Portfolio</a>
+      <div class="login-demo">
+        <p>Mode demo — data tersimpan lokal di browser Anda.</p>
+        <button class="btn btn-ghost btn-block" onclick="App.login()">⚡ Masuk cepat sebagai Admin</button>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="toast-container" id="toastContainer"></div>
-  <script src="js/app.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // User selector
-      const options = document.querySelectorAll('.user-option');
-      options.forEach(opt => {
-        opt.addEventListener('click', function() {
-          options.forEach(o => o.classList.remove('selected'));
-          this.classList.add('selected');
-        });
-      });
+<!-- ====== APP SHELL ====== -->
+<div id="app" class="app hidden">
 
-      // Check if already logged in
-      if (sessionStorage.getItem('ms_standar_logged_in') === 'true') {
-        window.location.href = 'dashboard.html';
-        return;
-      }
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <a href="#" class="brand" onclick="App.switchWorkspace('hub');return false;">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div class="brand-text">
+          <strong>AutoNexa</strong>
+          <span>Bengkel System</span>
+        </div>
+      </a>
+      <div class="breadcrumb">
+        <span id="wsCrumb">Workspace Hub</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        <strong id="toolCrumb">Overview</strong>
+      </div>
+    </div>
 
-      // Handle login
-      document.getElementById('loginForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const selected = document.querySelector('.user-option.selected');
-        if (!selected) return;
-        const user = JSON.parse(selected.dataset.user);
-        sessionStorage.setItem('ms_standar_logged_in', 'true');
-        sessionStorage.setItem('ms_standar_user', JSON.stringify(user));
-        showToast('Selamat datang, ' + user.name + '!', 'success');
-        setTimeout(() => {
-          window.location.href = 'dashboard.html';
-        }, 500);
-      });
-    });
-  </script>
+      <div class="topbar-right">
+        <div class="command-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="globalSearch" type="text" placeholder="Cari WO, plat nomor, part…" oninput="App.globalSearch(this.value)">
+        <span class="cmd-kbd">/</span>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="icon-btn" onclick="App.quickCreate()" title="Aksi cepat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+      </button>
+      <div class="notif-wrap">
+        <button class="icon-btn" id="notifBtn" onclick="App.toggleNotif()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span class="notif-dot" id="notifDot">2</span>
+        </button>
+        <div class="notif-panel" id="notifPanel"></div>
+      </div>
+      <div class="top-user" onclick="App.openProfile()">
+        <div class="avatar" id="topAvatar">AD</div>
+        <div class="tu-info">
+          <strong id="topUserName">Admin</strong>
+          <span id="topUserRole">Owner</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Workspace Switcher (horizontal, bukan sidebar) -->
+  <nav class="ws-bar" id="wsBar">
+    <button class="ws-tab" data-ws="hub" onclick="App.switchWorkspace('hub')">
+      <span class="ws-num">01</span> Workspace Hub
+    </button>
+    <button class="ws-tab" data-ws="service" onclick="App.switchWorkspace('service')">
+      <span class="ws-num">02</span> Service Ops
+    </button>
+    <button class="ws-tab" data-ws="resources" onclick="App.switchWorkspace('resources')">
+      <span class="ws-num">03</span> Resources
+    </button>
+    <button class="ws-tab" data-ws="analytics" onclick="App.switchWorkspace('analytics')">
+      <span class="ws-num">04</span> Analytics
+    </button>
+    <button class="ws-tab" data-ws="admin" onclick="App.switchWorkspace('admin')">
+      <span class="ws-num">05</span> Admin
+    </button>
+  </nav>
+
+  <!-- Body: Tool Drawer + Content -->
+  <div class="ws-body">
+    <aside class="tool-drawer" id="toolDrawer"><!-- rendered by JS --></aside>
+    <main class="content" id="pageContent"></main>
+  </div>
+</div>
+
+<!-- overlay -->
+<div class="overlay" id="overlay" onclick="App.closeAll()"></div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-wrap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/workspaces/hub.js"></script>
+<script src="js/workspaces/service.js"></script>
+<script src="js/workspaces/resources.js"></script>
+<script src="js/workspaces/analytics.js"></script>
+<script src="js/workspaces/admin.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

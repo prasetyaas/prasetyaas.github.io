@@ -1,8 +1,0 @@
-[
-  {"id":1,"name":"Admin","username":"admin","email":"admin@sistem.com","password":"admin123","role":"Administrator","department":"IT Management","status":"Active","avatar":"AD","avatarColor":"#2563EB","phone":"0812-3456-7890","lastLogin":"2026-07-30T08:30:00","createdAt":"2025-01-01"},
-  {"id":2,"name":"Siti Nurhaliza","username":"siti","email":"siti@sistem.com","password":"siti123","role":"Manager","department":"Finance","status":"Active","avatar":"SN","avatarColor":"#8B5CF6","phone":"0813-4567-8901","lastLogin":"2026-07-30T09:15:00","createdAt":"2025-01-15"},
-  {"id":3,"name":"Budi Hartono","username":"budi","email":"budi@sistem.com","password":"budi123","role":"Staff","department":"Sales","status":"Active","avatar":"BH","avatarColor":"#22C55E","phone":"0814-5678-9012","lastLogin":"2026-07-29T14:30:00","createdAt":"2025-02-10"},
-  {"id":4,"name":"Dewi Lestari","username":"dewi","email":"dewi@sistem.com","password":"dewi123","role":"Staff","department":"Warehouse","status":"Active","avatar":"DL","avatarColor":"#F59E0B","phone":"0815-6789-0123","lastLogin":"2026-07-28T11:00:00","createdAt":"2025-03-05"},
-  {"id":5,"name":"Rudi Hermawan","username":"rudi","email":"rudi@sistem.com","password":"rudi123","role":"Manager","department":"Marketing","status":"Active","avatar":"RH","avatarColor":"#EF4444","phone":"0816-7890-1234","lastLogin":"2026-07-27T16:45:00","createdAt":"2025-04-20"},
-  {"id":6,"name":"Ani Wijaya","username":"ani","email":"ani@sistem.com","password":"ani123","role":"Staff","department":"Customer Service","status":"Inactive","avatar":"AW","avatarColor":"#0EA5E9","phone":"0817-8901-2345","lastLogin":"2026-06-15T10:30:00","createdAt":"2025-05-10"}
-]

@@ -1,267 +1,427 @@
 /* ============================================
-   MANAGEMENT SYSTEM - STANDAR
-   Core Application: Auth, State, Utilities, Seed Data
+   AutoNexa — App Shell: workspace switcher, tool drawer, router
    ============================================ */
 
-// ===== GLOBAL STATE =====
-const AppState = {
-  currentUser: null,
+const App = {
+
+  currentWs: 'hub',
+  currentTool: null,
   isLoggedIn: false,
-  theme: 'light',
-  data: {
-    dashboard: null,
-    products: [],
-    customers: [],
-    vendors: [],
-    transactions: [],
-    notifications: [],
-    users: [],
-    activities: []
+  searchTimer: null,
+
+  /* ---------- WORKSPACE DEFINITIONS ---------- */
+  workspaces: {
+    hub: {
+      title: 'Workspace Hub',
+      icon: '🏠',
+      tools: [
+        { id: 'overview',     label: 'Overview',          icon: I.gauge,    fn: () => HubPage.overview() },
+        { id: 'schedule',     label: "Today's Schedule",  icon: I.clock,    fn: () => HubPage.schedule() },
+        { id: 'queue',        label: 'Vehicle Queue',     icon: I.car,      fn: () => HubPage.queue() },
+        { id: 'pending',      label: 'Pending Service',   icon: I.alert,    fn: () => HubPage.pending() },
+        { id: 'insight',      label: 'Business Insight',  icon: I.trend,    fn: () => HubPage.insight() },
+        { id: 'activity',     label: 'Recent Activity',   icon: I.activity, fn: () => HubPage.activity() },
+        { id: 'notifications', label: 'Notification Center', icon: I.bell,  fn: () => HubPage.notifications() },
+        { id: 'quick',        label: 'Quick Action',      icon: I.plus,     fn: () => HubPage.quickAction() }
+      ]
+    },
+    service: {
+      title: 'Service Ops',
+      icon: '🔧',
+      tools: [
+        { id: 'order', label: 'Service Order', icon: I.clipboard, fn: () => ServicePage.order() },
+        { id: 'inspection', label: 'Vehicle Inspection', icon: I.checklist, fn: () => ServicePage.inspection() },
+        { id: 'workqueue', label: 'Work Queue', icon: I.wrench, fn: () => ServicePage.workqueue() },
+        { id: 'assignment', label: 'Mechanic Assignment', icon: I.users, fn: () => ServicePage.assignment() },
+        { id: 'progress', label: 'Service Progress', icon: I.activity, fn: () => ServicePage.progress() },
+        { id: 'history', label: 'Service History', icon: I.file, fn: () => ServicePage.history() }
+      ]
+    },
+    resources: {
+      title: 'Resources',
+      icon: '📦',
+      tools: [
+        { id: 'parts', label: 'Spare Parts', icon: I.box, fn: () => ResourcesPage.parts() },
+        { id: 'inventory', label: 'Inventory', icon: I.package, fn: () => ResourcesPage.inventory() },
+        { id: 'suppliers', label: 'Supplier', icon: I.supplier, fn: () => ResourcesPage.suppliers() },
+        { id: 'customers', label: 'Customer', icon: I.users, fn: () => ResourcesPage.customers() },
+        { id: 'vehicles', label: 'Vehicle', icon: I.car, fn: () => ResourcesPage.vehicles() },
+        { id: 'mechanics', label: 'Mechanic', icon: I.wrench, fn: () => ResourcesPage.mechanics() }
+      ]
+    },
+    analytics: {
+      title: 'Analytics',
+      icon: '📊',
+      tools: [
+        { id: 'revenue', label: 'Revenue', icon: I.chart, fn: () => AnalyticsPage.revenue() },
+        { id: 'trend', label: 'Service Trend', icon: I.trend, fn: () => AnalyticsPage.trend() },
+        { id: 'performance', label: 'Mechanic Performance', icon: I.users, fn: () => AnalyticsPage.performance() },
+        { id: 'inventory', label: 'Inventory Summary', icon: I.box, fn: () => AnalyticsPage.inventorySummary() },
+        { id: 'reports', label: 'Reports', icon: I.file, fn: () => AnalyticsPage.reports() }
+      ]
+    },
+    admin: {
+      title: 'Administration',
+      icon: '⚙',
+      tools: [
+        { id: 'profile', label: 'Profile', icon: I.user, fn: () => AdminPage.profile() },
+        { id: 'users', label: 'User', icon: I.users, fn: () => AdminPage.users() },
+        { id: 'settings', label: 'Settings', icon: I.settings, fn: () => AdminPage.settings() },
+        { id: 'backup', label: 'Backup', icon: I.archive, fn: () => AdminPage.backup() },
+        { id: 'logs', label: 'Activity Log', icon: I.activity, fn: () => AdminPage.logs() }
+      ]
+    }
+  },
+
+  /* ---------- INIT ---------- */
+  init() {
+    DB.ensure();
+    this.renderWorkspaceTabs();
+    this.bindLogin();
+    this.updateNotif();
+
+    const saved = sessionStorage.getItem('autonexa_session');
+    if (saved === '1') {
+      this.login();
+    }
+
+    // Global keyboard
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') this.closeAll();
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        document.getElementById('globalSearch').focus();
+      }
+    });
+
+    // Click outside to close dropdowns
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.notif-wrap') && !e.target.closest('.quick-menu') && !e.target.closest('#quickCreateBtn')) {
+        this.closeAll();
+      }
+    });
+  },
+
+  renderWorkspaceTabs() {
+    // Active tab based on currentWs
+    document.querySelectorAll('.ws-tab').forEach(tab => {
+      tab.classList.toggle('active', tab.dataset.ws === this.currentWs);
+    });
+  },
+
+  /* ---------- LOGIN ---------- */
+  bindLogin() {
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.login();
+    });
+  },
+
+  login() {
+    this.isLoggedIn = true;
+    sessionStorage.setItem('autonexa_session', '1');
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('app').classList.remove('hidden');
+    this.switchWorkspace('hub');
+    setTimeout(() => Toast.show('Selamat datang di AutoNexa ⚙', 'success'), 400);
+  },
+
+  logout() {
+    this.isLoggedIn = false;
+    sessionStorage.removeItem('autonexa_session');
+    document.getElementById('app').classList.add('hidden');
+    document.getElementById('loginScreen').classList.remove('hidden');
+    Toast.show('Anda telah keluar dari sistem', 'info');
+  },
+
+  openProfile() {
+    this.switchWorkspace('admin');
+    setTimeout(() => AdminPage.profile(), 60);
+  },
+
+  /* ---------- WORKSPACE SWITCHER ---------- */
+  switchWorkspace(ws) {
+    if (!this.workspaces[ws]) ws = 'hub';
+    this.currentWs = ws;
+    this.renderWorkspaceTabs();
+    this.renderToolDrawer();
+    const firstTool = this.workspaces[ws].tools[0];
+    this.navigateTool(firstTool.id);
+  },
+
+  /* ---------- TOOL DRAWER ---------- */
+  renderToolDrawer() {
+    const drawer = document.getElementById('toolDrawer');
+    const ws = this.workspaces[this.currentWs];
+
+    let html = `
+      <div class="tool-drawer-header">
+        <small>WORKSPACE ${this.currentWs === 'hub' ? '01' : this.currentWs === 'service' ? '02' : this.currentWs === 'resources' ? '03' : this.currentWs === 'analytics' ? '04' : '05'}</small>
+        <strong>${esc(ws.title)}</strong>
+      </div>
+    `;
+
+    ws.tools.forEach(tool => {
+      const isActive = this.currentTool === tool.id;
+      const count = this.toolCount(this.currentWs, tool.id);
+      html += `
+        <button class="tool-item ${isActive ? 'active' : ''}" onclick="App.navigateTool('${tool.id}')">
+          <span class="ti-ic">${tool.icon}</span>
+          <span>${esc(tool.label)}</span>
+          ${count !== null ? `<span class="ti-count">${count}</span>` : ''}
+        </button>
+      `;
+    });
+
+    drawer.innerHTML = html;
+  },
+
+  toolCount(ws, toolId) {
+    if (ws === 'hub') {
+      const counts = {
+        schedule: DB.get('workOrders').length,
+        queue: DB.get('workOrders').filter(wo => ['waiting', 'inspection', 'estimate'].includes(wo.status)).length,
+        pending: DB.overdueCount() + DB.waitingCount(),
+        insight: DB.get('workOrders').filter(wo => wo.status === 'done').length,
+        activity: DB.get('activityLogs').length,
+        notifications: this.unreadCount()
+      };
+      return counts[toolId] ?? null;
+    }
+    if (ws === 'service') {
+      const counts = { workqueue: DB.activeWOs(), order: DB.get('workOrders').length, history: DB.get('workOrders').filter(wo => wo.status === 'done').length };
+      return counts[toolId] ?? null;
+    }
+    if (ws === 'resources') {
+      const counts = {
+        parts: DB.get('spareParts').length,
+        inventory: DB.lowStockParts().length,
+        suppliers: DB.get('suppliers').length,
+        customers: DB.get('customers').length,
+        vehicles: DB.get('vehicles').length,
+        mechanics: DB.get('mechanics').length
+      };
+      return counts[toolId] ?? null;
+    }
+    return null;
+  },
+
+  /* ---------- ROUTER ---------- */
+  navigateTool(toolId) {
+    const ws = this.workspaces[this.currentWs];
+    const tool = ws.tools.find(t => t.id === toolId);
+    if (!tool) return;
+
+    this.currentTool = toolId;
+    this.renderToolDrawer();
+
+    // Update breadcrumb
+    document.getElementById('wsCrumb').textContent = ws.title;
+    document.getElementById('toolCrumb').textContent = tool.label;
+
+    // Loading + render
+    const content = document.getElementById('pageContent');
+    content.innerHTML = '<div class="loading-block"><div class="spinner"></div></div>';
+    this.closeAll();
+
+    setTimeout(() => {
+      try {
+        tool.fn();
+      } catch (err) {
+        console.error('Tool error:', err);
+        content.innerHTML = '<div class="empty-state"><div class="es-ic">⚠️</div>'
+          + `<p>Terjadi kesalahan saat memuat</p><small>${esc(err.message)}</small></div>`;
+      }
+      content.scrollTop = 0;
+      window.scrollTo(0, 0);
+    }, 60);
+  },
+
+  /* ---------- DEEP LINK (workspace/tool) ---------- */
+  goTo(path) {
+    const [ws, tool] = path.split('/');
+    if (!this.workspaces[ws]) return;
+    this.switchWorkspace(ws);
+    setTimeout(() => {
+      const t = this.workspaces[ws].tools.find(x => x.id === tool);
+      if (t) this.navigateTool(t.id);
+    }, 80);
+  },
+
+  /* ---------- PAGE HEADER ---------- */
+  pageHeader(icon, title, desc, actions = '') {
+    return `
+      <div class="page-head">
+        <div class="page-title">
+          <h2><span class="pt-ic">${icon}</span> ${esc(title)}</h2>
+          <p>${esc(desc)}</p>
+        </div>
+        <div class="page-actions">${actions}</div>
+      </div>
+    `;
+  },
+
+  /* ---------- NOTIFICATIONS ---------- */
+  unreadCount() {
+    return DB.get('notifications').filter(n => !n.read).length;
+  },
+
+  updateNotif() {
+    const dot = document.getElementById('notifDot');
+    const unread = this.unreadCount();
+    dot.textContent = unread;
+    dot.style.display = unread > 0 ? 'flex' : 'none';
+  },
+
+  renderNotifPanel() {
+    const panel = document.getElementById('notifPanel');
+    const notifs = [...DB.get('notifications')].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+    const unread = this.unreadCount();
+    const dot = document.getElementById('notifDot');
+    dot.textContent = unread;
+    dot.style.display = unread > 0 ? 'flex' : 'none';
+
+    let html = '<div class="notif-head">'
+      + '<strong> Notifikasi</strong>'
+      + '<a href="#" onclick="App.markAllRead();return false;">Tandai dibaca</a>'
+      + '</div><div class="notif-list">';
+
+    if (!notifs.length) {
+      html += '<div class="empty-state" style="padding:24px"><div class="es-ic">🔔</div><p>Tidak ada notifikasi</p></div>';
+    } else {
+      notifs.slice(0, 8).forEach(n => {
+        const color = { warning: '#d97706', danger: '#dc2626', success: '#16a34a', info: '#2563eb' }[n.type] || '#1f2937';
+        html += `<div class="notif-item ${n.read ? '' : 'unread'}" onclick="App.openNotif('${n.id}')">`
+          + `<div class="notif-ic" style="background:${color}15;color:${color}">${n.icon}</div>`
+          + `<div><p><strong>${esc(n.title)}</strong><br>${esc(n.message)}</p><small>${DB.fmtDateShort(n.createdAt)}</small></div>`
+          + `<span class="n-time">${this.timeAgo(n.createdAt)}</span></div>`;
+      });
+    }
+    html += '</div>';
+    panel.innerHTML = html;
+  },
+
+  toggleNotif() {
+    const panel = document.getElementById('notifPanel');
+    const isOpen = panel.classList.contains('show');
+    this.closeAll();
+    if (!isOpen) {
+      this.renderNotifPanel();
+      panel.classList.add('show');
+    }
+  },
+
+  openNotif(id) {
+    const n = DB.find('notifications', id);
+    if (n && !n.read) {
+      DB.update('notifications', id, { read: true });
+      this.renderNotifPanel();
+      this.updateNotif();
+    }
+  },
+
+  markAllRead() {
+    DB.get('notifications').forEach(n => DB.update('notifications', n.id, { read: true }));
+    this.renderNotifPanel();
+    this.updateNotif();
+    Toast.show('Semua notifikasi ditandai dibaca', 'success');
+  },
+
+  timeAgo(iso) {
+    const sec = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+    if (sec < 60) return 'baru saja';
+    if (sec < 3600) return Math.floor(sec / 60) + 'm lalu';
+    if (sec < 86400) return Math.floor(sec / 3600) + 'j lalu';
+    return Math.floor(sec / 86400) + 'h lalu';
+  },
+
+  /* ---------- GLOBAL SEARCH ---------- */
+  globalSearch(q) {
+    clearTimeout(this.searchTimer);
+    this.searchTimer = setTimeout(() => {
+      const box = document.getElementById('searchResults');
+      if (!q || q.length < 2) { box.classList.remove('show'); return; }
+
+      const ql = q.toLowerCase();
+      const results = [];
+
+      DB.get('workOrders').filter(wo => wo.number.toLowerCase().includes(ql)).slice(0, 4)
+        .forEach(wo => results.push({ cat: 'WO', label: wo.number, sub: DB.vehicleInfo(wo.vehicleId).plate, action: () => this.goTo('service/workqueue') }));
+
+      DB.get('vehicles').filter(v => v.plate.toLowerCase().includes(ql)).slice(0, 4)
+        .forEach(v => results.push({ cat: 'Kendaraan', label: v.plate, sub: `${v.brand} ${v.model}`, action: () => this.goTo('resources/vehicles') }));
+
+      DB.get('customers').filter(c => c.name.toLowerCase().includes(ql)).slice(0, 3)
+        .forEach(c => results.push({ cat: 'Pelanggan', label: c.name, sub: c.city, action: () => this.goTo('resources/customers') }));
+
+      DB.get('spareParts').filter(p => p.name.toLowerCase().includes(ql) || p.sku.toLowerCase().includes(ql)).slice(0, 4)
+        .forEach(p => results.push({ cat: 'Part', label: p.name, sub: p.sku, action: () => this.goTo('resources/parts') }));
+
+      this.__searchResults = results;
+
+      if (!results.length) {
+        box.innerHTML = `<div class="sr-empty">Tidak ditemukan hasil untuk "<strong>${esc(q)}</strong>"</div>`;
+      } else {
+        box.innerHTML = results.map((r, i) =>
+          `<div class="sr-item" onclick="App.searchGo(${i})">`
+          + `<span class="sr-cat">${r.cat}</span>`
+          + `<span class="sr-label">${esc(r.label)}</span>`
+          + `<span class="sr-sub">${esc(r.sub)}</span></div>`
+        ).join('');
+      }
+      box.classList.add('show');
+    }, 200);
+  },
+
+  searchGo(idx) {
+    const box = document.getElementById('searchResults');
+    box.classList.remove('show');
+    document.getElementById('globalSearch').value = '';
+    const results = this.__searchResults || [];
+    const r = results[idx];
+    if (r && r.action) r.action();
+  },
+
+  /* ---------- QUICK CREATE ---------- */
+  quickCreate() {
+    this.closeAll();
+    const menu = document.createElement('div');
+    menu.className = 'quick-menu';
+    menu.id = 'quickCreateBtn';
+    menu.innerHTML = ''
+      + `<button class="qm-item" onclick="App.quickGo('service','order')"><span class="qm-ic">${I.clipboard}</span> WO Baru</button>`
+      + `<button class="qm-item" onclick="App.quickGo('resources','inventory')"><span class="qm-ic">${I.plus}</span> Stok Masuk</button>`
+      + `<button class="qm-item" onclick="App.quickGo('resources','parts')"><span class="qm-ic">${I.box}</span> Part Baru</button>`
+      + `<button class="qm-item" onclick="App.quickGo('resources','customers')"><span class="qm-ic">${I.user}</span> Customer Baru</button>`;
+    document.body.appendChild(menu);
+    document.getElementById('overlay').classList.add('show');
+  },
+
+  quickGo(ws, tool) {
+    this.closeAll();
+    this.switchWorkspace(ws);
+    setTimeout(() => {
+      const t = this.workspaces[ws].tools.find(x => x.id === tool);
+      if (t) this.navigateTool(t.id);
+    }, 80);
+  },
+
+  /* ---------- CLOSE / OVERLAY ---------- */
+  closeAll() {
+    const panel = document.getElementById('notifPanel');
+    if (panel) panel.classList.remove('show');
+    const qm = document.getElementById('quickCreateBtn');
+    if (qm) qm.remove();
+    const ov = document.getElementById('overlay');
+    if (ov) ov.classList.remove('show');
+  },
+
+  /* ---------- TOAST SHORTCUT ---------- */
+  toast(msg, type = 'success') {
+    Toast.show(msg, type);
   }
 };
 
-// ===== DATA LOADING =====
-async function loadJSON(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    return await response.json();
-  } catch (error) {
-    console.error('Error loading ' + url + ':', error);
-    return null;
-  }
-}
-
-async function seedAndLoadData() {
-  // Clear old/invalid data
-  var stored = localStorage.getItem('ms_standar_products');
-  if (stored) {
-    try {
-      var parsed = JSON.parse(stored);
-      if (parsed && parsed.length > 0) {
-        // Valid data exists, load from localStorage
-        loadFromStorage();
-        // Check if dashboard data is valid
-        if (AppState.data.dashboard && AppState.data.products.length > 0) {
-          return; // Data is valid, use it
-        }
-      }
-    } catch(e) {
-      // Invalid JSON, will reload from files
-    }
-  }
-
-  // Load from JSON files
-  console.log('Loading data from JSON files...');
-  var dashboard = await loadJSON('json/dashboard.json');
-  var products = await loadJSON('json/products.json');
-  var customers = await loadJSON('json/customers.json');
-  var vendors = await loadJSON('json/vendors.json');
-  var transactions = await loadJSON('json/transactions.json');
-  var notifications = await loadJSON('json/notifications.json');
-  var users = await loadJSON('json/users.json');
-
-  if (dashboard) AppState.data.dashboard = dashboard;
-  if (products) AppState.data.products = products;
-  if (customers) AppState.data.customers = customers;
-  if (vendors) AppState.data.vendors = vendors;
-  if (transactions) AppState.data.transactions = transactions;
-  if (notifications) AppState.data.notifications = notifications;
-  if (users) AppState.data.users = users;
-
-  console.log('Data loaded:', AppState.data.products.length, 'products,', AppState.data.customers.length, 'customers');
-
-  // Save to localStorage for future loads
-  saveToStorage();
-}
-
-function saveToStorage() {
-  localStorage.setItem('ms_standar_dashboard', JSON.stringify(AppState.data.dashboard));
-  localStorage.setItem('ms_standar_products', JSON.stringify(AppState.data.products));
-  localStorage.setItem('ms_standar_customers', JSON.stringify(AppState.data.customers));
-  localStorage.setItem('ms_standar_vendors', JSON.stringify(AppState.data.vendors));
-  localStorage.setItem('ms_standar_transactions', JSON.stringify(AppState.data.transactions));
-  localStorage.setItem('ms_standar_notifications', JSON.stringify(AppState.data.notifications));
-  localStorage.setItem('ms_standar_users', JSON.stringify(AppState.data.users));
-  localStorage.setItem('ms_standar_seeded', 'true');
-}
-
-function loadFromStorage() {
-  AppState.data.dashboard = JSON.parse(localStorage.getItem('ms_standar_dashboard') || 'null');
-  AppState.data.products = JSON.parse(localStorage.getItem('ms_standar_products') || '[]');
-  AppState.data.customers = JSON.parse(localStorage.getItem('ms_standar_customers') || '[]');
-  AppState.data.vendors = JSON.parse(localStorage.getItem('ms_standar_vendors') || '[]');
-  AppState.data.transactions = JSON.parse(localStorage.getItem('ms_standar_transactions') || '[]');
-  AppState.data.notifications = JSON.parse(localStorage.getItem('ms_standar_notifications') || '[]');
-  AppState.data.users = JSON.parse(localStorage.getItem('ms_standar_users') || '[]');
-  updateNotificationBadge();
-}
-
-// ===== INITIALIZATION =====
-document.addEventListener('DOMContentLoaded', async function() {
-  const isLoginPage = document.getElementById('loginForm') !== null;
-  if (!isLoginPage) {
-    if (!checkAuth()) return;
-  }
-
-  loadTheme();
-
-  // Sidebar toggle
-  const toggleBtn = document.getElementById('sidebarToggle');
-  if (toggleBtn) toggleBtn.addEventListener('click', toggleSidebar);
-  const closeBtn = document.getElementById('sidebarClose');
-  if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-  const overlay = document.getElementById('sidebarOverlay');
-  if (overlay) overlay.addEventListener('click', closeSidebar);
-
-  // Logout
-  const logoutBtn = document.getElementById('logoutBtn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', function(e) { e.preventDefault(); doLogout(); });
-  }
-
-  // Theme toggle
-  const themeToggle = document.getElementById('themeToggle');
-  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-
-  // Load data
-  await seedAndLoadData();
-
-  // Page-specific init
-  try {
-    if (document.getElementById('statsGrid')) initDashboard();
-    if (document.getElementById('productsTable')) initProducts();
-    if (document.getElementById('customersTable')) initCustomers();
-    if (document.getElementById('vendorsTable')) initVendors();
-    if (document.getElementById('transactionsTable')) initTransactions();
-    if (document.getElementById('notificationList')) initNotifications();
-  } catch(e) {
-    console.error('Page init error:', e);
-  }
-});
-
-// ===== AUTH =====
-function checkAuth() {
-  const loggedIn = sessionStorage.getItem('ms_standar_logged_in') === 'true';
-  if (!loggedIn) { window.location.href = 'index.html'; return false; }
-  const userData = sessionStorage.getItem('ms_standar_user');
-  if (userData) { AppState.currentUser = JSON.parse(userData); AppState.isLoggedIn = true; updateUI(); }
-  return true;
-}
-
-function updateUI() {
-  if (!AppState.currentUser) return;
-  const user = AppState.currentUser;
-  const avatarEl = document.getElementById('userAvatar');
-  const nameEl = document.getElementById('userName');
-  const roleEl = document.getElementById('userRole');
-  if (avatarEl) { avatarEl.textContent = (user.name || 'U').charAt(0).toUpperCase(); avatarEl.style.background = user.avatarColor || 'var(--primary-gradient)'; }
-  if (nameEl) nameEl.textContent = user.name || 'User';
-  if (roleEl) roleEl.textContent = user.role || 'Staff';
-}
-
-function doLogout() {
-  sessionStorage.removeItem('ms_standar_logged_in');
-  sessionStorage.removeItem('ms_standar_user');
-  AppState.currentUser = null; AppState.isLoggedIn = false;
-  window.location.href = 'index.html';
-}
-
-// ===== THEME =====
-function loadTheme() {
-  const saved = localStorage.getItem('ms_standar_theme') || 'light';
-  AppState.theme = saved;
-  document.documentElement.setAttribute('data-theme', saved);
-}
-
-function toggleTheme() {
-  AppState.theme = AppState.theme === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', AppState.theme);
-  localStorage.setItem('ms_standar_theme', AppState.theme);
-  showToast(AppState.theme === 'dark' ? 'Mode Gelap Aktif' : 'Mode Terang Aktif', 'info');
-}
-
-// ===== SIDEBAR =====
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('sidebarOverlay');
-  if (sidebar) { sidebar.classList.toggle('open'); if (overlay) overlay.classList.toggle('open'); }
-}
-
-function closeSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  const overlay = document.getElementById('sidebarOverlay');
-  if (sidebar) sidebar.classList.remove('open');
-  if (overlay) overlay.classList.remove('open');
-}
-
-// ===== TOAST =====
-function showToast(message, type, duration) {
-  const container = document.getElementById('toastContainer');
-  if (!container) return;
-  type = type || 'success';
-  duration = duration || 3500;
-  const icons = { success:'bi-check-circle-fill', error:'bi-x-circle-fill', warning:'bi-exclamation-triangle-fill', info:'bi-info-circle-fill' };
-  const toast = document.createElement('div');
-  toast.className = 'toast toast-' + type;
-  toast.innerHTML = '<i class="bi ' + (icons[type] || icons.info) + '"></i> <span>' + message + '</span><button class="toast-close" onclick="this.parentElement.remove()">&times;</button><div class="toast-progress"></div>';
-  container.appendChild(toast);
-  setTimeout(function() {
-    if (toast.parentElement) { toast.style.opacity = '0'; toast.style.transform = 'translateX(100px)'; setTimeout(function() { toast.remove(); }, 300); }
-  }, duration);
-}
-
-// ===== MODAL =====
-function openModal(id) { const el = document.getElementById(id); if (el) el.classList.add('active'); document.body.style.overflow = 'hidden'; }
-function closeModal(id) { const el = document.getElementById(id); if (el) el.classList.remove('active'); document.body.style.overflow = ''; }
-document.addEventListener('click', function(e) { if (e.target.classList.contains('modal-overlay')) closeModal(e.target.id); });
-
-// ===== NOTIFICATION BADGE =====
-function updateNotificationBadge() {
-  const unread = AppState.data.notifications.filter(function(n) { return !n.read; }).length;
-  const badge = document.getElementById('notifBadge');
-  if (badge) { badge.textContent = unread; badge.style.display = unread > 0 ? 'inline' : 'none'; }
-}
-
-// ===== FORMATTERS =====
-function formatCurrency(amount) { return 'Rp ' + (amount || 0).toLocaleString('id-ID'); }
-function formatDate(dateStr) { if (!dateStr) return '-'; const d = new Date(dateStr + 'T00:00:00'); return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }); }
-function formatDateTime(dateStr) { if (!dateStr) return '-'; const d = new Date(dateStr); return d.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }); }
-
-// ===== BADGE HELPER =====
-function statusBadge(status) {
-  const map = {
-    'Active': 'badge-success','Inactive': 'badge-secondary','Completed': 'badge-success','Approved': 'badge-info',
-    'Processing': 'badge-warning','Pending': 'badge-warning','Cancelled': 'badge-danger','Draft': 'badge-secondary',
-    'Administrator': 'badge-primary','Manager': 'badge-warning','Staff': 'badge-success',
-    'Perusahaan': 'badge-primary','Toko': 'badge-info','Individu': 'badge-secondary',
-    'Penjualan': 'badge-success','Pembelian': 'badge-info'
-  };
-  return '<span class="badge ' + (map[status] || 'badge-secondary') + '">' + status + '</span>';
-}
-
-// ===== SKELETON =====
-function showSkeleton(containerId, count) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.innerHTML = '';
-  for (var i = 0; i < (count || 3); i++) { container.innerHTML += '<div class="skeleton skeleton-card" style="margin-bottom:12px;"></div>'; }
-}
-
-// ===== SET ACTIVE NAV =====
-function setActiveNav(page) {
-  document.querySelectorAll('.nav-item').forEach(function(item) { item.classList.remove('active'); if (item.dataset.page === page) item.classList.add('active'); });
-}
-
-// ===== EXPORT =====
-function exportToCSV(data, filename) {
-  if (!data || data.length === 0) { showToast('Tidak ada data untuk diexport', 'warning'); return; }
-  const headers = Object.keys(data[0]);
-  const csvContent = [headers.join(','), ...data.map(function(row) { return headers.map(function(h) { var val = row[h] || ''; if (typeof val === 'string' && val.includes(',')) val = '"' + val + '"'; return val; }).join(','); })].join('\n');
-  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = filename + '.csv'; link.click();
-  URL.revokeObjectURL(link.href);
-  showToast('Data berhasil diexport', 'success');
-}
-
-function printPage() { window.print(); showToast('Print dialog dibuka', 'info'); }
+/* ---------- BOOT ---------- */
+document.addEventListener('DOMContentLoaded', () => App.init());
+window.App = App;

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockPilot — Inventory Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ====== LOGIN SCREEN (centered card) ====== -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-orb orb-1"></div>
+  <div class="login-orb orb-2"></div>
+  <div class="login-orb orb-3"></div>
+  <div class="login-center">
+    <div class="login-brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+      </div>
+      <div class="brand-text">
+        <strong>StockPilot</strong>
+        <span>Inventory Management</span>
+      </div>
+    </div>
+    <div class="login-card">
+      <div class="login-card-head">
+        <h3>Selamat Datang 👋</h3>
+        <p>Masuk untuk mengelola inventori Anda</p>
+      </div>
+      <form id="loginForm">
+        <label class="field">
+          <span>Email / Username</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <input id="loginEmail" type="text" value="admin@stockpilot.id" required>
+          </div>
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <div class="input-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <input id="loginPass" type="password" value="admin123" required>
+          </div>
+        </label>
+        <div class="login-options">
+          <label class="chk"><input type="checkbox" checked><span>Ingat saya</span></label>
+          <a href="#" onclick="App.toast('Reset password dikirim ke email Anda','info');return false;">Lupa password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Masuk <span class="btn-arrow">→</span></button>
+      </form>
+      <div class="login-demo">
+        <p>Mode demo — data tersimpan lokal di browser.</p>
+        <button class="btn btn-ghost btn-block" onclick="App.login()">⚡ Masuk cepat sebagai Admin</button>
+      </div>
+    </div>
+    <p class="login-copy">© 2026 StockPilot · Standard Edition</p>
+  </div>
+</div>
+
+<!-- ====== APP SHELL ====== -->
+<div id="app" class="app hidden">
+
+  <!-- Topbar (glass, sticky) -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn sidebar-toggle" id="sidebarToggle" onclick="Layout.toggleSidebar()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+      <a href="#" class="brand" onclick="App.goTo('hub/overview');return false;">
+        <div class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        </div>
+        <div class="brand-text">
+          <strong>StockPilot</strong>
+          <span>Inventory System</span>
+        </div>
+      </a>
+      <div class="breadcrumb">
+        <span id="wsCrumb">Operations Hub</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        <strong id="toolCrumb">Overview</strong>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button class="icon-btn theme-toggle" id="themeToggle" onclick="Layout.toggleTheme()" title="Mode Gelap/Terang">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+      <div class="global-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="globalSearch" type="text" placeholder="Cari produk, SKU, PO…" oninput="App.globalSearch(this.value)">
+        <span class="cmd-kbd">/</span>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+      <button class="icon-btn" onclick="App.quickCreate()" title="Aksi cepat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+      </button>
+      <div class="notif-wrap">
+        <button class="icon-btn" id="notifBtn" onclick="App.toggleNotif()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+          <span class="notif-dot" id="notifDot">0</span>
+        </button>
+        <div class="notif-panel" id="notifPanel"></div>
+      </div>
+      <div class="top-user" onclick="App.openProfile()">
+        <div class="avatar" id="topAvatar">AP</div>
+        <div class="tu-info">
+          <strong id="topUserName">Admin</strong>
+          <span id="topUserRole">Owner</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Body: Sidebar drawer + Content -->
+  <div class="ws-body">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-head">
+          <span class="sid-label">WORKSPACE MENU</span>
+        </div>
+        <div id="sidebarTools"><!-- rendered by JS --></div>
+        <div class="sidebar-foot">
+          <div class="storage-card">
+            <div class="sc-head"><span>Storage Data</span><strong id="storagePct">0%</strong></div>
+            <div class="progress"><div class="progress-bar" id="storageBar" style="width:0%"></div></div>
+            <small id="storageText">Memuat…</small>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="content" id="pageContent"></main>
+  </div>
+</div>
+
+<!-- overlay -->
+<div class="overlay" id="overlay" onclick="App.closeAll()"></div>
+
+<div id="modalRoot"></div>
+<div id="toastRoot" class="toast-wrap"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="js/data/seed.js"></script>
+<script src="js/mock-data.js"></script>
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/components/table.js"></script>
+<script src="js/components/charts.js"></script>
+<script src="js/components/slideover.js"></script>
+<script src="js/components/form.js"></script>
+<script src="js/services/export-service.js"></script>
+<script src="js/pages/hub.js"></script>
+<script src="js/pages/inventory.js"></script>
+<script src="js/pages/catalog.js"></script>
+<script src="js/pages/procurement.js"></script>
+<script src="js/pages/analytics.js"></script>
+<script src="js/pages/admin.js"></script>
+<script src="js/layouts/app-layout.js"></script>
+<script src="js/router.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

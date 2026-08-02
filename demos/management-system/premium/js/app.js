@@ -20,6 +20,7 @@ const App = {
     this.renderSidebar();
     this.bindLogin();
     this.updateStorageBar();
+    this.Experience.restore();
 
     const saved = sessionStorage.getItem('nexawms_session');
     if (saved === '1') {
@@ -286,18 +287,11 @@ const App = {
     this.currentPage = page || 'dashboard';
     const r = this.routes[this.currentPage];
 
-    // Auto-open parent group so the active page is visible
+    // Auto-open parent group so the active page is visible, and collapse other groups
     const targetGroup = this.pageToGroup[this.currentPage];
     if (targetGroup && targetGroup !== 'grp-main') {
-      const open = this.getOpenGroups();
-      if (!open.includes(targetGroup)) {
-        open.push(targetGroup);
-        this.saveOpenGroups(open);
-      }
-      const sub = document.getElementById('navsub-' + targetGroup);
-      if (sub) sub.classList.add('open');
-      const title = document.getElementById('navtitle-' + targetGroup);
-      if (title) title.classList.add('open');
+      this.saveOpenGroups([targetGroup]);
+      this.renderSidebar();
     }
 
     document.getElementById('pageTitle').textContent = r.title;
@@ -500,8 +494,251 @@ const App = {
   /** ---------- TOAST SHORTCUT ---------- */
   toast(msg, type = 'success') {
     Toast.show(msg, type);
+  },
+
+  /* ============================================
+     PRODUCT EXPERIENCE STUDIO — App.Experience
+     ============================================ */
+  Experience: {
+    prefs: {},
+    _prevBrand: null,
+    _presTimer: null,
+    _presActive: false,
+
+    BRANDS: [
+      { id: 'modern', ic: '🏭', name: 'Modern Warehouse', desc: 'Indigo & cyan — modern untuk gudang industri', colors: ['#6366F1', '#22D3EE', '#8B5CF6', '#10B981'], vars: { '--primary': '#6366F1', '--primary-2': '#8B5CF6', '--primary-3': '#A78BFA', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #1E1B4B 0%, #312E81 45%, #4338CA 100%)' } },
+      { id: 'logistics', ic: '🚚', name: 'Logistics Hub', desc: 'Oranye & amber — dinamis untuk logistik', colors: ['#F97316', '#F59E0B', '#EF4444', '#10B981'], vars: { '--primary': '#F97316', '--primary-2': '#F59E0B', '--primary-3': '#FBBF24', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #F97316 0%, #F59E0B 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #431407 0%, #7C2D12 45%, #EA580C 100%)' } },
+      { id: 'retail', ic: '🏬', name: 'Retail Chain', desc: 'Emerald & teal — segar untuk retail', colors: ['#10B981', '#14B8A6', '#6366F1', '#F59E0B'], vars: { '--primary': '#10B981', '--primary-2': '#14B8A6', '--primary-3': '#34D399', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #10B981 0%, #14B8A6 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #022C22 0%, #064E3B 45%, #047857 100%)' } },
+      { id: 'pharma', ic: '💊', name: 'Pharma & Cold Chain', desc: 'Biru & cyan — presisi untuk farmasi', colors: ['#3B82F6', '#06B6D4', '#8B5CF6', '#10B981'], vars: { '--primary': '#3B82F6', '--primary-2': '#06B6D4', '--primary-3': '#60A5FA', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #0C1B4D 0%, #1E3A8A 45%, #1D4ED8 100%)' } },
+      { id: 'food', ic: '🍱', name: 'Food & Beverage', desc: 'Merah & pink — hangat untuk F&B', colors: ['#EF4444', '#EC4899', '#F59E0B', '#10B981'], vars: { '--primary': '#EF4444', '--primary-2': '#EC4899', '--primary-3': '#F87171', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #EF4444 0%, #EC4899 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #4C0519 0%, #881337 45%, #9F1239 100%)' } },
+      { id: 'ecommerce', ic: '🛒', name: 'E-Commerce Fulfillment', desc: 'Ungu & pink — modern untuk e-commerce', colors: ['#8B5CF6', '#EC4899', '#6366F1', '#22D3EE'], vars: { '--primary': '#8B5CF6', '--primary-2': '#EC4899', '--primary-3': '#A78BFA', '--accent': '#22D3EE', '--grad-primary': 'linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%)', '--grad-accent': 'linear-gradient(135deg, #22D3EE 0%, #3B82F6 100%)', '--sidebar-bg': 'linear-gradient(180deg, #2E1065 0%, #5B21B6 45%, #7C3AED 100%)' } }
+    ],
+
+    load() {
+      try { this.prefs = JSON.parse(localStorage.getItem('nexawms_exp')) || {}; } catch (e) { this.prefs = {}; }
+    },
+    save() {
+      try { localStorage.setItem('nexawms_exp', JSON.stringify(this.prefs)); } catch (e) {}
+    },
+    restore() {
+      this.load();
+      const p = this.prefs;
+      if (p.brand) { const b = this.BRANDS.find(x => x.id === p.brand); if (b) this.applyVars(b.vars); }
+      if (p.theme) this.applyTheme(p.theme);
+      if (p.sidebarStyle) this.applySidebarStyle(p.sidebarStyle);
+      if (p.cardStyle) this.applyCardStyle(p.cardStyle);
+      if (p.radius) this.applyRadius(p.radius);
+      if (p.density) this.applyDensity(p.density);
+      if (p.font) this.applyFont(p.font);
+      if (p.animSpeed) this.applyAnimSpeed(p.animSpeed);
+      if (p.contentWidth) this.applyContentWidth(p.contentWidth);
+      this.renderBrands();
+      this.renderSegs();
+    },
+    open() {
+      document.getElementById('expDrawer').classList.add('open');
+      document.getElementById('expBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      this.renderBrands();
+      this.renderSegs();
+    },
+    close() {
+      document.getElementById('expDrawer').classList.remove('open');
+      document.getElementById('expBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+      this.restoreBrand();
+    },
+    tab(name) {
+      document.querySelectorAll('.exp-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+      document.querySelectorAll('.exp-pane').forEach(p => p.classList.toggle('active', p.id === 'expPane-' + name));
+    },
+    applyVars(vars) {
+      const r = document.documentElement.style;
+      for (const k in vars) { r.setProperty(k, vars[k]); }
+    },
+    applyBrand(id) {
+      const b = this.BRANDS.find(x => x.id === id);
+      if (!b) return;
+      this.prefs.brand = id;
+      this.save();
+      this.applyVars(b.vars);
+      this.renderBrands();
+      Toast.show('Branding diterapkan: ' + b.name, 'success');
+    },
+    previewBrand(id) {
+      const b = this.BRANDS.find(x => x.id === id);
+      if (!b) return;
+      if (!this._prevBrand) this._prevBrand = {};
+      const r = getComputedStyle(document.documentElement);
+      ['--primary', '--primary-2', '--primary-3', '--accent', '--grad-primary', '--grad-accent', '--sidebar-bg'].forEach(k => {
+        if (!(k in this._prevBrand)) this._prevBrand[k] = r.getPropertyValue(k);
+      });
+      this.applyVars(b.vars);
+      document.querySelectorAll('.brand-card').forEach(c => c.classList.toggle('previewing', c.dataset.brand === id));
+    },
+    restoreBrand() {
+      if (this._prevBrand) {
+        const r = document.documentElement.style;
+        for (const k in this._prevBrand) { r.setProperty(k, this._prevBrand[k]); }
+        this._prevBrand = null;
+      }
+      document.querySelectorAll('.brand-card').forEach(c => c.classList.remove('previewing'));
+      const p = this.prefs;
+      if (p.brand) { const b = this.BRANDS.find(x => x.id === p.brand); if (b) this.applyVars(b.vars); }
+    },
+    renderBrands() {
+      const grid = document.getElementById('expBrandGrid');
+      if (!grid) return;
+      const current = this.prefs.brand;
+      grid.innerHTML = this.BRANDS.map(b => `
+        <div class="brand-card" data-brand="${b.id}" onmouseenter="App.Experience.previewBrand('${b.id}')" onmouseleave="App.Experience.restoreBrand()">
+          <div class="bc-preview" style="background:linear-gradient(135deg,${b.colors[0]},${b.colors[1]})">
+            <div class="bc-mini">
+              <div class="bc-mini-bar" style="background:${b.colors[2]}"></div>
+              <div class="bc-mini-row"><span style="background:${b.colors[3]}"></span><span style="background:${b.colors[0]}"></span><span style="background:${b.colors[1]}"></span></div>
+              <div class="bc-mini-bar" style="background:${b.colors[2]};width:70%"></div>
+            </div>
+          </div>
+          <div class="bc-body">
+            <div class="bc-title"><span class="bc-ic">${b.ic}</span>${b.name}</div>
+            <div class="bc-desc">${b.desc}</div>
+            <div class="bc-palette">${b.colors.map(c => `<span class="bc-swatch" style="background:${c}"></span>`).join('')}</div>
+            <div class="bc-actions">
+              ${current === b.id
+                ? `<div class="bc-applied">✓ Applied</div>`
+                : `<div class="bc-apply" onclick="App.Experience.applyBrand('${b.id}')">Apply</div>`}
+            </div>
+          </div>
+        </div>`).join('');
+    },
+    set(key, val, btn) {
+      this.prefs[key] = val;
+      this.save();
+      if (key === 'theme') this.applyTheme(val);
+      else if (key === 'sidebarStyle') this.applySidebarStyle(val);
+      else if (key === 'cardStyle') this.applyCardStyle(val);
+      else if (key === 'radius') this.applyRadius(val);
+      else if (key === 'density') this.applyDensity(val);
+      else if (key === 'font') this.applyFont(val);
+      else if (key === 'animSpeed') this.applyAnimSpeed(val);
+      else if (key === 'contentWidth') this.applyContentWidth(val);
+      if (btn) {
+        const seg = btn.closest('.exp-seg');
+        if (seg) seg.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      }
+      Toast.show('Preferensi disimpan: ' + key + ' → ' + val, 'info');
+    },
+    applyTheme(v) {
+      document.body.classList.toggle('exp-theme-light', v === 'light');
+    },
+    applySidebarStyle(v) {
+      document.body.classList.remove('exp-sidebar-floating', 'exp-sidebar-glass');
+      if (v !== 'classic') document.body.classList.add('exp-sidebar-' + v);
+    },
+    applyCardStyle(v) {
+      document.body.classList.remove('exp-card-glass', 'exp-card-outline');
+      if (v !== 'solid') document.body.classList.add('exp-card-' + v);
+    },
+    applyRadius(v) {
+      document.body.classList.remove('exp-radius-compact', 'exp-radius-rounded');
+      if (v !== 'medium') document.body.classList.add('exp-radius-' + v);
+    },
+    applyDensity(v) {
+      document.body.classList.toggle('exp-density-compact', v === 'compact');
+    },
+    applyFont(v) {
+      document.body.classList.remove('exp-font-jakarta', 'exp-font-poppins');
+      if (v !== 'inter') document.body.classList.add('exp-font-' + v);
+    },
+    applyAnimSpeed(v) {
+      document.body.classList.remove('exp-anim-slow', 'exp-anim-fast');
+      if (v !== 'normal') document.body.classList.add('exp-anim-' + v);
+    },
+    applyContentWidth(v) {
+      document.body.classList.toggle('exp-width-wide', v === 'wide');
+    },
+    renderSegs() {
+      const p = this.prefs;
+      document.querySelectorAll('.exp-seg').forEach(seg => {
+        const key = seg.dataset.key;
+        const val = p[key];
+        if (!val) return;
+        seg.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.val === val));
+      });
+    },
+    presentation() {
+      if (this._presActive) return;
+      this._presActive = true;
+      document.body.classList.add('presentation-active');
+      const status = document.getElementById('expPresStatus');
+      if (status) { status.textContent = '🎬 Mode presentasi aktif — dashboard hidup!'; status.classList.add('active'); }
+      const btn = document.getElementById('expPresBtn');
+      if (btn) btn.textContent = '⏳ Presentasi berjalan…';
+      const banner = document.createElement('div');
+      banner.className = 'welcome-banner';
+      banner.innerHTML = '<span class="wb-ic">🎉</span> Selamat datang di NexaWMS Pro — Warehouse Management System';
+      document.body.appendChild(banner);
+      requestAnimationFrame(() => banner.classList.add('show'));
+      setTimeout(() => Toast.show('Dashboard disinkronkan', 'success'), 800);
+      setTimeout(() => Toast.show('Stok diperbarui: 24 SKU', 'info'), 2200);
+      setTimeout(() => Toast.show('Backup otomatis berhasil', 'success'), 3600);
+      document.querySelectorAll('.kpi-value, .kpi-card .kpi-value').forEach(el => {
+        const txt = el.textContent.trim();
+        const num = parseFloat(txt.replace(/[^\d.]/g, ''));
+        if (isNaN(num)) return;
+        const isRupiah = txt.includes('Rp');
+        const suffix = txt.replace(/[\d.,\s]/g, '');
+        const start = performance.now();
+        const dur = 1200;
+        const step = t => {
+          const p = Math.min(1, (t - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const val = num * eased;
+          el.textContent = (isRupiah ? 'Rp ' : '') + Math.round(val).toLocaleString('id-ID') + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+      this._presTimer = setTimeout(() => {
+        document.body.classList.remove('presentation-active');
+        if (banner) banner.classList.remove('show');
+        setTimeout(() => banner && banner.remove(), 500);
+        if (status) { status.textContent = 'Mode presentasi nonaktif'; status.classList.remove('active'); }
+        if (btn) btn.textContent = '▶️ Mulai Presentasi';
+        this._presActive = false;
+        clearTimeout(this._presTimer);
+      }, 8000);
+    },
+    fullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+        Toast.show('Mode layar penuh aktif', 'success');
+      } else {
+        document.exitFullscreen && document.exitFullscreen();
+        Toast.show('Mode layar penuh dinonaktifkan', 'info');
+      }
+    },
+    toggleSidebar() {
+      App.toggleSidebar();
+      Toast.show('Sidebar diperbarui', 'info');
+    }
   }
 };
+
+/* ---------- Ripple effect ---------- */
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn');
+  if (!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  const size = Math.max(rect.width, rect.height);
+  ripple.className = 'ripple';
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+  btn.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+});
 
 /* ---------- BOOT ---------- */
 document.addEventListener('DOMContentLoaded', () => App.init());
